@@ -16,7 +16,7 @@ phases:
       - mkdocs build --clean
   post_build:
     commands:
-#      - cd docs
+      - cd docs
       - aws s3 sync . "s3://${S3_BUCKET}/docs/"
 #      - cd ../..
 #      - chmod +x ./invalidate-cf.sh
