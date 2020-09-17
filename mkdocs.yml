@@ -7,11 +7,11 @@ google_analytics: ['UA-991100-5', 'search.asf.alaska.edu']
 theme:
     name: mkdocs
     custom_dir: asf-theme/
+    logo: img/ASFLogo-Blue2.png
 
 extra_css:
   - css/extra.css
 
-logo: img/ASFLogo-Blue2.png
 copyright: Copyright @ Alaska Satellite Facility
 
 nav:
