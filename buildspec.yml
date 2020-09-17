@@ -17,7 +17,7 @@ phases:
   post_build:
     commands:
       - cd docs
-      - aws s3 sync . "s3://${S3_BUCKET}/assets/docs/" --acl public-read
+      - aws s3 sync . "s3://${S3_BUCKET}/docs/" --acl public-read
 #      - cd ../..
 #      - chmod +x ./invalidate-cf.sh
 #      - . ./invalidate-cf.sh ${CDN_ID}
