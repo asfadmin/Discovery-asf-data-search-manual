@@ -1,5 +1,4 @@
 site_name: ASF SAR Data Search Manual
-site_name_no_asf: SAR Data Search Manual
 site_description: Documentation for searching and processing ASF SAR data.
 site_dir: 'docs'
 docs_dir: 'markdown-docs'
