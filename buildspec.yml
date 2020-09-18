@@ -17,7 +17,7 @@ phases:
   post_build:
     commands:
       - cd docs
-      - aws s3 sync . "s3://${S3_BUCKET}/docs/"
+      - aws s3 sync . "s3://${S3_BUCKET}/docs/" --delete
 #      - cd ../..
 #      - chmod +x ./invalidate-cf.sh
 #      - . ./invalidate-cf.sh ${CDN_ID}
