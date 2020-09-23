@@ -17,11 +17,12 @@ phases:
   post_build:
     commands:
       - cd docs
-      - aws s3 sync . "s3://${S3_BUCKET}/docs/" --delete
+      - aws s3 sync . "s3://${S3_BUCKET}/docs/" --delete\
+      - ls -l
 #     Flush the CloudFront cache
-      - cd ..
-      - ls -l
-      - cd ..
-      - ls -l
-      - chmod +x ./invalidate-cf.sh
-      - . ./invalidate-cf.sh ${CDN_ID}
+#      - cd ..
+#      - ls -l
+#      - cd ..
+#      - ls -l
+#      - chmod +x ./invalidate-cf.sh
+#      - . ./invalidate-cf.sh ${CDN_ID}
