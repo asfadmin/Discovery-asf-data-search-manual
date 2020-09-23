@@ -19,6 +19,9 @@ phases:
       - cd docs
       - aws s3 sync . "s3://${S3_BUCKET}/docs/" --delete
 #     Flush the CloudFront cache
-      - cd ../..
+      - cd ..
+      - ls -l
+      - cd ..
+      - ls -l
       - chmod +x ./invalidate-cf.sh
       - . ./invalidate-cf.sh ${CDN_ID}
