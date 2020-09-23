@@ -1,4 +1,4 @@
-# Pro artes pennis dextra
+# Auto Deploy Please
 
 ## Cum siquid Buten de tandem saepe non
 

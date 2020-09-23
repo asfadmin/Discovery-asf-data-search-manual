@@ -2,7 +2,7 @@
 Documentation for ASF Search applications is built using MkDocs,
 [mkdocs.org](https://www.mkdocs.org/#mkdocs).
 
-### Developing documentation
+### Developing Documentation
 MkDocs comes with a built-in dev-server that lets you preview
 your documentation as you work on it. Make sure you're in the
 same directory as the mkdocs.yml configuration file, and then
@@ -29,10 +29,17 @@ After some time, files may be removed from the documentation but they will
 still reside in the site directory. That is why the --clean switch is used.
 It will erase the old files from the site directory.
 
-The .gitignore file lists the site directory so the site files are not 
-stored in the repository. The site directory should be build dynamically as
-part of the merge process in github.
+The .gitignore file lists the MkDocs site directory so the generated site files
+are not stored in the repository. The site directory should be built dynamically
+as part of the merge process in github.
 
+### Deploying The Site
+
+Merge to the branches: prod, test, and dev triggers an appropriate
+AWS CodeBuild process creating the site in an S3 bucket.
+The S3 bucket is then accessible via CloudFront. Since CloudFront doesn't automatically
+redirect to index.html when supplied with a path, a Lambda function handles the
+redirect.
 
 
 
