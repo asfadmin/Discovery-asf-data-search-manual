@@ -18,6 +18,6 @@ phases:
     commands:
       - cd docs
       - aws s3 sync . "s3://${S3_BUCKET}/docs/" --delete
-#      - cd ..
-#      - chmod +x ./clear-cloudfront-cache.sh
-#      - . ./clear-cloudfront-cache.sh ${CDN_ID}
+      - cd ..
+      - chmod +x ./clear-cloudfront-cache.sh
+      - . ./clear-cloudfront-cache.sh ${CDN_ID}
