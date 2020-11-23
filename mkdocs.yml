@@ -23,5 +23,7 @@ nav:
   - Custom Processing:
     - Hyp3 User Manual: hyp3/manual.md
     - Hyp3 Developer Wiki: https://wiki.asf.alaska.edu/x/WQfdAQ
+  - ASF API:
+    - API Manual: vertex/manual.md
   - About: about.md
   - ASF Web: 'https://asf.alaska.edu/'
