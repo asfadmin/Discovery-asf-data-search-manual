@@ -18,6 +18,7 @@ nav:
   - Home: index.md
   - Search UI:
     - Vertex Manual: vertex/manual.md
+    - SBAS: vertex/sbas.md
     - Tutorial Videos: https://www.youtube.com/playlist?list=PLXluIEvp5ZzIWd0yNy-ANfdwWjCD1hInA
     - Source Code: https://github.com/asfadmin/Discovery-SearchUI
   - Custom Processing:
