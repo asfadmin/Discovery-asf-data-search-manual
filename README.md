@@ -1,6 +1,10 @@
 # ASF Data Search Manual
 Documentation for ASF Search applications is built using MkDocs,
-[mkdocs.org](https://www.mkdocs.org/#mkdocs).
+[mkdocs.org](https://www.mkdocs.org/#mkdocs) and [Material for MkDocs](https://github.com/squidfunk/mkdocs-material).
+
+Once you have MkDocs installed, installing Material for MkDocs is simple...
+
+`pip install mkdocs-material`
 
 ### Developing Documentation
 MkDocs comes with a built-in dev-server that lets you preview
