@@ -6,14 +6,12 @@ google_analytics: ['UA-991100-5', 'search.asf.alaska.edu']
 
 theme:
     name: material
-#    name: mkdocs
-#    custom_dir: asf-theme/
-    favicon: ../img/favicon.ico
-    logo: ../img/ASFLogo-Blue2.png
-#    logo: img/ASFLogo-Blue2.png
+    custom_dir: asf-theme
+    favicon: assets/images/favicon.ico
+    logo: assets/images/ASFLogo-Blue2.png
 
 extra_css:
-  - css/extra.css
+  - assets/stylesheets/extra.css
 
 copyright: Copyright @ Alaska Satellite Facility
 
