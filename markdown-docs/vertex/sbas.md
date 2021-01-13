@@ -1,7 +1,7 @@
 # SBAS Search Type
 
 ## What is SBAS?
-SBAS is an acronym for **short baseline subsets**. It is a technique used in interferometry.
+SBAS is an acronym for **short baseline subsets**. It is a technique used in interferometry. The Vertex SBAS tool provides perpendicular and temporal baseline data, as well as scene pairs, for a chosen reference scene.
 
 ## What are some uses for SBAS?
 SBAS is widely used in the geosciences community. It works best for natural environments over a large scale and can be used to look at gradual change over time. SBAS requires input of a series of interferograms and the final output is a time series showing motion.
@@ -11,6 +11,8 @@ One advantage of SBAS is that you are not restricted to a single interferogram. 
 You must choose which interferograms to use, which can require some experimentation. The Vertex SBAS tool simplifies this by providing good visualization and making it easier for you to quickly determine which scenes to use.
 
 There are other preferred approaches for urban environments, or higher resolution needs. However, regardless of your analysis needs, the SBAS tool is a useful overview tool and can also be used as a 2-D baseline plot. It gives a comprehensive, but rapid visualization of scenes.
+
+Further reading on baseline, including descriptions of multiple approaches, can be found [here](https://www.sciencedirect.com/science/article/pii/S0924271615002415). A case study comparison of PS and SBAS can be found [here](https://ieeexplore.ieee.org/document/5692806).
 
 ## How to use Vertex SBAS Tool
 Visit **[ASF's Vertex](https://search.asf.alaska.edu)** to begin using the SBAS tool.
@@ -45,3 +47,6 @@ While in SBAS Search type, you will notice many familiar controls in the results
 	3. The new pair is created, and the pair detail is added to the bottom of the result list. Manually added pairs will be displayed with a dotted line on the chart.
 - If you wish to stop adding a pair after you have begun, you may click the **Square symbol** to *Stop adding custom pair*.
 - If you wish to delete an added pair, you may click on the dotted pair line and click the **Minus symbol** to *Remove custom pair*. Note that only manually added pairs may be deleted.
+
+## Next Steps
+Once you are satisfied with your result set, the next step is to create interferograms. There is custom processing available for creating interferograms through [HyP3](https://hyp3.asf.alaska.edu/about).
