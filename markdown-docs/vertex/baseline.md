@@ -1,7 +1,7 @@
 # Baseline Search Type
 
 ## What is Baseline?
-Baseline is a technique used in interferometry. The Vertex baseline tool helps you identify and select scene pairs that are appropriate for interferometric (InSAR) processing. It provides visualization of perpendicular and temporal baseline data, and allows you to easily change the reference scene used in any stack.
+Baseline uses information from two synthetic aperture radar (SAR) images of the same target area acquired at different times (temporal baseline) and from slightly different satellite orbit positions (perpendicular baseline). The Vertex baseline tool helps you identify and select scene pairs that are appropriate for Interferometric SAR (InSAR) processing. It provides visualization of perpendicular and temporal baseline data, and allows you to easily change the reference scene used in any stack.
 
 ## How to use Vertex Baseline Tool
 Visit **[ASF's Vertex](https://search.asf.alaska.edu)** to begin using the SBAS tool.
