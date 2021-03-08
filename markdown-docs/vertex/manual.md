@@ -1,51 +1,110 @@
-# Vertex Manual
+# Vertex Getting Started User Guide
 
-## Cum siquid Buten de tandem saepe non
+- If you do not already have one, create a free **[Earthdata Login account](https://urs.earthdata.nasa.gov/users/new)**.
+- Go to **[Vertex](https://search.asf.alaska.edu)**
+	- Log in by clicking the **Sign in** icon in the top right of the window. Use your Earthdata Login username and password.
+- Search Type allows you to choose between *Geographic*, *List*, *Baseline*, and *SBAS* search types.
 
-Lorem markdownum omnes nullis vellera omnis, mei sustinet metit dextra, illos!
-Qui funda vocisque at tamen cornu et tenuis **respondit** Abantiades comitique
-protinus? Accipienda metu ore Stygio digitos, condebat agnosse dicere memoranda
-exigis Andron stat ambae, cunctisque. Ore forabilis vivum: effodiuntur finis,
-refert, postquam caelum interceperit tempora viro: dolens at vivat. Aut fatisque
-animam [sustinet mea ipsa](http://nomina-vellet.net/adluctus.php) postquam,
-Caenis illi adspicio cupit *suspenderat*.
+## *Geographic* Search Options
 
-## Lato colebat
+- The Vertex map defaults to **Satellite** View
+- Navigate to your area of interest by dragging the map while holding down the left mouse button.
+- By default, the map-drawing tool is a bounding box. Click on the map once to specify the starting corner, move the mouse, then click again to finish the box. Additional drawing tool options are available in the toolbar at the top of the screen, including *point*, *linestring*, and *polygon* options.
+	- **Point** allows you to define an area of interest by clicking on the map to place a point.
+	- **Line** allows you to define an area of interest over a series of line segments by clicking on the map multiple times. Double-click to stop adding segments.
+	- **Polygon** allows you to define an area of interest over an arbitrary polygon. You will receive an error message at the bottom of the window if there was a problem with the polygon (self-intersecting, reversed polygon winding order, etc.).
+	- **Box** allows you to define an area of interest over a lat/long-aligned bounding box by clicking once to set one corner, and again to set the opposite corner.
+	- Once a shape has been drawn, select the **Edit current area of interest** icon on the toolbar to move, add, and delete points. Select the **Draw new area of interest** icon to create a new AOI.
+- **Dataset** enables you to choose the dataset of interest.
+	- If you need more information about a particular dataset, click on the appropriate ? icon in the Dataset selector.
+- **Area of Interest** gives you the option of importing an area of interest as a geospatial file or by entering a set of geographic coordinates.
+	- Click on the down arrow next to **Area of Interest** in the top menu
+	- Click the **Import Area of Interest** button in the Options window
+	- Click **Select Files** and navigate to a folder on your computer, or drag and drop files into the box. *GeoJSON*, *shapefiles*, and *KML* files are supported provided they are in a latitude/longitude-based coordinate system, such as WGS84.
+		- When importing a *GeoJSON* file, all geometries in the file will be included. If multiple geometries are found, a convex hull will be used to represent them in the search.
+		- *Shapefiles* can be either a single *.shp* file, multiple shapefile components (*.shp, .shx, .dbf*), or a *zip* file containing one or more shapefile components. At a minimum, the *.shp* component must be included in all cases.
+	- An area of interest may also be defined by a set of coordinates entered in the Options window.
+		- Coordinates should be entered as decimal degrees in *well-known text* (WKT) format. Coordinates entered as a comma-separated long/lat string (e.g. -97.38,36.46,-53.44,36.46...) will be automatically converted by Vertex to WKT format.
+	- You can save the coordinates of a search so they can be used to exactly recreate an area of interest in later searches.
+		- Once the **Area of Interest** has been set, mouse over the coordinates. A *Copy to clipboard* icon will appear. Click on the icon and paste the coordinates into a new search or to a text file for later use.
+		- Note: See the section **Other Vertex Options** for additional ways of saving searches.
+	- At any time you can clear your search area by clicking on the **Trash can** icon in the top menu bar.
+- **Filters...** enables you to further refine your search
+	- **Date Filters** Search dates are optional, so they default to empty.  If you are searching for specific dates, you can define the date range further in the **Start Date** and **End Date** fields. The date picker will automatically constrain your selection to a valid range for the selected dataset.
+		- *Note*: this information may also be found by clicking on ? for a dataset.
+		- **Seasonal Search** allows constraining the search to certain annual periods within an overall range of dates.  Click the Seasonal Search toggle and additional options will appear, allowing you to enter an overall date range (*Start Date/End Date*) and the seasonal range (*Season Start Day/Season End Day*).
+	- **Additional Filters** allow for additional parameters to be applied to narrow your search and reduce the number of results. Not all filters will be available for all datasets.
+		- **File Type** – Limit the search to specific types of files. Multiple selections allowed.
+		- **Beam Mode** – Limit the search to specific beam modes. Multiple selections allowed.
+		- **Polarization** – Limit the search to specific polarizations. Multiple selections allowed.
+		- **Direction** – Limit the search to a specific orbit direction.
+		- **Subtype** – Limit the search to a specific mission spacecraft.
+	- **Path and Frame Filters** are available for select datasets. You may enter a single path or frame, or a range. Due to inconsistent Sentinel-1 framing, we recommend searching for a frame of interest by ±1-2 frames.
+- Once all parameters have been chosen, click **SEARCH**. Search results will appear in the footer area of the Vertex window, and on the map.
+	- *Note*: The number of files that are predicted to match the current search parameters is displayed under the SEARCH button. If there are no predicted matches, the search button will be greyed out and display NO RESULTS.
 
-Aetas egredior vulnera! Abstulit tantum tempore vineta motuque gelidoque Boreas
-certa extrema; **pugnat**, Persephonen inferna securior regna **aurum**, ignes
-satis.
+## *List* Search Options
 
-## Sanguine obscenas vix
+- Selecting **List Search** opens the *List Search* window and allows you to enter a list of scenes or file names.
+	- **Scene** allows searching for specific scene names (granule names), and the results will include any files that are part of those scenes.
+	- **File** allows searching for specific file names (product names), and the results will only include exactly those files.
+- **Edit List** opens the *List Search* window so you can make changes to your list
+- Once all parameters have been chosen, click **SEARCH**. Search results will appear in the footer area of your browser window, and on the map.
+	- *Note*: The number of files that are predicted to match the current search parameters is displayed under the SEARCH button. If there are no predicted matches, the search button will be greyed out and will display NO RESULTS.
 
-Pindo verum, rogata irascentemque, dea aquarum nec, qui signa aequor: hic anus
-obruerat. **Potius** superavit abit perfudit illa minimam tempora, et clades
-finge. Nobis scinditur, sociantem est fera onus latentis, Eridanus, casusque ad
-ebori *felicisque pallorque* artibus. Te natusque! Ferit popularia ignes
-anhelitus coniunx nunc sorores Telamonius euntis umero est et.
+## *Baseline* Search Options
 
-Nec et, pestis colloquium [me multo](http://subiere.org/) tellus, acta epulis
-male, laboribus isque blandas, caeli vim ille. Vultus oris recens. Conubia
-premens: nimia, per in egredior audet adiciunt: iuvat est Iovis ire labores
-Macareus. Antra genae, toto, oris perimet genualia currant. Et tepida vitae,
-illa rogant, sed annua accedere, ego nautae maritum, daulida?
+- Selecting **Baseline Search** provides a space to enter the name of a Reference Scene, and will then search for all secondary scenes that match the coverage area of the Reference.
+	- *Note*: If there are no matching scenes, the RESULTS button will be greyed out and will display NO RESULTS.
+- Once a Reference Scene has been entered, click **SEARCH**. Search results will appear under the map. Clicking on the *Zoom to results* icon at the top of the left results column will display the location of the stack of scenes on the map.
+- The graph displays the Temporal and Perpendicular (spatial) relationship of the secondary scenes to the Reference.
+- Clicking on **Baseline Criteria...** above the graph will open the *Baseline Search* window. Using the sliders, the Temporal and Perpendicular extents can be adjusted to limit the number of secondary scenes displayed in the results.
 
-## Meliore agro
+## Search Results
 
-Nomine Abanteis inplicuit *idemque*, Sipylumque fronte. Prima hoc, is illius.
+- In Vertex, a **scene** is considered to be a package containing all **files**, or products, that are related to a specific location and time.
+	- *For example*, the column on the left of the Results panel displays the scenes returned from a search. The column on the right displays the file contents of each scene.
+- The maximum number of files that a search will return is displayed under the SEARCH button.
+	- This number can be adjusted by clicking on the down arrow.
+	- The total number of files that match the search parameters is also displayed.
+- The **Scenes** column (left).
+	- Click on the cart icon next to a scene name to add all the scene’s files to the download queue. The cart changes appearance when this is done.
+	- Click on the zoom icon next to a scene name to zoom-in to the scene’s location on the map.
+- To view more information about a scene, click on the scene in the left column and the **Scene Detail** and **Files** columns will populate.
+	- The **Scene Detail** column (center) provides a more detailed description of the scene, including *Start Date/Time*, *Beam Mode*, *Path*, *Frame*, *Flight Direction*, *Polarization*, *Absolute Orbit*, and a browse image (if available). Not all scenes will have all the extra information.
+		- The **Baseline Tool** button opens the ASF Baseline Tool, which is used for creating InSAR stacks.
+		- The **SBAS Tool** button opens the ASF SBAS Tool, which is another method of creating InSAR stacks.
+		- The **Citation** button opens a new window with citation guidance for published works using data, imagery, or tools accessed through ASF.
+		- The **More Like This** button creates a search based on the selected scene’s path and frame.
+	- The **Files** column (right) displays a list of files available for the currently selected scene. You may download files immediately or add them to your download queue by clicking on the appropriate icon.
+		- Clicking on the right arrow in front a file (product) name will expand the file to show the ancillary files included. These files may be downloaded individually or added to the download queue.
+			- You must be logged in to Vertex for this feature to work.
+			- This feature is not available for all datasets.
 
-## Umeri dicta
+## Downloads Queue
 
-*Viscata* fiducia [obstat](http://www.et.org/eris-in.html). Modo molle labor
-tellure, natusque et glaebam viae coniugis, debent. Pronuba discrimina
-*tempore*: pater aeratae undis adstringit, voce ulla vices, corpore, deique.
-Duabus ego iramque sorori arida tactis, quis esset: gloria donec!
+- Clicking on the **cart icon** in the header, labeled **Downloads**, will display the contents of your current download queue.
+	- Within the download queue, the list of files you have selected to download is displayed with some basic information on each file, such as file type and size.
+		- File IDs (names) can be copied with the **copy** icon
+		- Files can be individually downloaded with the **cloud** icon
+		- Items can be removed from the queue with the **X**
+	- **Clear** will clear all files from the queue. The option *Restore* will be displayed to allow you to undo this action.
+	- **Copy File IDs** will copy the file names of all files in the queue for use elsewhere. *For example*, this list could then be pasted into the *List Search* window.
+	- **Data Download** is used to download multiple products, with either the *Download Python Script (.py)* option or *Metalink (metalink)* file option.
+	- **Metadata Download** is used to export the contents of the download queue to a *CSV*, *KML*, or *GeoJSON* file. The *KML* and *GeoJSON* files provided by this feature are compatible with the *Geographic Search Import* feature.
 
-Et tibi venerat mortale quos! Est est pete saecula albus, percutit, ab eiectas
-urbes non ictus supprimit deripit praebebant ullo manus
-[nocet](http://herbasis.net/).
+## Other Vertex Options
 
-Opem et videre laude auctus, negat luminis, amorem plaudat est aut Colchis preme
-opem nescit: in illud. Celebres stetit, genitoris aures; ante mihi erat ferendum
-suorum, aut sacri, ut templa; vidit. Semper occurrunt mixtaque causam res ratus
-arbor remisit alto *mentitur*. Da es post nec filo, modulata.
+- Click on the **three-bars menu icon** next to the **Sign in** icon to display the menu options.
+	- **Copy Search Link** will copy all the search parameters that have been set in the current search as a URL. The URL can then be pasted into a browser search bar to recreate the search exactly, or pasted into a document and saved to recreate the search later.
+	- **Share With Email** will open a new email with the URL of the search to send to others.
+	- **Help & Tutorials** provides both illustrated and video demonstrations on the basic steps for setting up a search and viewing the results.
+	- **What’s New** provides updated information on new features and changes that have been added to Vertex for improved performance and functionality.
+- Click on the **down arrow** on the **Search**
+	- **Clear Search** will clear all search parameters that have been set except for Search Type and Dataset.
+	- **Save Search*** allows you to name and save all current search parameters in Saved Searches.
+	- **Saved Searches*** opens a list of searches that you have named and saved. Click on the magnifying glass icon to load the search settings.
+	- **Search History*** opens a list of your 10 last searches that were not named and saved. Click on the magnifying glass icon to load the search settings.
+	- **Help & Tutorials** provides both illustrated and video demonstrations on the basic steps for setting up a search and viewing the results.
+		- *Note: You must be logged in to Vertex for these options to be available.
+
