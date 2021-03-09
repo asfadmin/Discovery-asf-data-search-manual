@@ -38,5 +38,5 @@ While in Baseline Search type, you will notice many familiar controls in the res
 ## Next Steps
 Once you are satisfied with your result set, the next step is to create interferograms. There is custom processing available for creating interferograms through [HyP3](https://hyp3.asf.alaska.edu/about).
 
-You may also use the download queue to manage and download baseline results. More information about the download queue can be found in the [Vertex Getting Started User Guide](http://127.0.0.1:8000/vertex/manual).
+You may also use the download queue to manage and download baseline results. More information about the download queue can be found in the [Vertex Getting Started User Guide](/vertex/manual).
 
