@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+    commands:
+      - pip install --upgrade pip
+      - pip install mkdocs
+  pre_build:
+    commands:
+#      - cp src/app/services/envs/env-${MATURITY}.ts src/app/services/env.ts
+#      - npm install --prod
+  build:
+    commands:
+      - mkdocs build --clean
+  post_build:
+    commands:
+      - cd docs
+      - aws s3 sync . "s3://${S3_BUCKET}/docs/" --delete
+      - cd ..
+      - chmod +x ./clear-cloudfront-cache.sh
+      - . ./clear-cloudfront-cache.sh ${CDN_ID}
