@@ -3,7 +3,7 @@
 - If you do not already have one, create a free **[Earthdata Login account](https://urs.earthdata.nasa.gov/users/new)**.
 - Go to **[Vertex](https://search.asf.alaska.edu)**
 	- Log in by clicking the **Sign in** icon in the top right of the window. Use your Earthdata Login username and password.
-- Search Type allows you to choose between *Geographic*, *List*, *Baseline*, and *SBAS* search types.
+- Search Type allows you to choose between *Geographic*, *List*, *Baseline*, *SBAS*, and *On Demand Products* search types.
 
 ## *Geographic* Search Options
 
@@ -16,7 +16,7 @@
 	- **Box** allows you to define an area of interest over a lat/long-aligned bounding box by clicking once to set one corner, and again to set the opposite corner.
 	- Once a shape has been drawn, select the **Edit current area of interest** icon on the toolbar to move, add, and delete points. Select the **Draw new area of interest** icon to create a new AOI.
 - **Dataset** enables you to choose the dataset of interest.
-	- If you need more information about a particular dataset, click on the appropriate ? icon in the Dataset selector.
+	- If you need more information about a particular dataset, click on the appropriate question mark icon in the Dataset selector.
 - **Area of Interest** gives you the option of importing an area of interest as a geospatial file or by entering a set of geographic coordinates.
 	- Click on the down arrow next to **Area of Interest** in the top menu
 	- Click the **Import Area of Interest** button in the Options window
@@ -31,7 +31,7 @@
 	- At any time you can clear your search area by clicking on the **Trash can** icon in the top menu bar.
 - **Filters...** enables you to further refine your search
 	- **Date Filters** Search dates are optional, so they default to empty.  If you are searching for specific dates, you can define the date range further in the **Start Date** and **End Date** fields. The date picker will automatically constrain your selection to a valid range for the selected dataset.
-		- *Note*: this information may also be found by clicking on ? for a dataset.
+		- *Note*: this information may also be found by clicking on the question mark icon for a dataset.
 		- **Seasonal Search** allows constraining the search to certain annual periods within an overall range of dates.  Click the Seasonal Search toggle and additional options will appear, allowing you to enter an overall date range (*Start Date/End Date*) and the seasonal range (*Season Start Day/Season End Day*).
 	- **Additional Filters** allow for additional parameters to be applied to narrow your search and reduce the number of results. Not all filters will be available for all datasets.
 		- **File Type** – Limit the search to specific types of files. Multiple selections allowed.
@@ -59,6 +59,21 @@
 - Once a Reference Scene has been entered, click **SEARCH**. Search results will appear under the map. Clicking on the *Zoom to results* icon at the top of the left results column will display the location of the stack of scenes on the map.
 - The graph displays the Temporal and Perpendicular (spatial) relationship of the secondary scenes to the Reference.
 - Clicking on **Baseline Criteria...** above the graph will open the *Baseline Search* window. Using the sliders, the Temporal and Perpendicular extents can be adjusted to limit the number of secondary scenes displayed in the results.
+- For further information on **Baseline**, please see the [Baseline documentation](/vertex/baseline).
+
+## *SBAS* Search Options
+
+- Selecting **SBAS Search** provides a space to enter the name of a Reference Scene, and will search for all secondary scenes that match the coverage area of the Reference. It is an alternate method used for Interferometric SAR (InSAR) processing, similar to Baseline.
+	- *Note*: If there are no matching scenes, the RESULTS button will be greyed out and will display NO RESULTS.
+- Once a Reference Scene has been entered, click **SEARCH**. Search results will appear under the map. Clicking on the *Zoom to results* icon at the top of the left results column will display the location of the stack of scenes on the map.
+- The chart displays the Temporal and Perpendicular (spatial) relationship of the secondary scenes to the Reference.
+	- **Zoom In** and **Zoom Out** buttons are available above the chart.
+	- The **Zoom to Fit** button ensures that all pairs are visible on the chart.
+	- The **Custom Pair** buttons allow you to add or delete a custom pair.
+	- The **SBAS Criteria...** button allows you to specify start and end dates to refine your results.
+- For further information on **SBAS**, please see the [SBAS documentation](/vertex/sbas).
+
+## *On Demand Products* Search Options
 
 ## Search Results
 
@@ -67,6 +82,13 @@
 - The maximum number of files that a search will return is displayed under the SEARCH button.
 	- This number can be adjusted by clicking on the down arrow.
 	- The total number of files that match the search parameters is also displayed.
+- The Results header bar.
+	- The **Zoom** button will zoom-in to the location of all scenes on the map.
+	- The **Queue** button will add all scenes to the download queue.
+	- The **On Demand** button will allow you to choose which eligible scenes to add to the On Demand Queue for further processing.
+	- The **Raw** button will show or hide raw files. *Note*: This button is applicable for Sentinel-1 scenes only.
+	- The **Export** button will allow you to export data or metadata for all scenes in the results.
+	- *Note*: Not all buttons are available on all search types.
 - The **Scenes** column (left).
 	- Click on the cart icon next to a scene name to add all the scene’s files to the download queue. The cart changes appearance when this is done.
 	- Click on the zoom icon next to a scene name to zoom-in to the scene’s location on the map.
@@ -80,6 +102,22 @@
 		- Clicking on the right arrow in front a file (product) name will expand the file to show the ancillary files included. These files may be downloaded individually or added to the download queue.
 			- You must be logged in to Vertex for this feature to work.
 			- This feature is not available for all datasets.
+
+## On Demand Queue
+- Clicking on the **three boxes** icon in the header, labeled **On Demand**, will display a drop down list of options.
+- **On Demand Queue** will open the On Demand queue.
+	- The **Project Name** field allows you to create a name for the files you want to submit. The character limit is 20.
+	- The **RTC Gamma Options** allow you to choose different options to apply for processing. The options you select will apply to all files in your queue.
+		- The question mark icon next to the options gives you more details on each option.
+	- The list of files you have added to your queue is listed below the options. The X allows you to remove any files you wish from the queue.
+	-  **Clear** will clear all files from the queue. The option *Restore* will be displayed to allow you to undo this action.
+	- The allowed number of jobs left is displayed at the bottom of the queue. There are 200 jobs allotted per user per month.
+	- When you are satisfied with your selections, click **Submit # Jobs** at the bottom. This will submit your jobs for processing.
+		- If there are any errors, such as missing DEM coverage, an error message will display.
+		- Once the jobs are successfully submitted, a popup will appear listing the number of jobs sent for processing. You may click to dismiss. Or you may click **View On Demand Queue** on the popup message to be redirected to the On Demand Products search.
+- **Submitted Products** will switch to On Demand Products search type & will display your submitted products.
+- **Help** will send you to the [On Demand documentation](https://hyp3-docs.asf.alaska.edu/)
+- *Note*: You must be logged in to see your Submitted Products, and to process new On Demand products.
 
 ## Downloads Queue
 
@@ -100,11 +138,17 @@
 	- **Share With Email** will open a new email with the URL of the search to send to others.
 	- **Help & Tutorials** provides both illustrated and video demonstrations on the basic steps for setting up a search and viewing the results.
 	- **What’s New** provides updated information on new features and changes that have been added to Vertex for improved performance and functionality.
+- Click on the **Sign in** icon once you are signed in to display the user options.
+	- **Saved Searches** opens a list of searches that you have named and saved. Click on the magnifying glass icon to load the search settings.
+	- **Search History** opens a list of your 10 last searches that were not named and saved. Click on the magnifying glass icon to load the search settings.
+	- **Preferences** opens a window that allows you to set search preferences for dataset, max results, and map layer. These preferences will be saved and applied to future searches.
 - Click on the **down arrow** on the **Search**
 	- **Clear Search** will clear all search parameters that have been set except for Search Type and Dataset.
-	- **Save Search*** allows you to name and save all current search parameters in Saved Searches.
-	- **Saved Searches*** opens a list of searches that you have named and saved. Click on the magnifying glass icon to load the search settings.
-	- **Search History*** opens a list of your 10 last searches that were not named and saved. Click on the magnifying glass icon to load the search settings.
+	- **Save Search^** allows you to name and save all current search parameters in Saved Searches.
+	- **Saved Searches^** opens a list of searches that you have named and saved. Click on the magnifying glass icon to load the search settings.
+	- **Search History^** opens a list of your 10 last searches that were not named and saved. Click on the magnifying glass icon to load the search settings.
 	- **Help & Tutorials** provides both illustrated and video demonstrations on the basic steps for setting up a search and viewing the results.
-		- *Note: You must be logged in to Vertex for these options to be available.
+		- ^*Note*: You must be logged in to Vertex for these options to be available.
+- *Note*: **Saved Searches** and **Search History** are available through both the Sign in menu and the Search button down arrow menu.
+
 
