@@ -5,13 +5,16 @@ docs_dir: 'markdown-docs'
 google_analytics: ['UA-991100-5', 'search.asf.alaska.edu']
 
 theme:
-    name: material
+    name: asf-theme
     custom_dir: asf-theme
     favicon: assets/images/favicon.ico
     logo: assets/images/ASFLogo-Blue2.png
 
 extra_css:
   - assets/stylesheets/extra.css
+
+extra_javascript:
+  - assets/javascripts/expert-rec-search.js
 
 copyright: Copyright @ Alaska Satellite Facility
 
