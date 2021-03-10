@@ -7,9 +7,6 @@ google_analytics: ['UA-991100-5', 'search.asf.alaska.edu']
 theme:
     name: asf-theme
 
-extra_css:
-  - assets/stylesheets/extra.css
-
 copyright: Copyright @ Alaska Satellite Facility
 
 nav:
