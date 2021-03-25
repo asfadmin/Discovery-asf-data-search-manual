@@ -75,6 +75,14 @@
 
 ## *On Demand Products* Search Options
 
+- Selecting **On Demand Products** allows you to view your submitted On Demand jobs. *Note*: You must be signed in to access this. If you are not signed in, this search option will be greyed out and you will not be able to select it.
+- **Project Name** allows you to limit your search to a specific project name. As you start typing, auto-complete options will become available with the project names you have previously used.
+- **Date Filters** Search dates are optional, so they default to empty.  If you are searching for specific dates, you can define the date range further in the **Start Date** and **End Date** fields. *Note*: These dates filter by the scene date, not the date it was processed.
+- **Product/Source Scene** allows you to enter the product name or source scene name to limit your search. This field will also accept a partial string from either the product or source scene in lieu of the full name.
+- **Job Status** allows you to limit your search to specific statuses. Multiple selections allowed.
+- *Note*: Jobs expire 14 days after you submit them. Expired products still appear in search results, however, you may no longer download or add them to your cart. You can easily identify your expired products by the **Expired** tag next to the product name.
+- For further information on **On Demand Products**, please see the [documentation](https://hyp3-docs.asf.alaska.edu/).
+
 ## Search Results
 
 - In Vertex, a **scene** is considered to be a package containing all **files**, or products, that are related to a specific location and time.
@@ -88,6 +96,7 @@
 	- The **On Demand** button will allow you to choose which eligible scenes to add to the On Demand Queue for further processing.
 	- The **Raw** button will show or hide raw files. *Note*: This button is applicable for Sentinel-1 scenes only.
 	- The **Export** button will allow you to export data or metadata for all scenes in the results.
+	- The **Expired** button will show or hide expired On Demand files. *Note*: This button is only available in the **On Demand Products** search type.
 	- *Note*: Not all buttons are available on all search types.
 - The **Scenes** column (left).
 	- Click on the cart icon next to a scene name to add all the scene’s files to the download queue. The cart changes appearance when this is done.
@@ -100,24 +109,25 @@
 		- The **More Like This** button creates a search based on the selected scene’s path and frame.
 	- The **Files** column (right) displays a list of files available for the currently selected scene. You may download files immediately or add them to your download queue by clicking on the appropriate icon.
 		- Clicking on the right arrow in front a file (product) name will expand the file to show the ancillary files included. These files may be downloaded individually or added to the download queue.
-			- You must be logged in to Vertex for this feature to work.
+			- You must be signed in to Vertex for this feature to work.
 			- This feature is not available for all datasets.
 
 ## On Demand Queue
+
 - Clicking on the **three boxes** icon in the header, labeled **On Demand**, will display a drop down list of options.
 - **On Demand Queue** will open the On Demand queue.
-	- The **Project Name** field allows you to create a name for the files you want to submit. The character limit is 20.
-	- The **RTC Gamma Options** allow you to choose different options to apply for processing. The options you select will apply to all files in your queue.
+	- The **Project Name** field allows you to create a name for the files you want to submit for processing. The character limit is 20.
+	- The **RTC Gamma Options** allow you to change some processing options. The options you select will apply to all files in your queue.
 		- The question mark icon next to the options gives you more details on each option.
 	- The list of files you have added to your queue is listed below the options. The X allows you to remove any files you wish from the queue.
 	-  **Clear** will clear all files from the queue. The option *Restore* will be displayed to allow you to undo this action.
-	- The allowed number of jobs left is displayed at the bottom of the queue. There are 200 jobs allotted per user per month.
-	- When you are satisfied with your selections, click **Submit # Jobs** at the bottom. This will submit your jobs for processing.
+	- The allowed number of jobs left is displayed at the bottom of the queue. There are 200 jobs allotted to each user per month.
+	- When you are satisfied with your selections, click **Submit Jobs** at the bottom. This will submit your jobs for processing. *Note*: The button will display the number of jobs you are submitting.
 		- If there are any errors, such as missing DEM coverage, an error message will display.
-		- Once the jobs are successfully submitted, a popup will appear listing the number of jobs sent for processing. You may click to dismiss. Or you may click **View On Demand Queue** on the popup message to be redirected to the On Demand Products search.
+		- Once the jobs are successfully submitted, a popup will display at the bottom of your browser window, listing the number of jobs sent for processing. You may click to dismiss. Or you may click **View On Demand Queue** to be redirected to the On Demand Products search.
 - **Submitted Products** will switch to On Demand Products search type & will display your submitted products.
 - **Help** will send you to the [On Demand documentation](https://hyp3-docs.asf.alaska.edu/)
-- *Note*: You must be logged in to see your Submitted Products, and to process new On Demand products.
+- *Note*: You must be signed in to see your Submitted Products, and to process new On Demand products.
 
 ## Downloads Queue
 
@@ -148,7 +158,14 @@
 	- **Saved Searches^** opens a list of searches that you have named and saved. Click on the magnifying glass icon to load the search settings.
 	- **Search History^** opens a list of your 10 last searches that were not named and saved. Click on the magnifying glass icon to load the search settings.
 	- **Help & Tutorials** provides both illustrated and video demonstrations on the basic steps for setting up a search and viewing the results.
-		- ^*Note*: You must be logged in to Vertex for these options to be available.
+		- ^*Note*: You must be signed in to Vertex for these options to be available.
 - *Note*: **Saved Searches** and **Search History** are available through both the Sign in menu and the Search button down arrow menu.
+- Click into the **Search all ASF** field on the grey header bar to perform a search. Inputs into this field will search across all ASF websites.
+	- You may also click the **microphone** icon if you prefer to use voice search.
+	- As you type or speak, the results of your search will be displayed in a list below the field. Clicking a result from the list will open a new browser tab.
+	- You may click the **magnifying glass** icon to expand the search results. This will open in the same browser window. To close and return to Vertex, click the **X** near the top right of your screen.
 
-
+Testing
+<iframe src = "/vertex/icon-sign-in.png"
+        width='250' height='(1024)' allowfullscreen webkitallowfullscreen>
+</iframe>
