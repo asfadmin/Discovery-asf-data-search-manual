@@ -6,6 +6,14 @@ Once you have MkDocs installed, installing Material for MkDocs is simple...
 
 `pip install mkdocs-material`
 
+Then install the ASF Theme...
+
+`python -m pip install mkdocs-asf-theme`
+
+Or update using ...
+
+`python -m pip install mkdocs-asf-theme -U`
+
 ### Developing Documentation
 MkDocs comes with a built-in dev-server that lets you preview
 your documentation as you work on it. Make sure you're in the
