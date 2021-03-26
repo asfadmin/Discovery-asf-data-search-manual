@@ -1,0 +1,27 @@
+name: Deploy to Github.io
+
+on:
+  push:
+    branches:
+      - prod
+
+  workflow_dispatch:
+
+jobs:
+  build_and_deploy:
+    name: Build site and deploy
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v2
+        if: github.ref == 'refs/heads/prod'
+        with:
+          repository: asfadmin/asfadmin.github.io
+          path: asfadmin.github.io
+          token: ${{ secrets.TOOLS_BOT_PAK }}
+
+      - name: deploy to github.io
+        if: github.ref == 'refs/heads/prod'
+        shell: bash -l {0}
+        run: |
+          cd asfadmin.github.io
+          mkdocs gh-deploy  --force --config-file ../asf-data-search-manual/mkdocs.yml --remote-branch prod
