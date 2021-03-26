@@ -14,5 +14,3 @@ For an overview of all of ASF services visit [asf.alaska.edu](https://asf.alaska
     docs/
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
-
-Auto deployed
