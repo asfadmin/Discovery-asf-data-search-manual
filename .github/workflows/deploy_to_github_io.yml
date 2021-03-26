@@ -20,10 +20,11 @@ jobs:
           path: asfadmin.github.io
 
       - name: Setup Python
-        python -m pip install --upgrade pip
-        python -m pip install mkdocs
-        python -m pip install mkdocs-material
-        python -m pip install mkdocs-asf-theme -U
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install mkdocs
+          python -m pip install mkdocs-material
+          python -m pip install mkdocs-asf-theme -U
 
       - name: deploy to github.io
         shell: bash -l {0}
