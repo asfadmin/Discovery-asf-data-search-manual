@@ -15,8 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: asfadmin/asfadmin.github.io
-          path: asfadmin.github.io
+          path: asf-data-search-manual
 
       - name: Setup Python
         run: |
@@ -26,6 +25,7 @@ jobs:
           python -m pip install mkdocs-asf-theme -U
 
       - name: deploy to github.io
+        if: github.ref == 'refs/heads/prod'
         shell: bash -l {0}
         run: |
           cd asfadmin.github.io
