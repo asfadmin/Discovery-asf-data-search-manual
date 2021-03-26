@@ -17,13 +17,12 @@ jobs:
         with:
           repository: asfadmin/asfadmin.github.io
           path: asfadmin.github.io
-#          token: ${{ secrets.TOOLS_BOT_PAK }}
 
       - name: Setup Python
         python -m pip install --upgrade pip
         python -m pip install mkdocs
         python -m pip install mkdocs-asf-theme -U
-        pip -m install mkdocs-material
+        python -m pip install mkdocs-material
 
       - name: deploy to github.io
         shell: bash -l {0}
