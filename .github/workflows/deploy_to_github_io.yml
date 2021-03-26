@@ -29,5 +29,6 @@ jobs:
         shell: bash -l {0}
         run: |
           echo $PWD
+          cd asf-data-search-manual
           ls -l
-          python -m mkdocs gh-deploy  --force --config-file asf-data-search-manual/mkdocs.yml --remote-branch prod
+          python -m mkdocs gh-deploy
