@@ -9,6 +9,7 @@ on:
 
 jobs:
   build_and_deploy:
+
     name: Build site and deploy
     runs-on: "ubuntu-latest"
     if: github.ref == 'refs/heads/prod'
@@ -21,8 +22,8 @@ jobs:
       - name: Setup Python
         python -m pip install --upgrade pip
         python -m pip install mkdocs
-        python -m pip install mkdocs-asf-theme -U
         python -m pip install mkdocs-material
+        python -m pip install mkdocs-asf-theme -U
 
       - name: deploy to github.io
         shell: bash -l {0}
