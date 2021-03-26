@@ -31,4 +31,4 @@ jobs:
           echo $PWD
           cd asf-data-search-manual
           ls -l
-          python -m mkdocs gh-deploy
+          python -m mkdocs gh-deploy --force
