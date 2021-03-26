@@ -30,4 +30,4 @@ jobs:
         run: |
           echo $PWD
           ls -l
-          python -m mkdocs gh-deploy  --force --config-file mkdocs.yml --remote-branch prod
+          python -m mkdocs gh-deploy  --force --config-file asf-data-search-manual/mkdocs.yml --remote-branch prod
