@@ -165,7 +165,7 @@
 	- As you type or speak, the results of your search will be displayed in a list below the field. Clicking a result from the list will open a new browser tab.
 	- You may click the **magnifying glass** icon to expand the search results. This will open in the same browser window. To close and return to Vertex, click the **X** near the top right of your screen.
 
-Testing
+<!-- Testing
 <iframe src = "/vertex/icon-sign-in.png"
         width='250' height='(1024)' allowfullscreen webkitallowfullscreen>
-</iframe>
+</iframe> -->
