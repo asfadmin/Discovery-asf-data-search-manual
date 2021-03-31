@@ -7,7 +7,10 @@
 
 ## *Geographic* Search Options
 
-- The Vertex map defaults to **Satellite** View
+- In the top left corner of the map, there are buttons that allow you to change your **map projection**, **zoom**, and **map view**.
+	- By default, the map is in equatorial projection. You may click **Arctic map view** or **Antarctic map view** to change your map projection. Click **Equatorial map view** to switch back to the equatorial projection.
+	- You may click the **Zoom In** or **Zoom Out** icons to adjust your zoom.
+	- By default, the map layer is in **Satellite View**. You may click **Street View** to switch your map layer.
 - Navigate to your area of interest by dragging the map while holding down the left mouse button.
 - By default, the map-drawing tool is a bounding box. Click on the map once to specify the starting corner, move the mouse, then click again to finish the box. Additional drawing tool options are available in the toolbar at the top of the screen, including *point*, *linestring*, and *polygon* options.
 	- **Point** allows you to define an area of interest by clicking on the map to place a point.
@@ -143,6 +146,10 @@
 
 ## Other Vertex Options
 
+- In the top left corner of the map, there are buttons that allow you to change your **map projection**, **zoom**, and **map view**. These are visible in all search types.
+	- By default, the map is in equatorial projection. You may click **Arctic map view** or **Antarctic map view** to change your map projection. Click **Equatorial map view** to switch back to the equatorial projection.
+	- You may click the **Zoom In** or **Zoom Out** icons to adjust your zoom.
+	- By default, the map layer is in **Satellite View**. You may click **Street View** to switch your map layer.
 - Click on the **three-bars menu icon** next to the **Sign in** icon to display the menu options.
 	- **Copy Search Link** will copy all the search parameters that have been set in the current search as a URL. The URL can then be pasted into a browser search bar to recreate the search exactly, or pasted into a document and saved to recreate the search later.
 	- **Share With Email** will open a new email with the URL of the search to send to others.
@@ -164,8 +171,3 @@
 	- You may also click the **microphone** icon if you prefer to use voice search.
 	- As you type or speak, the results of your search will be displayed in a list below the field. Clicking a result from the list will open a new browser tab.
 	- You may click the **magnifying glass** icon to expand the search results. This will open in the same browser window. To close and return to Vertex, click the **X** near the top right of your screen.
-
-<!-- Testing
-<iframe src = "/vertex/icon-sign-in.png"
-        width='250' height='(1024)' allowfullscreen webkitallowfullscreen>
-</iframe> -->
