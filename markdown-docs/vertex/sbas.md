@@ -31,8 +31,11 @@ While in SBAS Search type, you will notice many familiar controls in the results
 - At the top left of the results panel, you will see the number of pairs listed.
 - **Zoom** will *Zoom to results* magnifying the map area of the Earth where the scenes are located.
 - **Queue** will *Add all to Downloads* allowing you to add all scenes to the download queue.
-- **On Demand** will allow you to *Add all to On Demand queue* to do custom processing on the scenes. To learn more click [here](https://hyp3-docs.asf.alaska.edu/using/vertex/).
-- **Pairs** will *Download Pair CSV* which will list the scenes in each pair and the download URL for each.
+- **On Demand** will allow you to *Add all to On Demand queue* to perform custom processing on the scenes.
+	- You may choose from **RTC GAMMA**, **InSAR GAMMA**, or **autoRIFT**, depending on your needs. RTC GAMMA processing is performed on the individual scenes in your result set. InSAR GAMMA and autoRIFT processing are performed on the pairs in your result set.
+	- **Note:** Currently, only scenes with beam mode IW are eligible for On Demand processing.
+- **Pairs** will *Download Pair CSV* which lists the scenes in each pair and the download URL for each. It also includes the baseline values.
+- In the left column, highlight the desired pair and click the **On Demand** icon to *Add pair to On Demand queue*. You may choose *InSAR GAMMA* or *autoRIFT* processing for each pair you wish to add.
 
 **Chart Controls**
 
@@ -45,8 +48,18 @@ While in SBAS Search type, you will notice many familiar controls in the results
 	7. Click the dot on the chart representing the first scene.
 	2. Click the dot on the chart representing the second scene.
 	3. The new pair is created, and the pair detail is added to the bottom of the result list. Manually added pairs will be displayed with a dotted line on the chart.
+	4. **Note:** You may also add custom pairs to the On Demand queue.
 - If you wish to stop adding a pair after you have begun, you may click the **Square symbol** to *Stop adding custom pair*.
 - If you wish to delete an added pair, you may click on the dotted pair line and click the **Minus symbol** to *Remove custom pair*. Note that only manually added pairs may be deleted.
+- Click **SBAS Criteria...** for additional date filtering options.
+	- You may enter a **Start** or **End** date, or select dates on the calendar.
+	- **Seasonal Search** allows constraining the results to certain annual periods within an overall range of dates.  Click the Seasonal Search toggle and additional options will appear, allowing you to adjust the sliders to specify a seasonal range (*Season Start Day/Season End Day*).
 
 ## Next Steps
-Once you are satisfied with your result set, the next step is to create interferograms. There is custom processing available for creating interferograms through [HyP3](https://hyp3.asf.alaska.edu/about).
+The next step is creating interferograms. You may do this through On Demand processing in Vertex. First, you would add some or all of the pairs to the On Demand queue as InSAR jobs. In the queue, there are limited options available for customizing your InSAR processing. You may also specify a project name. Submit the queue when you have selected all desired options. When the interferograms are completed, you can view and download them by using the On Demand Products search type in Vertex.
+
+For areas with glacial ice, autoRIFT is another processing option. Similar to InSAR, you would add some or all pairs to the On Demand queue as autoRIFT jobs. There are no additional customization options available for autoRIFT processing, however you can still specify a project name. When autoRIFT processing is completed, you can view and download the products by using the On Demand Products search type in Vertex.
+
+More detail can be found in the [Vertex User Guide](/vertex/manual). Help documentation, including videos, is also available in Vertex [here](https://search.asf.alaska.edu/#/?maxResults=250&topic=onDemand).
+
+To learn more, you may also see the [On Demand documentation](https://hyp3-docs.asf.alaska.edu/).
