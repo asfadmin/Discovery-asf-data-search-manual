@@ -43,6 +43,13 @@
 		- **Direction** – Limit the search to a specific orbit direction.
 		- **Subtype** – Limit the search to a specific mission spacecraft.
 	- **Path and Frame Filters** are available for select datasets. You may enter a single path or frame, or a range. Due to inconsistent Sentinel-1 framing, we recommend searching for a frame of interest by ±1-2 frames.
+- The maximum number of results is displayed below the **SEARCH** button. Click the **down arrow** to choose your preferred maximum results.
+	- You may click **API URL...** in order to generate the API URL matching your current search parameters. This will open a new window.
+		- **Amount** allows you to set the maximum results.
+		- **Format** allows you to choose your preferred output format.
+		- The **Copy** icon next to the URL will copy the URL. It can be pasted into a browser search bar to perform the API search, or pasted into a document and saved.
+		- **API Docs** will send you to the [API Documentation](https://asf.alaska.edu/api/).
+		- **Download Results** will download the results in the specified output format.
 - Once all parameters have been chosen, click **SEARCH**. Search results will appear in the footer area of the Vertex window, and on the map.
 	- *Note*: The number of files that are predicted to match the current search parameters is displayed under the SEARCH button. If there are no predicted matches, the search button will be greyed out and display NO RESULTS.
 
@@ -119,18 +126,21 @@
 
 - Clicking on the **three boxes** icon in the header, labeled **On Demand**, will display a drop down list of options.
 - **On Demand Queue** will open the On Demand queue.
-	- The **Project Name** field allows you to create a name for the files you want to submit for processing. The character limit is 20.
-	- The **RTC Gamma Options** allow you to change some processing options. The options you select will apply to all files in your queue.
+	- The different jobs types in your queue are separated by tabs along the top of the queue. The job types currently available are **RTC GAMMA**, **InSAR GAMMA**, and **autoRIFT**. You may click on a tab to select it. The selected tab is highlighted.
+	- For **RTC GAMMA** and **InSAR GAMMA** jobs, there are additional processing options available.  The options you select will apply to all files of that job type in your queue.
 		- The question mark icon next to the options gives you more details on each option.
 	- The list of files you have added to your queue is listed below the options. The X allows you to remove any files you wish from the queue.
-	-  **Clear** will clear all files from the queue. The option *Restore* will be displayed to allow you to undo this action.
-	- The allowed number of jobs left is displayed at the bottom of the queue. There are 200 jobs allotted to each user per month.
-	- When you are satisfied with your selections, click **Submit Jobs** at the bottom. This will submit your jobs for processing. *Note*: The button will display the number of jobs you are submitting.
+	-  **Clear** will list some options for clearing files from your queue. You can choose to clear an individual tab, or you can choose **Clear All Processing Types** to clear all files from the queue. If you choose to clear all files, the option *Restore* will be displayed to allow you to undo this action.
+	- The number of jobs remaining is displayed at the bottom of the queue. There are 200 jobs allotted to each user per month. If you have too many jobs in your queue, a message stating the number of extra jobs will be displayed at the top of the queue. The **Sumbit** button will be greyed out.
+	- When you are satisfied with your selections, click **Submit Jobs** at the bottom. This will display the Review Submission window.
+		- The **Project Name** field allows you to create a name for the files you want to submit for processing. The character limit is 20. This field is optional.
+		- You may select or deselect the checkboxes to submit only the job types you wish.
+		- Select **Cancel** to return to the queue without submitting any files for processing.
+		- Click **Submit** to submit your jobs. *Note:* The Submit button will list the number of jobs you are submitting.
 		- If there are any errors, such as missing DEM coverage, an error message will display.
-		- Once the jobs are successfully submitted, a popup will display at the bottom of your browser window, listing the number of jobs sent for processing. You may click to dismiss. Or you may click **View On Demand Queue** to be redirected to the On Demand Products search.
-- **Submitted Products** will switch to On Demand Products search type & will display your submitted products.
-- **Help** will send you to the [On Demand documentation](https://hyp3-docs.asf.alaska.edu/)
-- *Note*: You must be signed in to see your Submitted Products, and to process new On Demand products.
+- **Submitted Products** will switch to On Demand Products search type and will display your submitted products.
+- **On Demand (HyP3) Docs** will send you to the [On Demand documentation](https://hyp3-docs.asf.alaska.edu/)
+- *Note*: You must be signed in to see your Submitted Products, and to submit jobs from the On Demand Queue.
 
 ## Downloads Queue
 
