@@ -36,7 +36,7 @@ While in Baseline Search type, you will notice many familiar controls in the res
 	- Changing any criteria will automatically update the list of scenes and the chart.
 
 ## Next Steps
-Once you are satisfied with your result set, the next step is to create interferograms. There is custom processing available for creating interferograms through [HyP3](https://hyp3.asf.alaska.edu/about).
+Once you are satisfied with your result set, you can use the download queue to manage and download baseline results. More information about the download queue can be found in the [Vertex Getting Started User Guide](/vertex/manual).
 
-You may also use the download queue to manage and download baseline results. More information about the download queue can be found in the [Vertex Getting Started User Guide](/vertex/manual).
+If you wish to create interferograms, custom processing is now available through Vertex. Details are available in the [SBAS Documentation](/vertex/sbas), or in the On Demand Queue section of the [Vertex Getting Started User Guide](/vertex/manual). You can find more information about creating interferograms with ASF's custom processing through the [HyP3 documentation](https://hyp3.asf.alaska.edu/about).
 
