@@ -17,9 +17,7 @@ nav:
     - SBAS: vertex/sbas.md
     - Tutorial Videos: https://www.youtube.com/playlist?list=PLXluIEvp5ZzIWd0yNy-ANfdwWjCD1hInA
     - Source Code: https://github.com/asfadmin/Discovery-SearchUI
-  - Custom Processing:
-    - Hyp3 User Manual: https://hyp3-docs.asf.alaska.edu
-    - Hyp3 Developer Wiki: https://wiki.asf.alaska.edu/x/WQfdAQ
+  - Custom Processing: https://hyp3-docs.asf.alaska.edu
   # - ASF API:
   #   - API Manual: vertex/manual.md
   # - About: about.md
