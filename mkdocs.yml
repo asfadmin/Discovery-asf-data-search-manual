@@ -21,4 +21,6 @@ nav:
   # - ASF API:
   #   - API Manual: vertex/manual.md
   # - About: about.md
+  - Product Details:
+    - ALOS PALSAR Products: datasets/palsar.md
   - ASF Web: 'https://asf.alaska.edu/'
