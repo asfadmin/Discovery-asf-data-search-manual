@@ -4,7 +4,7 @@
 Baseline uses information from two synthetic aperture radar (SAR) images of the same target area acquired at different times (temporal baseline) and from slightly different satellite orbit positions (perpendicular baseline). The Vertex baseline tool helps you identify and select scene pairs that are appropriate for Interferometric SAR (InSAR) processing. It provides visualization of perpendicular and temporal baseline data, and allows you to easily change the reference scene used in any stack.
 
 ## How to use Vertex Baseline Tool
-Visit **[ASF's Vertex](https://search.asf.alaska.edu)** to begin using the SBAS tool.
+Visit **[ASF's Vertex](https://search.asf.alaska.edu)** to begin using the Baseline tool.
 
 #### **Beginning your Baseline Search**
 
@@ -38,5 +38,5 @@ While in Baseline Search type, you will notice many familiar controls in the res
 ## Next Steps
 Once you are satisfied with your result set, you can use the download queue to manage and download baseline results. More information about the download queue can be found in the [Vertex Getting Started User Guide](/vertex/manual).
 
-If you wish to create interferograms, custom processing is now available through Vertex. Details are available in the [SBAS Documentation](/vertex/sbas), or in the On Demand Queue section of the [Vertex Getting Started User Guide](/vertex/manual). You can find more information about creating interferograms with ASF's custom processing through the [HyP3 documentation](https://hyp3.asf.alaska.edu/about).
+If you wish to create interferograms, custom processing is now available through Vertex. Details are available in the On Demand Queue section of the [Vertex Getting Started User Guide](/vertex/manual). You can find more information about creating interferograms with ASF's custom processing through the [HyP3 documentation](https://hyp3.asf.alaska.edu/about).
 
