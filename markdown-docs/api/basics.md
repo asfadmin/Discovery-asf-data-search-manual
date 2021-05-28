@@ -32,3 +32,13 @@ Once your query is built, you may execute by copy/pasting into a browser window,
 >
 
 For a complete list of URL codes, please see [URL Encoding Reference](https://www.w3schools.com/tags/ref_urlencode.asp).
+
+**Downloading Data**
+
+In order to download data, you will need a NASA EOSDIS Earthdata Login account. Earthdata accounts are free. Go to [Earthdata Login — Create Profile](https://urs.earthdata.nasa.gov/users/new) to create an account.
+
+You will be prompted to accept the ASF End-User License Agreement and set a Study Area to complete your new user setup.
+
+**Next Steps**
+
+See [Search API Keywords](/api/keywords) to get started on building a query, or see the [Tools page](/api/tools) for search and download examples.
