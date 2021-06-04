@@ -327,7 +327,7 @@ https://api.daac.asf.alaska.edu/services/utils/date
 This endpoint can be used to check how dates are parsed by the API.
 
 - date
-	- This is the only required keyword. You can use natural language, such as "yesterday", dates with or without the time stamp, or days of the week.
+	- This is the only accepted keyword for this endpoint. You can use natural language, such as "yesterday", dates with or without the time stamp, or days of the week.
 
 ## Mission List Endpoint
 https://api.daac.asf.alaska.edu/services/utils/mission_list

@@ -39,6 +39,8 @@ In order to download data, you will need a NASA EOSDIS Earthdata Login account. 
 
 You will be prompted to accept the ASF End-User License Agreement and set a Study Area to complete your new user setup.
 
+*Note: A research agreement is required for access to JERS-1 and RADARSAT-1 data. Please complete the required [Research Agreement](https://asf.alaska.edu/restricted-data-access-request), or contact user support at the email or number below.*
+
 **Next Steps**
 
-See [Search API Keywords](/api/keywords) to get started on building a query, or see the [Tools page](/api/tools) for search and download examples.
+See [Search API Keywords](/api/keywords) to get started on building a query, or see the [Tools page](/api/tools) for some examples.

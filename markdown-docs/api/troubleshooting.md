@@ -2,13 +2,13 @@
 
 **Trouble Area: Windows cURL “unrecognized protocol”**
 
-- Reason: Invisible double quotes involuntarily inserted when copy/pasting examples
+- Reason: Invisible double quotes inserted when copy/pasting examples
 - Remedy: Delete the visible quotes, which will delete the invisible quotes. Then retype quotes.
 
 **Trouble Area: Download fails with “401 Unauthorized” or “Authorization failed”**
 
 - Reason: Missing or invalid Earthdata username/password
-- Remedy: Check that you are correctly including your Earthdata username and password in your download command.
+- Remedy: Check that you are correctly including your Earthdata username and password in your download command or config file.
 
 **Trouble Area: Download fails with “401 Unauthorized” or “Authorization failed”**
 
@@ -27,13 +27,13 @@
 
 **Trouble Area: Wget or cURL command copied from the webpage doesn’t work**
 
-- Reason: Copy/paste over multiple lines introduces error
+- Reason: Copy/paste over multiple lines can introduce errors
 - Remedy: Copy and paste one line at a time.
 
 **Trouble Area: Wget or cURL command copied from the webpage doesn’t work**
 
 - Reason: Quotes look the same but are interpreted differently
-- Remedy: Where single quotes are present, delete and retype them in the terminal window.
+- Remedy: Where single quotes are present, delete and retype them.
 
 <!-- I don't understand this one, there are no keywords that have a space in them. Is this still valid? -->
 **Trouble Area: API request with ‘+’ in it fails**
@@ -59,12 +59,12 @@
 **Trouble Area: API request hangs or fails**
 
 - Reason: The search may exceed 10,000 results
-- Remedy: Narrow your search by using more keywords, or use keyword “maxResults”.
+- Remedy: Narrow your search by using more keywords, or use keyword “maxResults”. You can preview the number of results by using "output=count".
 
 **Trouble Area: API request returns process ID (PID) numbers but does not return query results**
 
 - Reason: URLs at the command line may require the “&” to be escaped
-- Remedy: Replace ampersand “&” with backslash ampersand “\&” in the URL. OR use double quotes ” ” around the URL; URLs submitted via the browser use ampersand “&” without the backslash.
+- Remedy: Replace “&” with “\&” in the URL. Or use double quotes ” ” around the URL; URLs submitted via the browser use ampersand “&” without the backslash.
 
 **Trouble Area: Keyword not respected**
 
@@ -74,7 +74,7 @@
 **Trouble Area: Keyword not respected**
 
 - Reason: Keyword is deprecated
-- Remedy: See the [Keyword List](/api/keywords) for a list of deprecated keywords.
+- Remedy: Ensure that you are using a valid keyword, as found in the [Keyword List](/api/keywords).
 
 **Trouble Area: CSV and JSON do not contain the same output**
 

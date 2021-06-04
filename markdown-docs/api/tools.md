@@ -1,12 +1,16 @@
 # Search API Tools
 
-This section will provide some example commands & details on some of the programs you can use to write & run Search API queries.
+Searches may be executed in the browser or in the command prompt window.
+
+Alternatively, you may use a program to assist you with Search API queries. This section will provide some details on a few of the programs you can use to write & run Search API queries and some example commands for each.
 
 **Program Details**
 
 - [aria2](https://wiki.archlinux.org/title/aria2)
 - [Wget](https://www.gnu.org/software/wget/)
 - [cURL](https://curl.se/docs/manpage.html)
+
+Both [Wget](http://wget.addictivecode.org/FrequentlyAskedQuestions.html?action=show&redirect=Faq#download) and [cURL](https://curl.se/) are often installed on Linux systems. cURL is part of the Mac OS, and Wget can be installed. Microsoft Windows OS does not come with either installed, but both can be downloaded. cURL is easier to set up on a Windows machine. [aria2](https://aria2.github.io/) can be installed on Windows, Mac, or Linux systems.
 
 ## Examples using aria2
 
@@ -40,7 +44,7 @@ Refer to the complete documentation on [configuration files for aria2](https://a
 
 ## Examples using Wget
 
-Once you have the download URL, you can download files individually using Wget. You can find the download URL using outputs csv, json, metalink, geojson, or jsonlite.
+Once you have the download URL, you can download files individually using Wget. You can find the download URL for your desired results by first using outputs csv, json, metalink, geojson, or jsonlite.
 
 **Wget - Linux/Mac Example — Download a file**
 
