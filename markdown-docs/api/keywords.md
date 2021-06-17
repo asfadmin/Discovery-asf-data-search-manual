@@ -7,13 +7,23 @@ https://api.daac.asf.alaska.edu/services/search/param
 
 ### Dataset Parameters
 - platform
+	- See also 'instrument'
 	- Remote sensing platform that acquired the data. Sentinel-1 and ERS have multiple remote sensing platforms, and you may choose whether to specify a specific platform. You may specify a single value, or a list of values.
 	- Example:
 		- platform=ALOS
 		- platform=SA,SB
 		- platform=S1
 	- Values:
-		- ‌ALOS, A3, AIRSAR, AS, ERS, ERS‌-1, E1, ERS‌-2, E2, JERS‌-1, J1, RADARSAT‌-1, R1, SEASAT, SS, S1, Sentinel, Sentinel-1, Sentinel-1A, SA, Sentinel-1B, SB, SMAP, SP, UAVSAR, UA
+		- ALOS, A3, AIRSAR, AS, ERS, ERS-1, E1, ERS-2, E2, JERS-1, J1, RADARSAT-1, R1, SEASAT, SS, S1, Sentinel, Sentinel-1, Sentinel-1A, SA, Sentinel-1B, Sentinel-1 Interferogram (BETA), SB, SMAP, SP, UAVSAR, UA,
+
+- instrument
+	- See also 'platform'
+	- Remote sensing instrument that acquired the data. For some platforms, such as ALOS, there are multiple instruments to choose from.
+	- Example:
+		- ALOS: instrument=PALSAR
+		- ALOS: instrument=AVNIR-2
+	- Values:
+		- C-SAR, PALSAR, AVNIR-2
 
 - absoluteOrbit
 	- For ALOS, ERS-1, ERS-2, JERS-1, RADARSAT-1, Sentinel-1A, and Sentinel-1B this value corresponds to the orbit count within the orbit cycle. For UAVSAR it is the [Flight ID](https://uavsar.jpl.nasa.gov/cgi-bin/data.pl?_ga=2.34282209.1335434931.1620087198-1930115146.1605056035). You may specify a single value, range of values, or a list of values.
@@ -23,7 +33,8 @@ https://api.daac.asf.alaska.edu/services/search/param
 		- UAVSAR: absoluteOrbit=12006
 
 - asfframe
-	- This is primarily an ASF / [JAXA](https://global.jaxa.jp/) frame reference. However, some platforms use other conventions. See 'frame' for ESA-centric frame searches. You may specify a single value, range of values, or a list of values.
+	- See also 'frame'
+	- This is primarily an ASF / [JAXA](https://global.jaxa.jp/) frame reference. However, some platforms use other conventions. You may specify a single value, range of values, or a list of values.
 	- Example:
 		- asfframe=300 or asfframe=2845-2855 or asfframe=2800,2845-2855
 	- Values:
@@ -31,6 +42,18 @@ https://api.daac.asf.alaska.edu/services/search/param
 		- ALOS PALSAR: JAXA frames 0 to 7200
 		- SEASAT: ESA-like frames 0208 to 3458  (must use a leading zero for frames 208-999)
 		- Sentinel-1: In-house values 0 to 1184
+
+- maxBaselinePerp
+	- For interferometric SAR (InSAR) analysis, Perpendicular Baseline is the spatial distance between the first and second observations measured perpendicular to the satellite look direction and provides an indication of the sensitivity to topographic height.
+	- Works for ERS-1, ERS-2, JERS, RADARSAT-1, ALOS PALSAR. (Not Sentinel-1)
+	- Example:
+		- maxBaselinePerp=1500 or maxBaselinePerp=50.5
+
+- minBaselinePerp
+	- For interferometric SAR (InSAR) analysis, Perpendicular Baseline is the spatial distance between the first and second observations measured perpendicular to the satellite look direction and provides an indication of the sensitivity to topographic height.
+	- Works for ERS-1, ERS-2, JERS, RADARSAT-1, ALOS PALSAR. (Not Sentinel-1)
+	- Example:
+		- minBaselinePerp=100 or minBaselinePerp=50.5
 
 - beamMode
 	- The beam mode used to acquire the data. See also beamSwath. You may specify a single value, or a list of values.
@@ -72,6 +95,26 @@ https://api.daac.asf.alaska.edu/services/search/param
 		- UAVSAR: collectionName=ABoVE
 		- AIRSAR: collectionName=collectionName=Akiyoshi,+Japan
 
+- maxDoppler
+	- Doppler provides an indication of how much the look direction deviates from the ideal perpendicular flight direction acquisition.
+	- Example:
+		- maxDoppler=1500 or maxDoppler=1500.5
+
+- minDoppler
+	- Doppler provides an indication of how much the look direction deviates from the ideal perpendicular flight direction acquisition.
+	- Example:
+		- minDoppler=100 or minDoppler=1500.5
+
+- maxFaradayRotation
+	- Rotation of the polarization plane of the radar signal impacts imagery. HH and HV signals become mixed. One-way rotations exceeding 5° are likely to significantly reduce the accuracy of geophysical parameter recovery, such as forest biomass.
+	- Example:
+		- maxFaradayRotation=3.5
+
+- minFaradayRotation
+	- Rotation of the polarization plane of the radar signal impacts imagery. HH and HV signals become mixed. One-way rotations exceeding 5° are likely to significantly reduce the accuracy of geophysical parameter recovery, such as forest biomass.
+	- Example:
+		- minFaradayRotation=2
+
 - flightDirection
 	- Satellite orbit direction during data acquisition. You may specify a single value.
 	- Example:
@@ -86,7 +129,8 @@ https://api.daac.asf.alaska.edu/services/search/param
 		- AIRSAR: flightLine=gilmorecreek045-1.93044
 
 - frame
-	- ESA-referenced frames are offered to give users a universal framing convention. Each ESA frame has a corresponding ASF frame assigned. See also 'asfframe'. You may specify a single value, range of values, or a list of values.
+	- See also 'asfframe'
+	- ESA-referenced frames are offered to give users a universal framing convention. Each ESA frame has a corresponding ASF frame assigned. You may specify a single value, range of values, or a list of values.
 	- Example:
 		- frame=300
 		- frame=300-400
@@ -95,12 +139,35 @@ https://api.daac.asf.alaska.edu/services/search/param
 	- Values:
 		- Any number from 0 to 7200.
 
+- granule_list
+	- Comma-separated list of specific scenes (granules). Large lists will need to utilize a [POST request](https://en.wikipedia.org/wiki/POST_(HTTP)).
+	- *Note: specifying a granule list will supersede most other keywords.*
+	- Example:
+		- granule_list=S1B_IW_GRDH_1SDV_20161124T032008_20161124T032033_003095_005430_9906,ALPSRP111041130
+
+- groupid
+	- Comma-separated list of specific group IDs. For some datasets, the group ID is the same as the scene name. For others, such as Sentinel-1, the group ID is unique for a group of scenes. The group ID value is included in JSON and CSV outputs.
+	- Example:
+		- groupid=S1A_IWDV_0112_0118_037147_150
+
 - lookDirection
 	- Left or right direction of data acquisition. You may specify a single value.
 	- Example:
 		- lookDirection=L
 	- Values:
 		- R, RIGHT, L, LEFT
+
+- maxInsarStackSize
+	- An InSAR stack is composed of all SAR granules that cover the same geographic region, are from the same platform, and were acquired with the same beam mode, look angle, and bandwidth. To obtain InSAR stacks containing a certain number of SAR granules specify a min, max, or both.
+	- Works for ERS-1, ERS-2, JERS, RADARSAT-1, ALOS PALSAR. (Not Sentinel-1)
+	- Example:
+		- maxInsarStackSize=175
+
+- minInsarStackSize
+	- An InSAR stack is composed of all SAR granules that cover the same geographic region, are from the same platform, and were acquired with the same beam mode, look angle, and bandwidth. To obtain InSAR stacks containing a certain number of SAR granules specify a min, max, or both.
+	- Works for ERS-1, ERS-2, JERS, RADARSAT-1, ALOS PALSAR. (Not Sentinel-1)
+	- Example:
+		- minInsarStackSize=20
 
 - offNadirAngle
 	- Off-nadir angles for ALOS PALSAR. You may specify a single value, range of values, or a list of values.
@@ -148,6 +215,11 @@ https://api.daac.asf.alaska.edu/services/search/param
 		- SMAP: L1A_Radar_RO_QA, L1B_S0_LoRes_HDF5, L1B_S0_LoRes_QA, L1B_S0_LoRes_ISO_XML, L1A_Radar_QA, L1A_Radar_RO_ISO_XML, L1C_S0_HiRes_ISO_XML, L1C_S0_HiRes_QA, L1C_S0_HiRes_HDF5, L1A_Radar_HDF5
 		- UAVSAR: KMZ, PROJECTED, PAULI, PROJECTED_ML5X5, STOKES, AMPLITUDE, BROWSE, COMPLEX, DEM_TIFF, PROJECTED_ML3X3, METADATA, AMPLITUDE_GRD, INTERFEROMETRY, INTERFEROMETRY_GRD, THUMBNAIL
 
+- product_list
+	- Comma-separated list of specific files (products). Large lists will need to utilize a [POST request](https://en.wikipedia.org/wiki/POST_(HTTP)).
+	- Example:
+		- product_list=ALAV2A276512920,S1A_IW_SLC__1SDV_20210614T154839_20210614T154905_038338_048643_D7E4-SLC
+
 - relativeOrbit
 	- Path or track of satellite during data acquisition. For UAVSAR it is the [Line ID](https://uavsar.jpl.nasa.gov/cgi-bin/data.pl?_ga=2.201268782.1252483948.1620685771-1930115146.1605056035). You may specify a single value, range of values, or a list of values.
 	- Example:
@@ -164,27 +236,10 @@ https://api.daac.asf.alaska.edu/services/search/param
 
 ### Geospatial Parameters
 - bbox
+	- *Deprecation Notice:* This keyword will be deprecated. Please use 'intersectsWith' instead.
 	- Bounding boxes define an area using two long/lat points. The Bounding box parameters are 4 comma-separated numbers: lower left longitude,latitude, and upper right longitude,latitude. This is a great choice for very wide search areas.
 	- Example:
 		- bbox=-150.2,65.0,-150.1,65.5
-
-- granule_list
-	- Comma-separated list of specific granules. Large lists will need to utilize a [POST request](https://en.wikipedia.org/wiki/POST_(HTTP)).
-	- *Note: specifying a granule list will supersede most other keywords.*
-	- Example:
-		- granule_list=S1B_IW_GRDH_1SDV_20161124T032008_20161124T032033_003095_005430_9906,ALPSRP111041130
-
-- maxInsarStackSize
-	- An InSAR stack is composed of all SAR granules that cover the same geographic region, are from the same platform, and were acquired with the same beam mode, look angle, and bandwidth. To obtain InSAR stacks containing a certain number of SAR granules specify a min, max, or both.
-	- Works for ERS-1, ERS-2, JERS, RADARSAT-1, ALOS PALSAR. (Not Sentinel-1)
-	- Example:
-		- maxInsarStackSize=175
-
-- minInsarStackSize
-	- An InSAR stack is composed of all SAR granules that cover the same geographic region, are from the same platform, and were acquired with the same beam mode, look angle, and bandwidth. To obtain InSAR stacks containing a certain number of SAR granules specify a min, max, or both.
-	- Works for ERS-1, ERS-2, JERS, RADARSAT-1, ALOS PALSAR. (Not Sentinel-1)
-	- Example:
-		- minInsarStackSize=20
 
 - intersectsWith
 	- Search by polygon, a line segment (“linestring”), or a point defined in 2-D Well-Known Text (WKT). Each polygon must be explicitly closed, i.e. the first vertex and the last vertex of each listed polygon must be identical. Coordinate pairs for each vertex are in decimal degrees: longitude is followed by latitude.
@@ -199,6 +254,7 @@ https://api.daac.asf.alaska.edu/services/search/param
 		- intersectsWith=point%28-119.543+37.925%29
 
 - polygon
+	- *Deprecation Notice:* This keyword will be deprecated. Please use 'intersectsWith' instead.
 	- Bounding polygon in the digital long/lat format; enter coordinates in counter clockwise direction, repeat the first point at the end to close the polygon: in the format ABCDA
 	- Example:
 		- polygon=-155.08,65.82,-153.5,61.91,-149.50,63.07,-149.94,64.55,-153.28,64.47,-155.08,65.82
@@ -234,46 +290,13 @@ https://api.daac.asf.alaska.edu/services/search/param
 	- Values:
 		- 1 through 365
 
-### Perpendicular Parameters
-- maxBaselinePerp
-	- For interferometric SAR (InSAR) analysis, Perpendicular Baseline is the spatial distance between the first and second observations measured perpendicular to the satellite look direction and provides an indication of the sensitivity to topographic height.
-	- Works for ERS-1, ERS-2, JERS, RADARSAT-1, ALOS PALSAR. (Not Sentinel-1)
-	- Example:
-		- maxBaselinePerp=1500 or maxBaselinePerp=50.5
-
-- minBaselinePerp
-	- For interferometric SAR (InSAR) analysis, Perpendicular Baseline is the spatial distance between the first and second observations measured perpendicular to the satellite look direction and provides an indication of the sensitivity to topographic height.
-	- Works for ERS-1, ERS-2, JERS, RADARSAT-1, ALOS PALSAR. (Not Sentinel-1)
-	- Example:
-		- minBaselinePerp=100 or minBaselinePerp=50.5
-
-- maxDoppler
-	- Doppler provides an indication of how much the look direction deviates from the ideal perpendicular flight direction acquisition.
-	- Example:
-		- maxDoppler=1500 or maxDoppler=1500.5
-
-- minDoppler
-	- Doppler provides an indication of how much the look direction deviates from the ideal perpendicular flight direction acquisition.
-	- Example:
-		- minDoppler=100 or minDoppler=1500.5
-
-- maxFaradayRotation
-	- Rotation of the polarization plane of the radar signal impacts imagery. HH and HV signals become mixed. One-way rotations exceeding 5° are likely to significantly reduce the accuracy of geophysical parameter recovery, such as forest biomass.
-	- Example:
-		- maxFaradayRotation=3.5
-
-- minFaradayRotation
-	- Rotation of the polarization plane of the radar signal impacts imagery. HH and HV signals become mixed. One-way rotations exceeding 5° are likely to significantly reduce the accuracy of geophysical parameter recovery, such as forest biomass.
-	- Example:
-		- minFaradayRotation=2
-
 ### Results Parameters
 - output
-	- Desired format of the API search results. If not specified, the default format is metalink.
+	- Desired format of the API search results. If not specified, the default format is metalink. The preferred format is geoJSON.
 	- Example:
-		- output=json
+		- output=geojson
 	- Values:
-		- csv, json, kml, metalink, count, download, geojson, jsonlite
+		- geojson, csv, json, kml, metalink, count, download
 	- Notes:
 		- DOWNLOAD returns a bulk download script that includes the files returned by the search. See the [Bulk Download documentation](https://asf.alaska.edu/how-to/data-tools/data-tools/#bulk_download) for a full guide on using the bulk download script.
 
@@ -300,11 +323,11 @@ https://api.daac.asf.alaska.edu/services/search/baseline
 		- Sentinel-1A & Sentinel-1B: SLC
 
 - output
-	- Desired format of the API search results. If not specified, the default format is metalink.
+	- Desired format of the API search results. If not specified, the default format is metalink. The preferred format is geoJSON.
 	- Example:
-		- output=json
+		- output=geojson
 	- Values:
-		- csv, json, kml, metalink, count, download, geojson, jsonlite
+		- geojson, csv, json, kml, metalink, count, download
 	- Notes:
 		- DOWNLOAD returns a bulk download script that includes the files returned by the search. See the [Bulk Download documentation](https://asf.alaska.edu/how-to/data-tools/data-tools/#bulk_download) for a full guide on using the bulk download script.
 
@@ -339,10 +362,6 @@ https://api.daac.asf.alaska.edu/health
 
 This endpoint is used to check the Search API health. There are no keywords associated with the health check endpoint.
 
-<!-- ## Reference Endpoint
-https://api.daac.asf.alaska.edu/reference
-
-This endpoint redirects to the [API documentation](/api/basics) -->
 
 
 <!-- ####Deprecated Keywords
