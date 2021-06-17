@@ -12,6 +12,29 @@ Alternatively, you may use a program to assist you with Search API queries. This
 
 Both [Wget](http://wget.addictivecode.org/FrequentlyAskedQuestions.html?action=show&redirect=Faq#download) and [cURL](https://curl.se/) are often installed on Linux systems. cURL is part of the Mac OS, and Wget can be installed. Microsoft Windows OS does not come with either installed, but both can be downloaded. cURL is easier to set up on a Windows machine. [aria2](https://aria2.github.io/) can be installed on Windows, Mac, or Linux systems.
 
+**Syntax tips**
+
+1. A "?" separates the endpoint URL from the keywords.
+2. Keywords are joined by a "&". Some operating systems or programs may require a "\&"
+3. There may not be any spaces or parentheses in the URL string. See below for character encoding.
+
+**Character Encoding:**
+
+>space
+>
+>replace with '%20'. Use '+'  in keyword values
+>
+>(
+>
+>replace with '%28'
+>
+>)
+>
+>replace with '%29'
+>
+
+For a complete list of URL codes, please see [URL Encoding Reference](https://www.w3schools.com/tags/ref_urlencode.asp).
+
 ## Examples using aria2
 
 aria2c can be used to download results from the Search API with a single command. You will need to include your Earthdata username and password, all desired keywords & values, and ensure that output=metalink.
@@ -44,7 +67,7 @@ Refer to the complete documentation on [configuration files for aria2](https://a
 
 ## Examples using Wget
 
-Once you have the download URL, you can download files individually using Wget. You can find the download URL for your desired results by first using outputs csv, json, metalink, geojson, or jsonlite.
+Once you have the download URL, you can download files individually using Wget. You can find the download URL for your desired results by first using outputs csv, json, metalink, or geojson.
 
 **Wget - Linux/Mac Example — Download a file**
 

@@ -5,37 +5,25 @@
 - Reason: Invisible double quotes inserted when copy/pasting examples
 - Remedy: Delete the visible quotes, which will delete the invisible quotes. Then retype quotes.
 
+Check
 **Trouble Area: Download fails with “401 Unauthorized” or “Authorization failed”**
 
 - Reason: Missing or invalid Earthdata username/password
 - Remedy: Check that you are correctly including your Earthdata username and password in your download command or config file.
 
+Check
 **Trouble Area: Download fails with “401 Unauthorized” or “Authorization failed”**
 
 - Reason: Special characters in Earthdata password
 - Remedy: Passwords with special characters need single quotes on Linux/Mac and double-quotes on Windows.
-
-**Trouble Area: Cookie request to /services/authentication/ fails with “410 Gone”**
-
-- Reason: Cookie URL has been retired
-- Remedy: It’s no longer necessary to request an authorization cookie before downloading data.
 
 **Trouble Area: Can’t authenticate**
 
 - Reason: Missing study area or EULA
 - Remedy: Log in to Earthdata and ensure your study area is set, and you have agreed to all necessary End-User License Agreements.
 
-**Trouble Area: Wget or cURL command copied from the webpage doesn’t work**
-
-- Reason: Copy/paste over multiple lines can introduce errors
-- Remedy: Copy and paste one line at a time.
-
-**Trouble Area: Wget or cURL command copied from the webpage doesn’t work**
-
-- Reason: Quotes look the same but are interpreted differently
-- Remedy: Where single quotes are present, delete and retype them.
-
 <!-- I don't understand this one, there are no keywords that have a space in them. Is this still valid? -->
+Values might have a space, URL encoding guide
 **Trouble Area: API request with ‘+’ in it fails**
 
 - Reason: Some keywords are stored in the Search API as two words with a space between them, some as two words joined with a ‘+’
@@ -46,40 +34,22 @@
 - Reason: https is required
 - Remedy: Make sure you are using https, not http.
 
-**Trouble Area: Can’t download PALSAR data**
-
-- Reason: You must agree to the PALSAR EULA in order to download PALSAR data
-- Remedy: Log in to Earthdata and agree to the End-User License Agreement, then retry downloading.
-
+Del, URL encoding
 **Trouble Area: API request hangs, fails, or returns an error**
 
 - Reason: Your URL may include spaces or special characters, especially if you are using the ‘intersectsWith’ keyword
 - Remedy: Remove spaces or replace with '%20' or '+'.
 
-**Trouble Area: API request hangs or fails**
+15 min cap
+**Trouble Area: API request not expected # results**
 
 - Reason: The search may exceed 10,000 results
 - Remedy: Narrow your search by using more keywords, or use keyword “maxResults”. You can preview the number of results by using "output=count".
 
-**Trouble Area: API request returns process ID (PID) numbers but does not return query results**
-
-- Reason: URLs at the command line may require the “&” to be escaped
-- Remedy: Replace “&” with “\&” in the URL. Or use double quotes ” ” around the URL; URLs submitted via the browser use ampersand “&” without the backslash.
-
-**Trouble Area: Keyword not respected**
-
-- Reason: Keywords are case sensitive
-- Remedy: Ensure that your keywords are capitalized (or not) just as in the [Keyword List](/api/keywords).
-
-**Trouble Area: Keyword not respected**
-
-- Reason: Keyword is deprecated
-- Remedy: Ensure that you are using a valid keyword, as found in the [Keyword List](/api/keywords).
-
-**Trouble Area: CSV and JSON do not contain the same output**
+**Trouble Area: Selected output format does not include needed fields**
 
 - Reason: The JSON output returns more fields than CSV
-- Remedy: Depending on which fields you wish to see, you may select CSV or JSON output. You may also try JSONLITE output.
+- Remedy: GeoJSON is the preferred default format. If a required field is not included, please contact ASF using the info below or reach the team directly at uaf-asf-discovery@alaska.edu
 
 <!-- - Trouble Area: Certificate rejected
 	- Reason: Third-party certificates out of date, a problem for https searches

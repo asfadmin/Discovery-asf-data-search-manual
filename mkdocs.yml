@@ -23,6 +23,7 @@ nav:
   #   - Search API Keywords: api/keywords.md
   #   - Tools: api/tools.md
   #   - Troubleshooting: api/troubleshooting.md
+  #   - Cookbook: api/cookbook.md
   # - About: about.md
   - Product Details:
     - ALOS PALSAR Products: datasets/palsar.md
