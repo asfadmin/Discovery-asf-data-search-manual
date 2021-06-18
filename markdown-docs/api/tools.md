@@ -1,16 +1,8 @@
 # Search API Tools
 
-Searches may be executed in the browser or in the command prompt window.
+Searches may be executed in a variety of ways, depending on your needs. On this page, you will find syntax & character encoding tips, and further information on some of the ways to run Search API queries.
 
-Alternatively, you may use a program to assist you with Search API queries. This section will provide some details on a few of the programs you can use to write & run Search API queries and some example commands for each.
-
-**Program Details**
-
-- [aria2](https://wiki.archlinux.org/title/aria2)
-- [Wget](https://www.gnu.org/software/wget/)
-- [cURL](https://curl.se/docs/manpage.html)
-
-Both [Wget](http://wget.addictivecode.org/FrequentlyAskedQuestions.html?action=show&redirect=Faq#download) and [cURL](https://curl.se/) are often installed on Linux systems. cURL is part of the Mac OS, and Wget can be installed. Microsoft Windows OS does not come with either installed, but both can be downloaded. cURL is easier to set up on a Windows machine. [aria2](https://aria2.github.io/) can be installed on Windows, Mac, or Linux systems.
+## Syntax and Character Encoding
 
 **Syntax tips**
 
@@ -35,7 +27,17 @@ Both [Wget](http://wget.addictivecode.org/FrequentlyAskedQuestions.html?action=s
 
 For a complete list of URL codes, please see [URL Encoding Reference](https://www.w3schools.com/tags/ref_urlencode.asp).
 
-## Examples using aria2
+## Program Details
+
+You may use a program to assist you with Search API queries. This section will provide some details on a few of the programs you can use to write & run Search API queries and some example commands for each.
+
+- [aria2](https://wiki.archlinux.org/title/aria2)
+- [Wget](https://www.gnu.org/software/wget/)
+- [cURL](https://curl.se/docs/manpage.html)
+
+Both [Wget](http://wget.addictivecode.org/FrequentlyAskedQuestions.html?action=show&redirect=Faq#download) and [cURL](https://curl.se/) are often installed on Linux systems. cURL is part of the Mac OS, and Wget can be installed. Microsoft Windows OS does not come with either installed, but both can be downloaded. cURL is easier to set up on a Windows machine. [aria2](https://aria2.github.io/) can be installed on Windows, Mac, or Linux systems.
+
+### Examples using aria2
 
 aria2c can be used to download results from the Search API with a single command. You will need to include your Earthdata username and password, all desired keywords & values, and ensure that output=metalink.
 
@@ -65,7 +67,7 @@ Additional aria2 options available at the [aria2 manual](http://aria2.sourceforg
 
 Refer to the complete documentation on [configuration files for aria2](https://aria2.github.io/manual/en/html/aria2c.html#aria2-conf).
 
-## Examples using Wget
+### Examples using Wget
 
 Once you have the download URL, you can download files individually using Wget. You can find the download URL for your desired results by first using outputs csv, json, metalink, or geojson.
 
@@ -107,7 +109,7 @@ Additional Wget options at the [GNU Wget Manual](https://www.gnu.org/software/wg
 
 Refer to the complete documentation on [configuration files for Wget](https://www.gnu.org/software/wget/manual/html_node/Startup-File.html#Startup-File).
 
-## Examples using cURL
+### Examples using cURL
 
 **cURL - Mac/Linux Example**
 
@@ -144,3 +146,8 @@ You can also send results to a file on your PC
 **Download Example - Windows**
 
       curl -L “https://api.daac.asf.alaska.edu/services/search/param?granule_list=ALPSRP074606580,ALPSRP077086550&output=METALINK” >myfilename.metalink
+
+## Web Browser
+
+You may run the Search API queries directly in a web browser of your choice.
+

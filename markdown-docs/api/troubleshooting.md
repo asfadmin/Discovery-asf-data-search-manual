@@ -5,13 +5,13 @@
 - Reason: Invisible double quotes inserted when copy/pasting examples
 - Remedy: Delete the visible quotes, which will delete the invisible quotes. Then retype quotes.
 
-Check
+<!-- Check -->
 **Trouble Area: Download fails with “401 Unauthorized” or “Authorization failed”**
 
 - Reason: Missing or invalid Earthdata username/password
 - Remedy: Check that you are correctly including your Earthdata username and password in your download command or config file.
 
-Check
+<!-- Check -->
 **Trouble Area: Download fails with “401 Unauthorized” or “Authorization failed”**
 
 - Reason: Special characters in Earthdata password
@@ -22,34 +22,40 @@ Check
 - Reason: Missing study area or EULA
 - Remedy: Log in to Earthdata and ensure your study area is set, and you have agreed to all necessary End-User License Agreements.
 
-<!-- I don't understand this one, there are no keywords that have a space in them. Is this still valid? -->
-Values might have a space, URL encoding guide
-**Trouble Area: API request with ‘+’ in it fails**
+**Trouble Area: Search API request with ‘+’ in it fails**
 
-- Reason: Some keywords are stored in the Search API as two words with a space between them, some as two words joined with a ‘+’
-- Remedy: Try replacing the ‘+’ with ‘%2B’.
+- Reason: Some keyword values could contain spaces.
+- Remedy: Try replacing the ‘+’ with ‘%2B’. For further details, refer to Character Encoding on the [Tools page](/api/tools).
 
-**Trouble Area: API request fails**
+**Trouble Area: Search API request fails**
 
 - Reason: https is required
 - Remedy: Make sure you are using https, not http.
 
-Del, URL encoding
-**Trouble Area: API request hangs, fails, or returns an error**
+**Trouble Area: Search API request hangs, fails, or returns an error**
 
-- Reason: Your URL may include spaces or special characters, especially if you are using the ‘intersectsWith’ keyword
-- Remedy: Remove spaces or replace with '%20' or '+'.
+- Reason: Your URL may include spaces or special characters.
+- Remedy: Refer to Character Encoding on the [Tools page](/api/tools) and ensure you are encoding spaces and special characters correctly.
 
-15 min cap
-**Trouble Area: API request not expected # results**
+**Trouble Area: Search API returns Validation Error**
 
-- Reason: The search may exceed 10,000 results
-- Remedy: Narrow your search by using more keywords, or use keyword “maxResults”. You can preview the number of results by using "output=count".
+- Reason: The reason for the validation error is included in the returned error message.
+- Remedy: Refine your keywords and values as needed. If you are unsure why you received the validation error, you may contact ASF using the info below.
+
+**Trouble Area: Search API query does not return expected number of results**
+
+- Reason: There is a 15 minute time limit on running Search API queries.
+- Remedy: First, try the same query with "output=count". If the count is high, consider narrowing your search by using more keywords, or by using keyword “maxResults” to limit it.
+
+**Trouble Area: Search API query with "product_list" keyword returns no results**
+
+- Reason: Other keywords may be competing with the product_list value(s).
+- Remedy: Try removing other keywords from your query. You may also try "output=count" to see how many results your query should return.
 
 **Trouble Area: Selected output format does not include needed fields**
 
-- Reason: The JSON output returns more fields than CSV
-- Remedy: GeoJSON is the preferred default format. If a required field is not included, please contact ASF using the info below or reach the team directly at uaf-asf-discovery@alaska.edu
+- Reason: Some output formats include different fields.
+- Remedy: GeoJSON is the preferred default format. If a required field is not included, please contact ASF using the info below or reach the team directly at <uaf-asf-discovery@alaska.edu>
 
 <!-- - Trouble Area: Certificate rejected
 	- Reason: Third-party certificates out of date, a problem for https searches

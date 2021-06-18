@@ -1,9 +1,11 @@
 # Search API Keywords
 
-Keywords are used to find the desired data. Use as many or as few keywords as needed. Available keywords and descriptions are listed below for each API endpoint. Keywords are case sensitive.
+Keywords are used to find the desired data. Use as many or as few keywords as needed. Available keywords and descriptions are listed below for each Search API endpoint. Keywords are case sensitive.
+
+*Note:* Any errors will be returned in JSON format.
 
 ## Search Endpoint
-https://api.daac.asf.alaska.edu/services/search/param
+<https://api.daac.asf.alaska.edu/services/search/param>
 
 ### Dataset Parameters
 - platform
@@ -14,7 +16,7 @@ https://api.daac.asf.alaska.edu/services/search/param
 		- platform=SA,SB
 		- platform=S1
 	- Values:
-		- ALOS, A3, AIRSAR, AS, ERS, ERS-1, E1, ERS-2, E2, JERS-1, J1, RADARSAT-1, R1, SEASAT, SS, S1, Sentinel, Sentinel-1, Sentinel-1A, SA, Sentinel-1B, Sentinel-1 Interferogram (BETA), SB, SMAP, SP, UAVSAR, UA,
+		- ALOS, A3, AIRSAR, AS, ERS, ERS-1, E1, ERS-2, E2, JERS-1, J1, RADARSAT-1, R1, SEASAT, SS, S1, Sentinel, Sentinel-1, Sentinel-1A, SA, Sentinel-1B, Sentinel-1 Interferogram (BETA), SB, SMAP, SP, UAVSAR, UA
 
 - instrument
 	- See also 'platform'
@@ -292,13 +294,18 @@ https://api.daac.asf.alaska.edu/services/search/param
 
 ### Results Parameters
 - output
-	- Desired format of the API search results. If not specified, the default format is metalink. The preferred format is geoJSON.
+	- Desired format of the Search API results. If not specified, the default format is metalink. The preferred format is geoJSON.
 	- Example:
 		- output=geojson
 	- Values:
 		- geojson, csv, json, kml, metalink, count, download
-	- Notes:
+	- Description:
+		- GeoJSON is the preferred output format. If a required field is not included, please contact ASF using the info below or reach the team directly at <uaf-asf-discovery@alaska.edu>
+		- KML can be opened in Google Earth, ArcGIS Earth, or a similar program
+		- Count returns the number of results returned by your query. It does not include any additional information.
+		- Metalink provides download information for the scenes returned by your query. It does not include metadata.
 		- DOWNLOAD returns a bulk download script that includes the files returned by the search. See the [Bulk Download documentation](https://asf.alaska.edu/how-to/data-tools/data-tools/#bulk_download) for a full guide on using the bulk download script.
+		- CSV and JSON include scene metadata and the download URLs. JSON returns more fields than CSV.
 
 - maxResults
 	- Maximum number of data records to return from your query.
@@ -306,7 +313,7 @@ https://api.daac.asf.alaska.edu/services/search/param
 		- maxResults=10
 
 ## Baseline Endpoint
-https://api.daac.asf.alaska.edu/services/search/baseline
+<https://api.daac.asf.alaska.edu/services/search/baseline>
 
 - master
 	- This is the only mandatory keyword. Input the reference scene name for which you wish to see baseline results.
@@ -316,20 +323,25 @@ https://api.daac.asf.alaska.edu/services/search/baseline
 	- Example:
 		- processingLevel=L1.5
 	- ProcessingLevel Values Which Contain Baseline Data:
-		- ALOS: L1.5
-		- ERS-1 & ERS-2: L0, L1
-		- JERS-1: L0, L1
-		- RADARSAT-1: L0, L1
+		- ALOS: L1.1, L1.5; default is L1.1
+		- ERS-1 & ERS-2: L0, L1; default is L0
+		- JERS-1: L0, L1; default is L0
+		- RADARSAT-1: L0, L1; default is L0
 		- Sentinel-1A & Sentinel-1B: SLC
 
 - output
-	- Desired format of the API search results. If not specified, the default format is metalink. The preferred format is geoJSON.
+	- Desired format of the Search API results. If not specified, the default format is metalink. The preferred format is geoJSON.
 	- Example:
 		- output=geojson
 	- Values:
 		- geojson, csv, json, kml, metalink, count, download
-	- Notes:
+	- Description:
+		- GeoJSON is the preferred output format. If a required field is not included, please contact ASF using the info below or reach the team directly at <uaf-asf-discovery@alaska.edu>
+		- KML can be opened in Google Earth, ArcGIS Earth, or a similar program
+		- Count returns the number of results returned by your query. It does not include any additional information.
+		- Metalink provides download information for the scenes returned by your query. It does not include metadata.
 		- DOWNLOAD returns a bulk download script that includes the files returned by the search. See the [Bulk Download documentation](https://asf.alaska.edu/how-to/data-tools/data-tools/#bulk_download) for a full guide on using the bulk download script.
+		- CSV and JSON include scene metadata and the download URLs. JSON returns more fields than CSV.
 
 - maxResults
 	- Maximum number of data records to return from your query.
@@ -337,46 +349,41 @@ https://api.daac.asf.alaska.edu/services/search/baseline
 		- maxResults=10
 
 ## Well Known Text Endpoint
-https://api.daac.asf.alaska.edu/services/utils/wkt
+<https://api.daac.asf.alaska.edu/services/utils/wkt>
 <!-- takes a /wkt?wkt=<valid wkt string> -->
 
-https://api.daac.asf.alaska.edu/services/utils/files_to_wkt
+<https://api.daac.asf.alaska.edu/services/utils/files_to_wkt>
 <!-- Takes a post request with files attached (so nothing in the <here> part, but still has something attached) -->
 <!-- I'm not quite sure how to do this -->
 
 ## Date Parser Endpoint
-https://api.daac.asf.alaska.edu/services/utils/date
+<https://api.daac.asf.alaska.edu/services/utils/date>
 
-This endpoint can be used to check how dates are parsed by the API.
+This endpoint can be used to check how dates are parsed by the Search API. All parsed dates are returned in JSON format.
 
 - date
 	- This is the only accepted keyword for this endpoint. You can use natural language, such as "yesterday", dates with or without the time stamp, or days of the week.
 
 ## Mission List Endpoint
-https://api.daac.asf.alaska.edu/services/utils/mission_list
+<https://api.daac.asf.alaska.edu/services/utils/mission_list>
 
-This endpoint lists all missions (also known as campaigns or collections) for all datasets. There are no keywords associated with this endpoint. Any of the missions returned in the list may be used as a value for the collectionName keyword in the Search endpoint.
+This endpoint lists all missions (also known as campaigns or collections) for all datasets. Any of the missions returned in the list may be used as a value for the collectionName keyword in the Search endpoint. The mission list is returned in JSON format.
+
+- platform
+	- This keyword is optional. If used, it will restrict the list of missions to the specified platform(s).
+	- Remote sensing platform that acquired the data. Sentinel-1 and ERS have multiple remote sensing platforms, and you may choose whether to specify a specific platform. You may specify a single value, or a list of values.
+	- Example:
+		- platform=ALOS
+		- platform=SA,SB
+		- platform=S1
+	- Values:
+		- ALOS, A3, AIRSAR, AS, ERS, ERS-1, E1, ERS-2, E2, JERS-1, J1, RADARSAT-1, R1, SEASAT, SS, S1, Sentinel, Sentinel-1, Sentinel-1A, SA, Sentinel-1B, Sentinel-1 Interferogram (BETA), SB, SMAP, SP, UAVSAR, UA
 
 ## Health Endpoint
-https://api.daac.asf.alaska.edu/health
+<https://api.daac.asf.alaska.edu/health>
 
-This endpoint is used to check the Search API health. There are no keywords associated with the health check endpoint.
+This endpoint is used to check the Search API health. It is returned in JSON format. There are no keywords associated with the health check endpoint.
+
+In addition to Search API health, it also returns Search API configs and CMR health status.
 
 
-
-<!-- ####Deprecated Keywords
-- beam: See beamMode
-- direction: See flightDirection
-- format: See output
-- limit: See maxResults
-- lookAngle: See offNadirAngle
-- minPercentCoherence: Deprecated
-- minPercentTroposphere: Deprecated
-- minPercentUnwrapped: Deprecated
-- orbit: See absoluteOrbit
-- offnadir: See offNadirAngle
-- path: See relativeOrbit
-- processing: See processingLevel
-- slaveStart/SlaveEnd: Deprecated
-- varianceTroposphere: Deprecated
- -->
