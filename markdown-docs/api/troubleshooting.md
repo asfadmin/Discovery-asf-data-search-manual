@@ -5,17 +5,15 @@
 - Reason: Invisible double quotes inserted when copy/pasting examples
 - Remedy: Delete the visible quotes, which will delete the invisible quotes. Then retype quotes.
 
-<!-- Check -->
 **Trouble Area: Download fails with “401 Unauthorized” or “Authorization failed”**
 
 - Reason: Missing or invalid Earthdata username/password
 - Remedy: Check that you are correctly including your Earthdata username and password in your download command or config file.
 
-<!-- Check -->
 **Trouble Area: Download fails with “401 Unauthorized” or “Authorization failed”**
 
 - Reason: Special characters in Earthdata password
-- Remedy: Passwords with special characters need single quotes on Linux/Mac and double-quotes on Windows.
+- Remedy: Passwords with special characters will need to be inside quotes.
 
 **Trouble Area: Can’t authenticate**
 

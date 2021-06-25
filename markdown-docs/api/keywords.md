@@ -8,7 +8,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 <https://api.daac.asf.alaska.edu/services/search/param>
 
 ### Dataset Parameters
-- platform
+- platform <!-- <span style="color:blue">some *blue* text</span> -->
 	- See also 'instrument'
 	- Remote sensing platform that acquired the data. Sentinel-1 and ERS have multiple remote sensing platforms, and you may choose whether to specify a specific platform. You may specify a single value, or a list of values.
 	- Example:
@@ -315,7 +315,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 ## Baseline Endpoint
 <https://api.daac.asf.alaska.edu/services/search/baseline>
 
-- master
+- reference
 	- This is the only mandatory keyword. Input the reference scene name for which you wish to see baseline results.
 
 - processingLevel
@@ -348,13 +348,27 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 	- Example:
 		- maxResults=10
 
-## Well Known Text Endpoint
+## Well Known Text Validation Endpoint
 <https://api.daac.asf.alaska.edu/services/utils/wkt>
-<!-- takes a /wkt?wkt=<valid wkt string> -->
+
+This endpoint will validate and repair a WKT input. The repaired WKT output is how the Search API will interpret the provided WKT input. If a WKT cannot be repaired, it will return an error stating the reason. All validations and errors are returned in JSON format.
+
+- wkt
+	- This is the only accepted keyword for this endpoint.
+	- Example:
+		- wkt=GEOMETRYCOLLECTION(POLYGON((46 -19,30 26,-3 41,22 39,49 16,46 -19)), POLYGON((27 24,12 4,18 31,27 24)))
+		- In this example, the JSON return will list the errors that were repaired, and the final wrapped and unwrapped WKT.
+
+You may also utilize a post request.
+
+## Well Known Text Endpoint
 
 <https://api.daac.asf.alaska.edu/services/utils/files_to_wkt>
+<!-- for WKT endpoint: takes a /wkt?wkt=<valid wkt string> -->
 <!-- Takes a post request with files attached (so nothing in the <here> part, but still has something attached) -->
 <!-- I'm not quite sure how to do this -->
+
+This endpoint will accept a post request with files attached. All outputs are returned in JSON format.
 
 ## Date Parser Endpoint
 <https://api.daac.asf.alaska.edu/services/utils/date>

@@ -27,6 +27,12 @@ Searches may be executed in a variety of ways, depending on your needs. On this 
 
 For a complete list of URL codes, please see [URL Encoding Reference](https://www.w3schools.com/tags/ref_urlencode.asp).
 
+**Escaping Characters**
+
+If you are running Search API queries via command line, you may need to escape characters. Escaping a character tells the command line interface to interpret the character literally. Some characters that need to be escaped include spaces and ampersands (&).
+
+For more information on escaping characters, please see the [Bash Scripting Guide](https://tldp.org/LDP/abs/html/escapingsection.html). For Windows users, more information can be found [here](https://ss64.com/nt/syntax-esc.html).
+
 ## Program Details
 
 You may use a program to assist you with Search API queries. This section will provide some details on a few of the programs you can use to write & run Search API queries and some example commands for each.
@@ -43,7 +49,7 @@ aria2c can be used to download results from the Search API with a single command
 
 **Aria2 — Linux/Mac Example - Download Known Scene**
 
-      aria2c –http-auth-challenge=true –http-user=CHANGE_ME –http-passwd=’CHANGE_ME’ “https://api.daac.asf.alaska.edu/services/search/param?granule_list=S1A_EW_GRDM_1SDH_20151003T040339_20151003T040443_007983_00B2A6_DDE4&output=metalink”
+      aria2c --http-auth-challenge=true --http-user=CHANGE_ME --http-passwd='CHANGE_ME' "https://api.daac.asf.alaska.edu/services/search/param?granule_list=S1A_EW_GRDM_1SDH_20151003T040339_20151003T040443_007983_00B2A6_DDE4&output=metalink"
 
 **Aria2 — Windows Example - Download Known Scene**
 
@@ -51,7 +57,7 @@ aria2c can be used to download results from the Search API with a single command
 
 **Aria2 — Download Based on Platform and Time-Range Search**
 
-      aria2c –http-auth-challenge=true –http-user=CHANGE_ME –http-passwd=’CHANGE_ME’ “https://api.daac.asf.alaska.edu/services/search/param?platform=Sentinel-1A&intersectsWith=point(-122.425 37.77)&start=2016-07-01T00:00:00&output=metalink”
+      aria2c --http-auth-challenge=true --http-user=CHANGE_ME --http-passwd='CHANGE_ME' "https://api.daac.asf.alaska.edu/services/search/param?platform=Sentinel-1A&intersectsWith=point(-122.425 37.77)&start=2016-07-01T00:00:00&output=metalink"
 
 You can store your login credentials in a config file, instead of including them in every download command.
 
@@ -77,9 +83,9 @@ Once you have the download URL, you can download files individually using Wget. 
 
 **Wget - Windows Example — Download a file**
 
-      wget --check-certificate=off -c --http-user=CHANGE_ME --http-password="CHANGE_ME" "https://datapool.asf.alaska.edu/GRD_MD/SA/S1A_EW_GRDM_1SDH_20151003T040339_20151003T040443_007983_00B2A6_DDE4.zip"
+      wget --check-certificate=off -c --http-user=CHANGE_ME --http-password='CHANGE_ME' "https://datapool.asf.alaska.edu/GRD_MD/SA/S1A_EW_GRDM_1SDH_20151003T040339_20151003T040443_007983_00B2A6_DDE4.zip"
 
-      wget -c –http-user=CHANGE_ME –http-password=’CHANGE_ME’ “https://datapool.asf.alaska.edu/GRD_MD/SA/S1A_EW_GRDM_1SDH_20151003T040339_20151003T040443_007983_00B2A6_DDE4.zip”
+      wget -c --http-user=CHANGE_ME --http-password='CHANGE_ME' "https://datapool.asf.alaska.edu/GRD_MD/SA/S1A_EW_GRDM_1SDH_20151003T040339_20151003T040443_007983_00B2A6_DDE4.zip"
 
 You can store your login credentials in a config file, instead of including them in every download command.
 
@@ -89,7 +95,8 @@ You can store your login credentials in a config file, instead of including them
       echo 'http_password=CHANGE_ME' >> wget.conf
       chmod 600 wget.conf
 
-      export WGETRC="wget.conf" wget -c "https://datapool.asf.alaska.edu/GRD_MD/SA/S1A_EW_GRDM_1SDH_20151003T040339_20151003T040443_007983_00B2A6_DDE4.zip"
+      export WGETRC="wget.conf"
+      wget -c "https://datapool.asf.alaska.edu/GRD_MD/SA/S1A_EW_GRDM_1SDH_20151003T040339_20151003T040443_007983_00B2A6_DDE4.zip"
 
 You can also send results to a file on your PC
 
@@ -117,9 +124,9 @@ Refer to the complete documentation on [configuration files for Wget](https://ww
 
 **cURL - Windows Example**
 
-Note: Copy/pasting quotation marks sometimes causes errors on Windows. Delete and re-type the quotes after pasting.
+Note: Copy/pasting quotation marks sometimes causes errors. Delete and re-type the quotes after pasting.
 
-      curl “https://api.daac.asf.alaska.edu/services/search/param?platform=R1&absoluteOrbit=25234&output=CSV” > myfilename.csv
+      curl "https://api.daac.asf.alaska.edu/services/search/param?platform=R1&absoluteOrbit=25234&output=CSV" > myfilename.csv
 
 You can also send results to a file on your PC
 
@@ -129,7 +136,7 @@ You can also send results to a file on your PC
 
 **Windows Example — query results sent to a metalink file**
 
-      curl “https://api.daac.asf.alaska.edu/services/search/param?granule_list=ALPSRP074606580,ALPSRP021910740,ALPSRP085800750” > myfilename.metalink
+      curl "https://api.daac.asf.alaska.edu/services/search/param?granule_list=ALPSRP074606580,ALPSRP021910740,ALPSRP085800750" > myfilename.metalink
 
 **Search Example - Mac/Linux**
 
@@ -137,17 +144,19 @@ You can also send results to a file on your PC
 
 **Search Example - Windows**
 
-      curl  “https://api.daac.asf.alaska.edu/services/search/param?platform=r1&asfframe=300&output=CSV” > myfilename.csv
+      curl  "https://api.daac.asf.alaska.edu/services/search/param?platform=r1&asfframe=300&output=CSV" > myfilename.csv
 
 **Visualize Example - Windows**
 
-      curl “https://api.daac.asf.alaska.edu/services/search/param?granule_list=ALPSRP074606580,ALPSRP077086550&output=KML” >myfilename.kml
+      curl "https://api.daac.asf.alaska.edu/services/search/param?granule_list=ALPSRP074606580,ALPSRP077086550&output=KML" >myfilename.kml
 
 **Download Example - Windows**
 
-      curl -L “https://api.daac.asf.alaska.edu/services/search/param?granule_list=ALPSRP074606580,ALPSRP077086550&output=METALINK” >myfilename.metalink
+      curl -L "https://api.daac.asf.alaska.edu/services/search/param?granule_list=ALPSRP074606580,ALPSRP077086550&output=METALINK" >myfilename.metalink
 
 ## Web Browser
 
-You may run the Search API queries directly in a web browser of your choice.
+You may run the Search API queries directly in a web browser of your choice. Simply copy and paste the query into a web browser. Any errors will be returned in JSON format.
+
+You will need to use URL encoding for spaces and parentheses. Please refer to the Character Encoding section or see [URL Encoding Reference](https://www.w3schools.com/tags/ref_urlencode.asp) for more details.
 
