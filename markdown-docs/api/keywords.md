@@ -245,9 +245,10 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 
 - intersectsWith
 	- Search by polygon, a line segment (“linestring”), or a point defined in 2-D Well-Known Text (WKT). Each polygon must be explicitly closed, i.e. the first vertex and the last vertex of each listed polygon must be identical. Coordinate pairs for each vertex are in decimal degrees: longitude is followed by latitude.
-	- Note:
+	- Notes:
 		- Does not support multi-polygon, multi-line or multi-point.
  		- Polygon holes are ignored
+ 		- This keyword also accepts a [POST request](https://en.wikipedia.org/wiki/POST_(HTTP))
  	- Example (*Note: The spaces and parentheses below need to be URL encoded first*):
  		- intersectsWith=polygon((-119.543 37.925, -118.443 37.7421, -118.682 36.8525, -119.77 37.0352, -119.543 37.925 ))
 		- intersectsWith=linestring(-119.543 37.925, -118.443 37.7421)
@@ -359,16 +360,16 @@ This endpoint will validate and repair a WKT input. The repaired WKT output is h
 		- wkt=GEOMETRYCOLLECTION(POLYGON((46 -19,30 26,-3 41,22 39,49 16,46 -19)), POLYGON((27 24,12 4,18 31,27 24)))
 		- In this example, the JSON return will list the errors that were repaired, and the final wrapped and unwrapped WKT.
 
-You may also utilize a post request.
-
 ## Well Known Text Endpoint
 
 <https://api.daac.asf.alaska.edu/services/utils/files_to_wkt>
-<!-- for WKT endpoint: takes a /wkt?wkt=<valid wkt string> -->
-<!-- Takes a post request with files attached (so nothing in the <here> part, but still has something attached) -->
-<!-- I'm not quite sure how to do this -->
 
-This endpoint will accept a post request with files attached. All outputs are returned in JSON format.
+This endpoint will accept a [POST request](https://en.wikipedia.org/wiki/POST_(HTTP)) with files attached. It will return the parsed WKT from the file, as well as the repaired wrapped and unwrapped WKT. All outputs are returned in JSON format. The preferred file format is geojson, but the Search API will also support other formats, such as shapefile or kml.
+
+See the [Tools page](/api/tools) for more details on POST requests.
+
+- Example:
+	- curl -X POST -F 'files=@/path/to/file' 'https://api.aac.asf.alaska.edu/services/utils/files_to_wkt'
 
 ## Date Parser Endpoint
 <https://api.daac.asf.alaska.edu/services/utils/date>

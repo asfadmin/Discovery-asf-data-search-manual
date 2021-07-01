@@ -154,6 +154,23 @@ You can also send results to a file on your PC
 
       curl -L "https://api.daac.asf.alaska.edu/services/search/param?granule_list=ALPSRP074606580,ALPSRP077086550&output=METALINK" >myfilename.metalink
 
+## POST Requests
+Some keywords and endpoints will accept a POST request. The POST examples below are using cURL.
+
+**POST Example - WKT output from file**
+
+      curl -X POST -F 'files=@/path/to/file.geojson' 'https://api.daac.asf.alaska.edu/services/utils/files_to_wkt'
+
+**POST Examples - intersectsWith Keyword**
+
+      curl -X POST -F 'intersectsWith=@/path/to/file' 'https://api.daac.asf.alaska.edu/services/search/param'
+
+You can add additional parameters to your POST request with the -F argument for each desired parameter.
+
+      curl -X POST -F 'platform=S1' -F 'output=geojson' -F 'maxresults=10' -F 'intersectsWith=@/path/to/file' 'https://api.daac.asf.alaska.edu/services/search/param'
+
+For further reading, see [POST requests](https://en.wikipedia.org/wiki/POST_(HTTP))
+
 ## Web Browser
 
 You may run the Search API queries directly in a web browser of your choice. Simply copy and paste the query into a web browser. Any errors will be returned in JSON format.
