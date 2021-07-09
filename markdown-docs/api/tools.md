@@ -8,7 +8,7 @@ Searches may be executed in a variety of ways, depending on your needs. On this 
 
 1. A "?" separates the endpoint URL from the keywords.
 2. Keywords are joined by a "&". Some operating systems or programs may require a "\&"
-3. There may not be any spaces or parentheses in the URL string. See below for character encoding.
+3. There may not be any spaces or parentheses in the URL string. See below for how to encode these characters.
 
 **Character Encoding:**
 
@@ -69,7 +69,7 @@ You can store your login credentials in a config file, instead of including them
 
       aria2c --conf-path=aria2.conf --http-auth-challenge=true "https://api.daac.asf.alaska.edu/services/search/param?granule_list=S1A_EW_GRDM_1SDH_20151003T040339_20151003T040443_007983_00B2A6_DDE4&output=metalink"
 
-Additional aria2 options available at the [aria2 manual](http://aria2.sourceforge.net/manual/en/html/aria2c.html).
+Additional aria2 options are available in the [aria2 manual](http://aria2.sourceforge.net/manual/en/html/aria2c.html).
 
 Refer to the complete documentation on [configuration files for aria2](https://aria2.github.io/manual/en/html/aria2c.html#aria2-conf).
 
@@ -112,7 +112,7 @@ You can also send results to a file on your PC
 
       wget -c -O myfilename.metalink https://api.daac.asf.alaska.edu/services/search/param?granule_list=ALPSRP074606580,ALPSRP077086550\&output=METALINK
 
-Additional Wget options at the [GNU Wget Manual](https://www.gnu.org/software/wget/manual/wget.html).
+Additional Wget options are available in the [GNU Wget Manual](https://www.gnu.org/software/wget/manual/wget.html).
 
 Refer to the complete documentation on [configuration files for Wget](https://www.gnu.org/software/wget/manual/html_node/Startup-File.html#Startup-File).
 
