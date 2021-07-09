@@ -8,7 +8,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 <https://api.daac.asf.alaska.edu/services/search/param>
 
 ### Dataset Parameters
-- platform <!-- <span style="color:blue">some *blue* text</span> -->
+- <span style="color: #ffcd00;">platform</span> <span style="color: #236192;">ASF Blue Text</span>
 	- See also 'instrument'
 	- Remote sensing platform that acquired the data. Sentinel-1 and ERS have multiple remote sensing platforms, and you may choose whether to specify a specific platform. You may specify a single value, or a list of values.
 	- Example:
