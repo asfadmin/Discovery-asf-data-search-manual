@@ -8,7 +8,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 <https://api.daac.asf.alaska.edu/services/search/param>
 
 ### Dataset Parameters
-- <span style="color: #ffcd00;">platform</span>
+- <span style="color: #efdbb2;">platform</span>
 	- See also 'instrument'
 	- Remote sensing platform that acquired the data. Sentinel-1 and ERS have multiple remote sensing platforms, and you may choose whether to specify a specific platform. You may specify a single value, or a list of values.
 	- Example:
@@ -18,7 +18,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 	- Values:
 		- ALOS, A3, AIRSAR, AS, ERS, ERS-1, E1, ERS-2, E2, JERS-1, J1, RADARSAT-1, R1, SEASAT, SS, S1, Sentinel, Sentinel-1, Sentinel-1A, SA, Sentinel-1B, Sentinel-1 Interferogram (BETA), SB, SMAP, SP, UAVSAR, UA
 
-- <span style="color: #ffcd00;">instrument</span>
+- <span style="color: #236192;">instrument</span>
 	- See also 'platform'
 	- Remote sensing instrument that acquired the data. For some platforms, such as ALOS, there are multiple instruments to choose from.
 	- Example:
@@ -34,7 +34,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 		- PALSAR: absoluteOrbit=25436-25445,25450
 		- UAVSAR: absoluteOrbit=12006
 
-- <span style="color: #ffcd00;">asfframe</span>
+- <span style="color: #236192;">asfframe</span>
 	- See also 'frame'
 	- This is primarily an ASF / [JAXA](https://global.jaxa.jp/) frame reference. However, some platforms use other conventions. You may specify a single value, range of values, or a list of values.
 	- Example:
@@ -45,13 +45,13 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 		- SEASAT: ESA-like frames 0208 to 3458  (must use a leading zero for frames 208-999)
 		- Sentinel-1: In-house values 0 to 1184
 
-- <span style="color: #ffcd00;">maxBaselinePerp</span>
+- <span style="color: #c7c9c7;">maxBaselinePerp</span>
 	- For interferometric SAR (InSAR) analysis, Perpendicular Baseline is the spatial distance between the first and second observations measured perpendicular to the satellite look direction and provides an indication of the sensitivity to topographic height.
 	- Works for ERS-1, ERS-2, JERS, RADARSAT-1, ALOS PALSAR. (Not Sentinel-1)
 	- Example:
 		- maxBaselinePerp=1500 or maxBaselinePerp=50.5
 
-- <span style="color: #ffcd00;">minBaselinePerp</span>
+- <span style="color: #d7d2cb;">minBaselinePerp</span>
 	- For interferometric SAR (InSAR) analysis, Perpendicular Baseline is the spatial distance between the first and second observations measured perpendicular to the satellite look direction and provides an indication of the sensitivity to topographic height.
 	- Works for ERS-1, ERS-2, JERS, RADARSAT-1, ALOS PALSAR. (Not Sentinel-1)
 	- Example:
