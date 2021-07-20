@@ -18,8 +18,13 @@ nav:
     - Tutorial Videos: https://www.youtube.com/playlist?list=PLXluIEvp5ZzIWd0yNy-ANfdwWjCD1hInA
     - Source Code: https://github.com/asfadmin/Discovery-SearchUI
   - Custom Processing: https://hyp3-docs.asf.alaska.edu
-  # - ASF API:
-  #   - API Manual: vertex/manual.md
+  - ASF Search API:
+    - Search API Basics: api/basics.md
+    - Search API Keywords: api/keywords.md
+    - Tools: api/tools.md
+    - Troubleshooting: api/troubleshooting.md
+    - Cookbook: api/cookbook.md
+    - What's New: api/changelog.md
   # - About: about.md
   - Product Details:
     - ALOS PALSAR Products: datasets/palsar.md
