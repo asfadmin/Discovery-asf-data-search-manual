@@ -163,11 +163,11 @@ Some keywords and endpoints will accept a POST request. The POST examples below 
 
 **POST Examples - intersectsWith Keyword**
 
-      curl -X POST -F 'intersectsWith=@/path/to/file' 'https://api.daac.asf.alaska.edu/services/search/param'
+      curl -X POST -F 'intersectsWith=LINESTRING(-97.1191 26.4312,-95.5371 29.1522,-83.7598 29.993,-81.5625 25.4036)' 'https://api.daac.asf.alaska.edu/services/search/param'
 
 You can add additional parameters to your POST request with the -F argument for each desired parameter.
 
-      curl -X POST -F 'platform=S1' -F 'output=geojson' -F 'maxresults=10' -F 'intersectsWith=@/path/to/file' 'https://api.daac.asf.alaska.edu/services/search/param'
+      curl -X POST -F 'platform=S1' -F 'output=geojson' -F 'maxresults=10' -F 'intersectsWith=POINT(-102.4805 38.7541)' 'https://api.daac.asf.alaska.edu/services/search/param'
 
 For further reading, see [POST requests](https://en.wikipedia.org/wiki/POST_(HTTP))
 
