@@ -17,13 +17,13 @@ Further reading on baseline, including descriptions of multiple approaches, can 
 ## How to use Vertex SBAS Tool
 Visit **[ASF's Vertex](https://search.asf.alaska.edu)** to begin using the SBAS tool.
 
-#### **Beginning your SBAS Search**
+### **Beginning your SBAS Search**
 
 - If you do not have a particular reference scene chosen, you can search for scenes using the geographic or list search. The center column will have a button under the metadata titled ***SBAS Tool*** for any scenes that are eligible. You may click this button to be directed to an SBAS search. The SBAS search will use the chosen scene as the reference scene.
 
 - If you do have a particular reference scene chosen, you can select ***SBAS*** from the Search Type dropdown list. You may enter your reference scene and hit ***Search***.
 
-#### **Interacting with SBAS Search Results**
+### **Interacting with SBAS Search Results**
 While in SBAS Search type, you will notice many familiar controls in the results panel. The pairs are shown in the left column. The center column lists the metadata for the two endpoints of the selected pair. The SBAS Chart is shown in the right column.
 
 **Result Panel Controls**
@@ -51,6 +51,9 @@ While in SBAS Search type, you will notice many familiar controls in the results
 	4. **Note:** You may also add custom pairs to the On Demand queue.
 - If you wish to stop adding a pair after you have begun, you may click the **Square symbol** to *Stop adding custom pair*.
 - If you wish to delete an added pair, you may click on the dotted pair line and click the **Minus symbol** to *Remove custom pair*. Note that only manually added pairs may be deleted.
+
+#### SBAS Criteria
+
 - Click **SBAS Criteria...** for additional date filtering options.
 	- You may enter a **Start** or **End** date, or select dates on the calendar.
 	- **Seasonal Search** allows constraining the results to certain annual periods within an overall range of dates.  Click the Seasonal Search toggle and additional options will appear, allowing you to adjust the sliders to specify a seasonal range (*Season Start Day/Season End Day*).

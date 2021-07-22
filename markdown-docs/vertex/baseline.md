@@ -6,13 +6,13 @@ Baseline uses information from two synthetic aperture radar (SAR) images of the 
 ## How to use Vertex Baseline Tool
 Visit **[ASF's Vertex](https://search.asf.alaska.edu)** to begin using the Baseline tool.
 
-#### **Beginning your Baseline Search**
+### **Beginning your Baseline Search**
 
 - If you do not have a particular reference scene chosen, you can search for scenes using the geographic or list search. The center column will have a button under the metadata titled ***Baseline Tool*** for any scenes that are eligible. You may click this button to be directed to a Baseline search. The Baseline search will use the chosen scene as the reference scene.
 
 - If you do have a particular reference scene chosen, you can select ***Baseline*** from the Search Type dropdown list. You may enter your reference scene and hit ***Search***.
 
-#### **Interacting with Baseline Search Results**
+### **Interacting with Baseline Search Results**
 While in Baseline Search type, you will notice many familiar controls in the results panel. The scenes are shown in the left column. The perpendicular and temporal baselines are listed next to each scene. The center column lists the metadata for the selected scene, and includes the **Set as Reference** button, which allows you to set any scene in the stack as the reference scene. The Baseline Chart is shown in the right column.
 
 **Result Panel Controls**
@@ -30,6 +30,9 @@ While in Baseline Search type, you will notice many familiar controls in the res
 - The dots on the chart represent individual scenes. Hovering over them will list their temporal and perpendicular values. You may also click on any point to select that scene. The metadata in the center column will be updated.
 - Located above the chart, there are labels and corresponding colors. These indicate how the reference scene, selected scene, and any scenes in your download queue are displayed on the chart. Some datasets include a shaded area which indicates the critical baseline.
 - You may zoom and pan the chart.
+
+#### Baseline Criteria
+
 - You may click **Baseline Criteria...** above the chart for additional options.
 	- You can adjust the sliders to change the perpendicular and temporal values that you wish to be included in your results.
 	- You can enter a start and end date.
