@@ -20,6 +20,10 @@
 	- Once a shape has been drawn, select the **Edit current area of interest** icon on the toolbar to move, add, and delete points. Select the **Draw new area of interest** icon to create a new AOI.
 - **Dataset** enables you to choose the dataset of interest.
 	- If you need more information about a particular dataset, click on the appropriate question mark icon in the Dataset selector.
+- **Filters...** enables you to further refine your search
+
+### Area of Interest Options
+
 - **Area of Interest** gives you the option of importing an area of interest as a geospatial file or by entering a set of geographic coordinates.
 	- Click on the down arrow next to **Area of Interest** in the top menu
 	- Click the **Import Area of Interest** button in the Options window
@@ -32,17 +36,25 @@
 		- Once the **Area of Interest** has been set, mouse over the coordinates. A *Copy to clipboard* icon will appear. Click on the icon and paste the coordinates into a new search or to a text file for later use.
 		- Note: See the section **Other Vertex Options** for additional ways of saving searches.
 	- At any time you can clear your search area by clicking on the **Trash can** icon in the top menu bar.
-- **Filters...** enables you to further refine your search
-	- **Date Filters** Search dates are optional, so they default to empty.  If you are searching for specific dates, you can define the date range further in the **Start Date** and **End Date** fields. The date picker will automatically constrain your selection to a valid range for the selected dataset.
-		- *Note*: this information may also be found by clicking on the question mark icon for a dataset.
-		- **Seasonal Search** allows constraining the search to certain annual periods within an overall range of dates.  Click the Seasonal Search toggle and additional options will appear, allowing you to enter an overall date range (*Start Date/End Date*) and the seasonal range (*Season Start Day/Season End Day*).
-	- **Additional Filters** allow for additional parameters to be applied to narrow your search and reduce the number of results. Not all filters will be available for all datasets.
-		- **File Type** – Limit the search to specific types of files. Multiple selections allowed.
-		- **Beam Mode** – Limit the search to specific beam modes. Multiple selections allowed.
-		- **Polarization** – Limit the search to specific polarizations. Multiple selections allowed.
-		- **Direction** – Limit the search to a specific orbit direction.
-		- **Subtype** – Limit the search to a specific mission spacecraft.
-	- **Path and Frame Filters** are available for select datasets. You may enter a single path or frame, or a range. Due to inconsistent Sentinel-1 framing, we recommend searching for a frame of interest by ±1-2 frames.
+
+### Date Filters
+
+- **Date Filters** Search dates are optional, so they default to empty.  If you are searching for specific dates, you can define the date range further in the **Start Date** and **End Date** fields. The date picker will automatically constrain your selection to a valid range for the selected dataset.
+	- *Note*: this information may also be found by clicking on the question mark icon for a dataset.
+	- **Seasonal Search** allows constraining the search to certain annual periods within an overall range of dates.  Click the Seasonal Search toggle and additional options will appear, allowing you to enter an overall date range (*Start Date/End Date*) and the seasonal range (*Season Start Day/Season End Day*).
+
+### Additional Filters
+
+- **Additional Filters** allow for additional parameters to be applied to narrow your search and reduce the number of results. Not all filters will be available for all datasets.
+	- **File Type** – Limit the search to specific types of files. Multiple selections allowed.
+	- **Beam Mode** – Limit the search to specific beam modes. Multiple selections allowed.
+	- **Polarization** – Limit the search to specific polarizations. Multiple selections allowed.
+	- **Direction** – Limit the search to a specific orbit direction.
+	- **Subtype** – Limit the search to a specific mission spacecraft.
+
+### Path and Frame Filters
+
+- **Path and Frame Filters** are available for select datasets. You may enter a single path or frame, or a range. Due to inconsistent Sentinel-1 framing, we recommend searching for a frame of interest by ±1-2 frames.
 - The maximum number of results is displayed below the **SEARCH** button. Click the **down arrow** to choose your preferred maximum results.
 	- You may click **API URL...** in order to generate the API URL matching your current search parameters. This will open a new window.
 		- **Amount** allows you to set the maximum results.
