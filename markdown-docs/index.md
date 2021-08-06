@@ -2,7 +2,7 @@
 
 ## About ASF Data Search
 
-[ASF Data Search](https://asf.alaska.edu/) is an easy to use search tool for finding SAR data and freely processing higher level SAR products such as InSAR and AutoRIFT products with ASF's [Hyp3 service](https://hyp3-docs.asf.alaska.edu). See our user guide on [getting started](vertex/manual.md).
+[ASF Data Search](https://asf.alaska.edu/) is an easy to use search tool for finding SAR data and freely processing higher level SAR products such as InSAR and AutoRIFT products with ASF's [HyP3 service](https://hyp3-docs.asf.alaska.edu). See our user guide on [getting started](vertex/manual.md).
 
 For an overview of all of ASF services visit [asf.alaska.edu](https://asf.alaska.edu).
 
