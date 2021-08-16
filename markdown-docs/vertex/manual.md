@@ -11,6 +11,7 @@
 	- By default, the map is in equatorial projection. You may click **Arctic map view** or **Antarctic map view** to change your map projection. Click **Equatorial map view** to switch back to the equatorial projection.
 	- You may click the **Zoom In** or **Zoom Out** icons to adjust your zoom.
 	- By default, the map layer is in **Satellite View**. You may click **Street View** to switch your map layer.
+	- You may click **Gridlines** to add a graticule overlay to the map. Click it again to turn off the overlay. *Note*: This is currently only available in the equatorial map view.
 - Navigate to your area of interest by dragging the map while holding down the left mouse button.
 - By default, the map-drawing tool is a bounding box. Click on the map once to specify the starting corner, move the mouse, then click again to finish the box. Additional drawing tool options are available in the toolbar at the top of the screen, including *point*, *linestring*, and *polygon* options.
 	- **Point** allows you to define an area of interest by clicking on the map to place a point.
