@@ -71,10 +71,38 @@
 - Selecting **List Search** opens the *List Search* window and allows you to enter a list of scenes or file names.
 	- **Scene** allows searching for specific scene names (granule names), and the results will include any files that are part of those scenes.
 	- **File** allows searching for specific file names (product names), and the results will only include exactly those files.
-	- You may **drag and drop files** into the box provided on the **Scene** or **File** tabs. Each tab lists the file types accepted at the bottom. Vertex will parse the scene or file names from your uploaded file.
 - **Edit List** opens the *List Search* window so you can make changes to your list
 - Once all parameters have been chosen, click **SEARCH**. Search results will appear in the footer area of your browser window, and on the map.
 	- *Note*: The number of files that are predicted to match the current search parameters is displayed under the SEARCH button. If there are no predicted matches, the search button will be greyed out and will display NO RESULTS.
+
+### List Search File Import
+You may **drag and drop files** into the box provided on the **Scene** or **File** tabs. Each tab lists the file types accepted at the bottom. Vertex will parse the scene or file names from your uploaded file.
+
+- *Note*: Each file type requires a specific format. Files exported from Vertex will have the correct format.
+
+- **CSV** requires a column labeled "Granule Name" for a scene list search. It requires an additonal "Processing Level" column for a file list search.
+- **GeoJSON** requires a field labeled "granuleName" for scene list search. It requires a field labeled "fileID" for file list search.
+- **Metalink** requires a structure formatted as
+```
+<metalink>
+    <files>
+        <file name="[Scene-Name.zip]"></file>
+        <file name ="...
+        ...</file>
+    </files>
+</metalink>
+```
+
+- **KML** requires a structure formatted as
+```
+<kml>
+    <Document>
+        <Placemark>
+            <name>[Scene Name]</name>
+        </Placemark>
+    </Document>
+</kml>
+```
 
 ## *Baseline* Search Options
 
