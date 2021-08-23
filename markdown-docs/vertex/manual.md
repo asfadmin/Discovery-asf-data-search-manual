@@ -11,6 +11,7 @@
 	- By default, the map is in equatorial projection. You may click **Arctic map view** or **Antarctic map view** to change your map projection. Click **Equatorial map view** to switch back to the equatorial projection.
 	- You may click the **Zoom In** or **Zoom Out** icons to adjust your zoom.
 	- By default, the map layer is in **Satellite View**. You may click **Street View** to switch your map layer.
+	- You may click **Gridlines** to add a graticule overlay to the map. Click it again to turn off the overlay. *Note*: This is currently only available in the equatorial map view.
 - Navigate to your area of interest by dragging the map while holding down the left mouse button.
 - By default, the map-drawing tool is a bounding box. Click on the map once to specify the starting corner, move the mouse, then click again to finish the box. Additional drawing tool options are available in the toolbar at the top of the screen, including *point*, *linestring*, and *polygon* options.
 	- **Point** allows you to define an area of interest by clicking on the map to place a point.
@@ -18,6 +19,7 @@
 	- **Polygon** allows you to define an area of interest over an arbitrary polygon. You will receive an error message at the bottom of the window if there was a problem with the polygon (self-intersecting, reversed polygon winding order, etc.).
 	- **Box** allows you to define an area of interest over a lat/long-aligned bounding box by clicking once to set one corner, and again to set the opposite corner.
 	- Once a shape has been drawn, select the **Edit current area of interest** icon on the toolbar to move, add, and delete points. Select the **Draw new area of interest** icon to create a new AOI.
+	- Clicking **Import Area of Interest** brings up the Area of Interest dialog window. You may either enter a WKT string or upload a geospatial file.
 - **Dataset** enables you to choose the dataset of interest.
 	- If you need more information about a particular dataset, click on the appropriate question mark icon in the Dataset selector.
 - **Filters...** enables you to further refine your search
@@ -26,16 +28,15 @@
 
 - **Area of Interest** gives you the option of importing an area of interest as a geospatial file or by entering a set of geographic coordinates.
 	- Click on the down arrow next to **Area of Interest** in the top menu
-	- Click the **Import Area of Interest** button in the Options window
 	- Click **Select Files** and navigate to a folder on your computer, or drag and drop files into the box. *GeoJSON*, *shapefiles*, and *KML* files are supported provided they are in a latitude/longitude-based coordinate system, such as WGS84.
 		- When importing a *GeoJSON* file, all geometries in the file will be included. If multiple geometries are found, a convex hull will be used to represent them in the search.
 		- *Shapefiles* can be either a single *.shp* file, multiple shapefile components (*.shp, .shx, .dbf*), or a *zip* file containing one or more shapefile components. At a minimum, the *.shp* component must be included in all cases.
 	- An area of interest may also be defined by a set of coordinates entered in the Options window.
 		- Coordinates should be entered as decimal degrees in *well-known text* (WKT) format. Coordinates entered as a comma-separated long/lat string (e.g. -97.38,36.46,-53.44,36.46...) will be automatically converted by Vertex to WKT format.
 	- You can save the coordinates of a search so they can be used to exactly recreate an area of interest in later searches.
-		- Once the **Area of Interest** has been set, mouse over the coordinates. A *Copy to clipboard* icon will appear. Click on the icon and paste the coordinates into a new search or to a text file for later use.
+		- Once the **Area of Interest** has been set, a *Copy to clipboard* icon will appear. Click on the icon and paste the coordinates into a new search or to a text file for later use.
 		- Note: See the section **Other Vertex Options** for additional ways of saving searches.
-	- At any time you can clear your search area by clicking on the **Trash can** icon in the top menu bar.
+	- At any time you can clear your search area by clicking on the **Clear** button.
 
 ### Date Filters
 
@@ -73,6 +74,35 @@
 - **Edit List** opens the *List Search* window so you can make changes to your list
 - Once all parameters have been chosen, click **SEARCH**. Search results will appear in the footer area of your browser window, and on the map.
 	- *Note*: The number of files that are predicted to match the current search parameters is displayed under the SEARCH button. If there are no predicted matches, the search button will be greyed out and will display NO RESULTS.
+
+### List Search File Import
+You may **drag and drop files** into the box provided on the **Scene** or **File** tabs. Each tab lists the file types accepted at the bottom. Vertex will parse the scene or file names from your uploaded file.
+
+- *Note*: Each file type requires a specific format. Files exported from Vertex will have the correct format.
+
+- **CSV** requires a column labeled "Granule Name" for a scene list search. It requires an additonal "Processing Level" column for a file list search.
+- **GeoJSON** requires a field labeled "granuleName" for scene list search. It requires a field labeled "fileID" for file list search.
+- **Metalink** requires a structure formatted as
+```
+<metalink>
+    <files>
+        <file name="[Scene-Name.zip]"></file>
+        <file name ="...
+        ...</file>
+    </files>
+</metalink>
+```
+
+- **KML** requires a structure formatted as
+```
+<kml>
+    <Document>
+        <Placemark>
+            <name>[Scene Name]</name>
+        </Placemark>
+    </Document>
+</kml>
+```
 
 ## *Baseline* Search Options
 
@@ -127,8 +157,14 @@
 	- The **Scene Detail** column (center) provides a more detailed description of the scene, including *Start Date/Time*, *Beam Mode*, *Path*, *Frame*, *Flight Direction*, *Polarization*, *Absolute Orbit*, and a browse image (if available). Not all scenes will have all the extra information.
 		- The **Baseline Tool** button opens the ASF Baseline Tool, which is used for creating InSAR stacks.
 		- The **SBAS Tool** button opens the ASF SBAS Tool, which is another method of creating InSAR stacks.
-		- The **Citation** button opens a new window with citation guidance for published works using data, imagery, or tools accessed through ASF.
 		- The **More Like This** button creates a search based on the selected scene’s path and frame.
+		- The **Citation** button opens a new window with citation guidance for published works using data, imagery, or tools accessed through ASF.
+		- **Download this Image** downloads the browse image.
+		- The eye icon labeled **Open in Image Viewer** opens a larger browse viewer window.
+			- In the browse viewer, **zoom** using the **+** or **-** buttons. You may also zoom and pan using the mouse.
+			- Click or scroll through the thumbnails at the bottom to see other browse images for scenes returned by your search.
+			- By default, the **Only display scenes with a browse image** box is checked. You may uncheck this to see all scenes returned by your search. Scenes without a browse image will show a thumbnail listing *No Browse Available*.
+			- The scene metadata is listed on the right side of the browse viewer window.
 	- The **Files** column (right) displays a list of files available for the currently selected scene. You may download files immediately or add them to your download queue by clicking on the appropriate icon.
 		- Clicking on the right arrow in front a file (product) name will expand the file to show the ancillary files included. These files may be downloaded individually or added to the download queue.
 			- You must be signed in to Vertex for this feature to work.
@@ -140,10 +176,13 @@
 - **On Demand Queue** will open the On Demand queue.
 	- The different jobs types in your queue are separated by tabs along the top of the queue. The job types currently available are **RTC GAMMA**, **InSAR GAMMA**, and **autoRIFT**. You may click on a tab to select it. The selected tab is highlighted.
 	- For **RTC GAMMA** and **InSAR GAMMA** jobs, there are additional processing options available.  The options you select will apply to all files of that job type in your queue.
-		- The question mark icon next to the options gives you more details on each option.
+		- You may hover over each option to display a tool tip with details on the option.
+	- Choose your desired sorting with the **Sort Criteria** and **Sort Order** drop down boxes.
+		- Under **Sort Criteria**, you may choose to sort files by *Start Date* of the file, or by *Date Added* to the queue.
+		- Under **Sort Order**, you may choose to sort files by *Latest* or most recent, or by *Oldest*.
 	- The list of files you have added to your queue is listed below the options. The X allows you to remove any files you wish from the queue.
 	-  **Clear** will list some options for clearing files from your queue. You can choose to clear an individual tab, or you can choose **Clear All Processing Types** to clear all files from the queue. If you choose to clear all files, the option *Restore* will be displayed to allow you to undo this action.
-	- The number of jobs remaining is displayed at the bottom of the queue. There are 200 jobs allotted to each user per month. If you have too many jobs in your queue, a message stating the number of extra jobs will be displayed at the top of the queue. The **Sumbit** button will be greyed out.
+	- The number of jobs remaining is displayed at the bottom of the queue. There are 1,000 jobs allotted to each user per month. If you have too many jobs in your queue, a message stating the number of extra jobs will be displayed at the top of the queue. The **Sumbit** button will be greyed out.
 	- When you are satisfied with your selections, click **Submit Jobs** at the bottom. This will display the Review Submission window.
 		- The **Project Name** field allows you to create a name for the files you want to submit for processing. The character limit is 20. This field is optional.
 		- You may select or deselect the checkboxes to submit only the job types you wish.
@@ -180,15 +219,20 @@
 - Click on the **Sign in** icon once you are signed in to display the user options.
 	- **Saved Searches** opens a list of searches that you have named and saved. Click on the magnifying glass icon to load the search settings.
 	- **Search History** opens a list of your 10 last searches that were not named and saved. Click on the magnifying glass icon to load the search settings.
-	- **Preferences** opens a window that allows you to set search preferences for dataset, max results, and map layer. These preferences will be saved and applied to future searches.
+	- **Saved Filters** opens a list of filters that you have saved. Click *Apply Filters* to apply the selected filter set to your search.
+	- **Preferences** opens a window that allows you to set search preferences for dataset, max results, map layer, and default filter presets. These preferences will be saved and applied to future searches.
 - Click on the **down arrow** on the **Search**
 	- **Clear Search** will clear all search parameters that have been set except for Search Type and Dataset.
-	- **Save Search^** allows you to name and save all current search parameters in Saved Searches.
-	- **Saved Searches^** opens a list of searches that you have named and saved. Click on the magnifying glass icon to load the search settings.
-	- **Search History^** opens a list of your 10 last searches that were not named and saved. Click on the magnifying glass icon to load the search settings.
+	- **Saved Searches** opens a submenu.
+		- **Save Search^** allows you to name and save your current search.
+		- **View Searches...^** opens a list of searches that you have named and saved. Click on the magnifying glass icon to load the search settings.
+		- **Search History...^** opens a list of your 10 last searches that were not named and saved. Click on the magnifying glass icon to load the search settings.
+	- **Saved Filters** opens a submenu.
+		- **Save Filters^** allows you to save your current filter set.
+		- **View Filters...^** allows you to view your saved filter sets. Click Apply Filters to apply them to your current search.
 	- **Help & Tutorials** provides both illustrated and video demonstrations on the basic steps for setting up a search and viewing the results.
 		- ^*Note*: You must be signed in to Vertex for these options to be available.
-- *Note*: **Saved Searches** and **Search History** are available through both the Sign in menu and the Search button down arrow menu.
+- *Note*: **Saved Searches**, **Saved Filters**, and **Search History** are available through both the Sign in menu and the Search button down arrow menu.
 - Click into the **Search all ASF** field on the grey header bar to perform a search. Inputs into this field will search across all ASF websites.
 	- You may also click the **microphone** icon if you prefer to use voice search.
 	- As you type or speak, the results of your search will be displayed in a list below the field. Clicking a result from the list will open a new browser tab.
