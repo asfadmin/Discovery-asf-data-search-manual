@@ -43,7 +43,7 @@
 **Trouble Area: Search API query does not return expected number of results**
 
 - Reason: There is a 15 minute time limit on running Search API queries.
-- Remedy: First, try the same query with "output=count". If the count is high, consider narrowing your search by using more keywords, or by using keyword “maxResults” to limit it.
+- Remedy: First, try the same query with "output=count". If the count is high, consider narrowing your search by using more keywords, or by using keyword “maxResults” to limit it. You may also try shortening the date range to split your search into a series of smaller searches.
 
 **Trouble Area: Search API query with "product_list" keyword returns no results**
 
