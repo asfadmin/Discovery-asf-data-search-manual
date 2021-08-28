@@ -12,3 +12,6 @@ The product/file name is listed in Vertex Search Results, under the Files detail
 
 ## Search Results Can Become Search Area
 You can turn your search results into a search area. First, export your search results as GeoJSON or KML output format. Next, import your file into Vertex geo search. Vertex will extract the AOI from your file. If desired, you can add filters and can save your search filters or the search itself.
+
+## Verify Your Query is Returning the Correct Number of Results
+Would you like to verify that your query has returned the correct number of results? Change your output to "output=count" to verify. If the count does not match, consider narrowing your search by using more keywords, or by using keyword “maxResults” to limit it. You may also try shortening the date range to split your search into a series of smaller searches.
