@@ -2,7 +2,7 @@
 
 ## Overview
 
-asf_search is a Python wrapper for the Search API.
+asf_search is a Python module for performing searches of the ASF catalog. In addition, it offers baseline functionality and download support. It is available through PyPi and Conda.
 
 	import asf_search as asf
 
@@ -25,31 +25,36 @@ or into a virtual environment with
 	python -m pip install asf_search
 
 ## Usage
-Programmatically searching for ASF data is made simple with asf_search. Several search functions are provided:
+Programmatically searching for ASF data is made simple with asf_search. Several search functions are provided. Each search function returns an ```ASFSearchResults``` object:
 
 - ```geo_search()``` Find product info over an area of interest using a WKT string
-- ```granule_search()``` Find product info using a list of scenes
-- ```product_search()``` Find product info using a list of products
-- ```search()``` Find product info using any combination combination of search parameters
+- ```granule_search()``` Find product info using a list of scene names
+- ```product_search()``` Find product info using a list of product IDs
 - ```stack()``` Find a baseline stack of products using a reference scene
+- If the above search approaches do not meet your search needs, ```search()``` supports all available keywords:
+	- ```search()``` Find product info using any combination of search parameters
 - Additionally, numerous constants are provided to ease the search process. Currently, we provide constants for beam mode, flight direction, instrument, platform, polarization, and product type. You can see the full [list of constants here](https://github.com/asfadmin/Discovery-asf_search/tree/master/asf_search/constants).
 
-Additionally, asf_search support downloading data, both from search results as provided by the above search functions, and directly on product URLs. An authenticated session is generally required. This is provided by the ```ASFSession``` class, and uses of one of its three authentication methods:
+Additionally, asf_search supports downloading data, both from search results as provided by the above search functions, and directly on product URLs. An authenticated session is generally required. If a .netrc file is available, those credentials will be used implicity and no direct session handling is required. Otherwise, authenticate using an ```ASFSession``` object and one of the following authentication methods:
 
 - ```auth_with_creds('user', 'pass)```
 - ```auth_with_token('EDL token')```
 - ```auth_with_cookiejar(http.cookiejar)```
 
-That session should be passed to whichever download method is being called, can be re-used, and is thread safe.
+If not using .netrc credentials, that session should be passed to whichever download method is being called, can be re-used, and is thread safe.
 
-Examples:
+Example using .netrc:
+
+	results = ....
+	results.download(path='....')
+
+Example with manual authentication:
 
 	results = asf_search.granule_search([...])
-	session = asf_search.ASFSession()
-	session.auth_with_creds('user', 'pass')
+	session = asf_search.ASFSession().auth_with_creds('user', 'pass')
 	results.download(path='/Users/SARGuru/data', session=session)
 
-Alternately, downloading a list of URLs contained in ```urls``` and creating the session inline:
+Alternately, asf_search supports downloading an arbitrary list of URLs. All of the available authentication methods are supported:
 
 	urls = [...]
 	asf_search.download_urls(urls=urls, path='/Users/SARGuru/data', session=ASFSession().auth_with_token('EDL token'))
@@ -57,23 +62,6 @@ Alternately, downloading a list of URLs contained in ```urls``` and creating the
 Also note that ```ASFSearchResults.download()``` and the generic ```download_urls()``` function both accept a ```processes``` parameter which allows for parallel downloads.
 
 Further examples of all of the above can be found in this [sample script](https://github.com/asfadmin/Discovery-asf_search/blob/master/examples/hello_world.py)
-
-## Development
-
-**Branching**
-
-|Instance|Branch |Description, Instructions, Notes|
-|--------|-------|--------------------------------|
-|Stable | stable | Accepts merges from Working and Hotfixes |
-|Working |master | Accepts merges from Features/Issues and Hotfixes |
-|Features/Issues | topic-* | Always branch off HEAD of Working |
-|Hotfix	| hotfix-* | Always branch off Stable |
-
-For an extended description of our workflow, see [here](https://gist.github.com/digitaljhelms/4287848).
-
-
-
-
 
 
 
