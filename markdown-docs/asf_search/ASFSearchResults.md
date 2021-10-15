@@ -1,6 +1,10 @@
 # ASFSearchResults Class
 
-### download
+## Description
+
+## Methods
+
+### download()
 
 Iterates over each ```ASFProduct``` and downloads them to the specified path.
 
@@ -11,3 +15,12 @@ Iterates over each ```ASFProduct``` and downloads them to the specified path.
 
 #### Return
 - None
+
+### geojson()
+
+<!-- ### kml()
+
+### metalink()
+
+### csv()
+ -->

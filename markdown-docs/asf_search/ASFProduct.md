@@ -1,7 +1,13 @@
 # ASFProduct Class
 
+## Description
+<!-- netrc
+how to build netrc file, link
+OR auth with these options instead -->
 
-### download
+## Methods
+
+### download()
 
 Downloads this product to the specified path and optional filename.
 
@@ -13,14 +19,14 @@ Downloads this product to the specified path and optional filename.
 #### Return
 - None
 
-### stack
+### stack()
 
 Builds a baseline stack from this product.
 
 #### Return
 - ```ASFSearchResults(list)``` of the stack, with the addition of baseline values (temporal, perpendicular) attached to each ```ASFProduct```
 
-### centroid
+### centroid()
 
 Finds the centroid of a product.
 

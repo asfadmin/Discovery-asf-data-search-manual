@@ -29,7 +29,7 @@ asf_search also supports downloading an arbitrary list of URLs. All of the avail
 Also note that ```ASFSearchResults.download()``` and the generic ```download_urls()``` function both accept a ```processes``` parameter which allows for parallel downloads.
 
 ## Downloading all search results
-### download_urls
+### download_urls()
 
 Downloads all products from the specified URLs to the specified location.
 
@@ -39,10 +39,8 @@ Downloads all products from the specified URLs to the specified location.
 - param session: The session to use, in most cases should be authenticated beforehand
 - param processes: Number of download processes to use. Defaults to 1 (i.e. sequential download)
 
-#### Return
-
 ## Downloading individual products
-### download_url
+### download_url()
 
 Downloads a product from the specified URL to the specified location and (optional) filename.
 
@@ -51,5 +49,3 @@ Downloads a product from the specified URL to the specified location and (option
 - param path: Local path in which to save the product
 - param filename: Optional filename to be used, extracted from the URL by default
 - param session: The session to use, in most cases should be authenticated beforehand
-
-#### Return

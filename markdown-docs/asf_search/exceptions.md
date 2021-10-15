@@ -1,33 +1,33 @@
 # Exceptions
 
-**class ASFError(Exception):**
+**ASFError(Exception):**
 
 - Base ASF Exception, not intended for direct use
 
-**class ASFSearchError(ASFError):**
+**ASFSearchError(ASFError):**
 
 - Base search-related Exception
 
-**class ASFSearch4xxError(ASFSearchError):**
+**ASFSearch4xxError(ASFSearchError):**
 
 - Raise when SearchAPI returns a 4xx error
 
-**class ASFSearch5xxError(ASFSearchError):**
+**ASFSearch5xxError(ASFSearchError):**
 
 - Raise when SearchAPI returns a 5xx error
 
-**class ASFServerError(ASFSearchError):**
+**ASFServerError(ASFSearchError):**
 
 - Raise when SearchAPI returns an unknown error
 
-**class ASFBaselineError(ASFSearchError):**
+**ASFBaselineError(ASFSearchError):**
 
 - Raise when baseline related errors occur
 
-**class ASFDownloadError(ASFError):**
+**ASFDownloadError(ASFError):**
 
 - Base download-related Exception
 
-**class ASFAuthenticationError(ASFError):**
+**ASFAuthenticationError(ASFError):**
 
 - Base download-related Exception

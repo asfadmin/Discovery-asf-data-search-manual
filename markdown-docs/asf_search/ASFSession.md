@@ -1,6 +1,10 @@
 # ASFSession Class
 
-### auth_with_creds
+## Description
+
+## Methods
+
+### auth_with_creds()
 
 Authenticates the session using EDL username/password credentials.
 
@@ -11,7 +15,7 @@ Authenticates the session using EDL username/password credentials.
 #### Return
 - returns self for convenience
 
-### auth_with_token
+### auth_with_token()
 
 Authenticates the session using an EDL Authorization: Bearer token
 
@@ -21,7 +25,7 @@ Authenticates the session using an EDL Authorization: Bearer token
 #### Return
 - returns self for convenience
 
-### auth_with_cookiejar
+### auth_with_cookiejar()
 
 Authenticates the session using a pre-existing cookiejar
 
