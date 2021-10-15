@@ -18,44 +18,54 @@ OR auth with these options instead -->
 
 ## Methods
 
-### geojson()
+### <span style="color: #236192; font-size: 20px;">geojson()</span>
 
-#### args
+**args:**
 None
 
-#### returns
-`dict` describing the product as a geojson snippet. `ASFProduct.__str__()` utilizes this method for serialization.
+**returns:**
+
+- `dict` describing the product as a geojson snippet. `ASFProduct.__str__()` utilizes this method for serialization.
+
 ***
-### download(path, _filename=None, session=None_)
+
+### <span style="color: #236192; font-size: 20px;">download(path, _filename=None, session=None_)</span>
 
 Downloads this product to the specified path and optional filename.
 
-#### args
+**args:**
+
 - path: The directory into which this product should be downloaded.
 - filename _(optional)_: Filename to use instead of the original filename of this product.
 - session _(optional)_: The session to use, in most cases should be authenticated beforehand. If no session is provided, a blank (unauthenticated) session will be used.
 
-#### returns
-- None
+**returns:**
+None
+
 ***
-### stack()
+
+### <span style="color: #236192; font-size: 20px;">stack()</span>
 
 Builds a baseline stack from this product.
 
-#### args
+**args:**
 None
 
-#### returns
+**returns:**
+
 - `ASFSearchResults` representation of the stack, with the addition of baseline values (temporal, perpendicular) attached to each `ASFProduct`
+
 ***
-### centroid()
+
+### <span style="color: #236192; font-size: 20px;">centroid()</span>
 
 Determines the centroid of a product.
 
-#### args
+**args:**
 None
 
-#### returns
+**returns:**
+
 - `shapely.geometry.point.Point` object describing the centroid of the product
 
 <!-- Will have more than geojson export; add this when other output options available -->
