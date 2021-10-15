@@ -4,6 +4,8 @@
 
 This class describes a single product from the ASF archive. The class provides metadata, as well as several helpful methods for interacting with the product.
 
+***
+
 ## Attributes
 - `properties (dict)`: Provides product metadata such as Beam Mode, Start Time, etc.
 - `geometry (dict)`: Describes the product's physical extents as a geojson snippet
@@ -11,6 +13,8 @@ This class describes a single product from the ASF archive. The class provides m
 <!-- netrc
 how to build netrc file, link
 OR auth with these options instead -->
+
+***
 
 ## Methods
 
@@ -21,7 +25,7 @@ None
 
 #### Returns
 `dict` describing the product as a geojson snippet. `ASFProduct.__str__()` utilizes this method for serialization.
-
+***
 ### download(path, _filename=None, session=None_)
 
 Downloads this product to the specified path and optional filename.
@@ -33,7 +37,7 @@ Downloads this product to the specified path and optional filename.
 
 #### Returns
 - None
-
+***
 ### stack()
 
 Builds a baseline stack from this product.
@@ -43,7 +47,7 @@ None
 
 #### Returns
 - `ASFSearchResults` representation of the stack, with the addition of baseline values (temporal, perpendicular) attached to each `ASFProduct`
-
+***
 ### centroid()
 
 Determines the centroid of a product.
