@@ -20,7 +20,7 @@ OR auth with these options instead -->
 
 ### geojson()
 
-#### Parameters
+#### args
 None
 
 #### Returns
@@ -30,7 +30,7 @@ None
 
 Downloads this product to the specified path and optional filename.
 
-#### Parameters
+#### args
 - path: The directory into which this product should be downloaded.
 - filename _(optional)_: Filename to use instead of the original filename of this product.
 - session _(optional)_: The session to use, in most cases should be authenticated beforehand. If no session is provided, a blank (unauthenticated) session will be used.
@@ -42,7 +42,7 @@ Downloads this product to the specified path and optional filename.
 
 Builds a baseline stack from this product.
 
-#### Parameters
+#### args
 None
 
 #### Returns
@@ -52,7 +52,7 @@ None
 
 Determines the centroid of a product.
 
-#### Parameters
+#### args
 None
 
 #### Returns
