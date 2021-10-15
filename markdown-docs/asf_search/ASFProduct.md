@@ -23,7 +23,7 @@ OR auth with these options instead -->
 #### args
 None
 
-#### Returns
+#### returns
 `dict` describing the product as a geojson snippet. `ASFProduct.__str__()` utilizes this method for serialization.
 ***
 ### download(path, _filename=None, session=None_)
@@ -35,7 +35,7 @@ Downloads this product to the specified path and optional filename.
 - filename _(optional)_: Filename to use instead of the original filename of this product.
 - session _(optional)_: The session to use, in most cases should be authenticated beforehand. If no session is provided, a blank (unauthenticated) session will be used.
 
-#### Returns
+#### returns
 - None
 ***
 ### stack()
@@ -45,7 +45,7 @@ Builds a baseline stack from this product.
 #### args
 None
 
-#### Returns
+#### returns
 - `ASFSearchResults` representation of the stack, with the addition of baseline values (temporal, perpendicular) attached to each `ASFProduct`
 ***
 ### centroid()
@@ -55,7 +55,7 @@ Determines the centroid of a product.
 #### args
 None
 
-#### Returns
+#### returns
 - `shapely.geometry.point.Point` object describing the centroid of the product
 
 <!-- Will have more than geojson export; add this when other output options available -->
