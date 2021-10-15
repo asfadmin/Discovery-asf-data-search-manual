@@ -25,9 +25,9 @@ nav:
     - Searching: asf_search/searching.md
     - Downloading: asf_search/downloading.md
     - Classes:
-      - SearchResults Class: asf_search/searchResults.md
-      - Product Class: asf_search/product.md
-      - Session Class: asf_search/session.md
+      - ASFSearchResults: asf_search/searchResults.md
+      - ASFProduct: asf_search/product.md
+      - ASFSession: asf_search/session.md
       # - SearchOptions Class: asf_search/searchOptions.md
     - Exceptions: asf_search/exceptions.md
   - ASF Search API:
