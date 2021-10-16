@@ -2,35 +2,39 @@
 
 ## Description
 
+***
+
 ## Methods
 
-### auth_with_creds()
+### <span style="color: #236192; font-size: 20px;">auth_with_creds()</span>
 
 Authenticates the session using EDL username/password credentials.
 
-#### Parameters
+**args:**
+
 - param username: [EDL](https://urs.earthdata.nasa.gov/) username
 - param password: [EDL](https://urs.earthdata.nasa.gov/) password
 
-#### Return
-- returns self for convenience
+**returns:** returns self for convenience
 
-### auth_with_token()
+***
+
+### <span style="color: #236192; font-size: 20px;">auth_with_token()</span>
 
 Authenticates the session using an EDL Authorization: Bearer token
 
-#### Parameters
-- param token: EDL Auth Token for authenticated downloads, see [EDL Tokens](https://urs.earthdata.nasa.gov/user_tokens)
+**args:**
+param token: EDL Auth Token for authenticated downloads, see [EDL Tokens](https://urs.earthdata.nasa.gov/user_tokens)
 
-#### Return
-- returns self for convenience
+**returns:** returns self for convenience
 
-### auth_with_cookiejar()
+***
+
+### <span style="color: #236192; font-size: 20px;">auth_with_cookiejar()</span>
 
 Authenticates the session using a pre-existing cookiejar
 
-#### Parameters
-- param cookies: Any http.cookiejar compatible object
+**args:**
+param cookies: Any http.cookiejar compatible object
 
-#### Return
-- returns self for convenience
+**returns:** returns self for convenience

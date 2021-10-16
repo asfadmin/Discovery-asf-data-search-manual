@@ -2,25 +2,35 @@
 
 ## Description
 
+***
+
 ## Methods
 
-### download()
+### <span style="color: #236192; font-size: 20px;">download()</span>
 
 Iterates over each ```ASFProduct``` and downloads them to the specified path.
 
-#### Parameters
+**args:**
+
 - param path: The directory into which the products should be downloaded.
 - param session: The session to use, in most cases should be authenticated beforehand.
 - param processes: Number of download processes to use. Defaults to 1 (i.e. sequential download)
 
-#### Return
-- None
+**returns:** None
 
-### geojson()
+***
 
-<!-- ### kml()
+### <span style="color: #236192; font-size: 20px;">geojson()</span>
 
-### metalink()
+**args:** None
 
-### csv()
+**returns:**
+
+- `dict` describing the product as a geojson snippet. `ASFProduct.__str__()` utilizes this method for serialization.
+
+<!-- ### <span style="color: #236192; font-size: 20px;">kml()</span>
+
+### <span style="color: #236192; font-size: 20px;">metalink()</span>
+
+### <span style="color: #236192; font-size: 20px;">csv()</span>
  -->
