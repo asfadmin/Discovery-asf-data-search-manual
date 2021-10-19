@@ -1,6 +1,8 @@
-# ASFSession Class
+# ASFSession
 
 ## Description
+
+This class describes session authorization options.
 
 ***
 

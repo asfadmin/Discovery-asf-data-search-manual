@@ -1,6 +1,8 @@
-# ASFSearchResults Class
+# ASFSearchResults
 
 ## Description
+
+This class describes downloading results from the ASF archive. The class provides multiple download formats.
 
 ***
 

@@ -1,4 +1,4 @@
-# ASFProduct Class
+# ASFProduct
 
 ## Description
 
