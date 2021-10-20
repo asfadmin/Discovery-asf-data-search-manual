@@ -20,9 +20,19 @@ nav:
     - Tutorial Videos: https://www.youtube.com/playlist?list=PLXluIEvp5ZzIWd0yNy-ANfdwWjCD1hInA
     - Source Code: https://github.com/asfadmin/Discovery-SearchUI
   - Custom Processing: https://hyp3-docs.asf.alaska.edu
+  - Python Search Module:
+    - Basics: asf_search/basics.md
+    - Searching: asf_search/searching.md
+    - Downloading: asf_search/downloading.md
+    - Classes:
+      - ASFSearchResults: asf_search/ASFSearchResults.md
+      - ASFProduct: asf_search/ASFProduct.md
+      - ASFSession: asf_search/ASFSession.md
+      # - SearchOptions: asf_search/ASFSearchOptions.md
+    - Exceptions: asf_search/exceptions.md
   - ASF Search API:
     - Search API Basics: api/basics.md
-    - Search API Keywords: api/keywords.md
+    - Search API Keywords & Endpoints: api/keywords.md
     - Tools: api/tools.md
     - Troubleshooting: api/troubleshooting.md
     - Cookbook: api/cookbook.md
