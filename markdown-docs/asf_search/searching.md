@@ -12,4 +12,4 @@ Each search function returns an ```ASFSearchResults``` object:
 
 Examples of some search workflows can be found in this [sample script](https://github.com/asfadmin/Discovery-asf_search/blob/master/examples/hello_world.py).
 
-For more advanced usage, see sections [ASFSearchResults class](/asf_search/searchResults) and [ASFProduct class](/asf_search/product).
+For more advanced usage, see sections [ASFSearchResults class](/asf_search/ASFsearchResults) and [ASFProduct class](/asf_search/ASFproduct).
