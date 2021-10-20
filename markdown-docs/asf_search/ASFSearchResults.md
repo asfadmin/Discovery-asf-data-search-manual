@@ -2,7 +2,7 @@
 
 ## Description
 
-This class describes downloading results from the ASF archive. The class provides multiple download formats.
+This class describes a set of search results from the ASF archive. The class provides a convenient way to manage and examine search results, as well as export and download functionality.
 
 ***
 
