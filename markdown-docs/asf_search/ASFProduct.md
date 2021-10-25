@@ -20,12 +20,14 @@ OR auth with these options instead -->
 
 ### <span style="color: #236192; font-size: 20px;">geojson()</span>
 
+`ASFProduct.__str__()` utilizes this method for serialization via `json.dumps()`
+
 **args:**
 None
 
 **returns:**
 
-- `dict` describing the product as a geojson snippet. `ASFProduct.__str__()` utilizes this method for serialization.
+- `dict` describing the product as a geojson snippet.
 
 ***
 

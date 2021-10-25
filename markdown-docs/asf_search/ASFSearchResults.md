@@ -24,11 +24,13 @@ Iterates over each ```ASFProduct``` and downloads them to the specified path.
 
 ### <span style="color: #236192; font-size: 20px;">geojson()</span>
 
+`ASFSearchResults.__str__()` utilizes this method for serialization via `json.dumps()`
+
 **args:** None
 
 **returns:**
 
-- `dict` describing the product as a geojson snippet. `ASFProduct.__str__()` utilizes this method for serialization.
+- `dict` describing the search results as a geojson object.
 
 <!-- ### <span style="color: #236192; font-size: 20px;">kml()</span>
 
