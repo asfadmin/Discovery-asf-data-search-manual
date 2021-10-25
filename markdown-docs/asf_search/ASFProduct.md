@@ -7,8 +7,8 @@ This class describes a single product from the ASF archive. The class provides m
 ***
 
 ## Attributes
-- `properties (dict)`: Provides product metadata such as Beam Mode, Start Time, etc.
-- `geometry (dict)`: Describes the product's physical extents as a geojson snippet
+- `properties` _(dict)_: Provides product metadata such as Beam Mode, Start Time, etc.
+- `geometry` _(dict)_: Describes the product's physical extents as a geojson snippet
 
 <!-- netrc
 how to build netrc file, link
