@@ -2,7 +2,7 @@
 
 ## Description
 
-This class describes session authorization options.
+This class extends `requests.session` to provide convenient ASF-specific authorization options.
 
 ***
 
@@ -10,33 +10,41 @@ This class describes session authorization options.
 
 ### <span style="color: #236192; font-size: 20px;">auth_with_creds()</span>
 
-Authenticates the session using EDL username/password credentials.
+Authenticates the session (self) using [Earthdata Login](https://urs.earthdata.nasa.gov/) username/password credentials.
 
 **args:**
 
-- username: [EDL](https://urs.earthdata.nasa.gov/) username
-- password: [EDL](https://urs.earthdata.nasa.gov/) password
+- username: [Earthdata Login](https://urs.earthdata.nasa.gov/) username
+- password: [Earthdata Login](https://urs.earthdata.nasa.gov/) password
 
-**returns:** returns self for convenience
+**returns:**
+
+- returns self for convenience
 
 ***
 
 ### <span style="color: #236192; font-size: 20px;">auth_with_token()</span>
 
-Authenticates the session using an EDL Authorization: Bearer token
+Authenticates the session (self) using an Earthdata Login `Authorization: Bearer` token.
 
 **args:**
-token: EDL Auth Token for authenticated downloads, see [EDL Tokens](https://urs.earthdata.nasa.gov/user_tokens)
 
-**returns:** returns self for convenience
+- token: Earthdata Login token for authenticated downloads, see [Earthdata Login Tokens](https://urs.earthdata.nasa.gov/user_tokens)
+
+**returns:**
+
+- returns self for convenience
 
 ***
 
 ### <span style="color: #236192; font-size: 20px;">auth_with_cookiejar()</span>
 
-Authenticates the session using a pre-existing cookiejar
+Authenticates the session (self) using a pre-existing cookiejar.
 
 **args:**
-cookies: Any http.cookiejar compatible object
 
-**returns:** returns self for convenience
+- cookies: An `http.cookiejar` compatible object
+
+**returns:**
+
+- returns self for convenience
