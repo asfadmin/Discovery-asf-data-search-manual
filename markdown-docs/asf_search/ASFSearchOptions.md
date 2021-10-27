@@ -15,7 +15,7 @@ Converting to a `dict` will only include search options which have actually been
 - absoluteOrbit
 - asfFrame
 - beamMode
-- cmr_provider
+- provider
 - collectionName
 - maxDoppler
 - minDoppler
