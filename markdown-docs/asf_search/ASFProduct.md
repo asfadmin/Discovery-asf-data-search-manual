@@ -48,14 +48,30 @@ None
 
 ### <span style="color: #236192; font-size: 20px;">stack()</span>
 
-Builds a baseline stack from this product.
+Builds a baseline stack using this product as a reference
+
+**args:**
+
+- cmr_provider _(optional)_: Custom provider name to constrain CMR results to, for more info on how this is used, see https://cmr.earthdata.nasa.gov/search/site/docs/search/api.html#c-provider
+- session _(optional)_: A Session to be used when performing the search. For most uses, can be ignored. Used when searching for a dataset, provider, etc. that requires authentication. See also: asf_search.ASFSession
+- host _(optional)_: SearchAPI host, defaults to Production SearchAPI. This option is intended for dev/test purposes and can generally be ignored.
+
+**returns:**
+
+- `ASFSearchResults` representation of the stack, with the addition of baseline values (temporal, perpendicular) attached to each `ASFProduct`
+
+***
+
+### <span style="color: #236192; font-size: 20px;">get_stack_opts()</span>
+
+Builds search options that describe an InSAR stack based on this product. Similar to `stack()` but doesn't perform the search, simply returns `ASFSearchOptions` which can be inspected or adjusted and then passed to various search functions.
 
 **args:**
 None
 
 **returns:**
 
-- `ASFSearchResults` representation of the stack, with the addition of baseline values (temporal, perpendicular) attached to each `ASFProduct`
+- `ASFSearchOptions` object
 
 ***
 
