@@ -53,7 +53,8 @@ _ASFSearchOptions does not provide any methods intended for direct use, instead 
 Establishes the various attributes described above and processes any kwargs into them.
 
 **args:**
-_**kwargs_, limited to names listed as attributes above. Anything else will raise a `KeyError`
+
+- _**kwargs_, limited to names listed as attributes above. Anything else will raise a `KeyError`
 
 **returns:**
 None
@@ -67,6 +68,7 @@ Sets the attribute named by `key` to the specified `value` after passing it thro
 Values of `None` are allowed as a way to un-set the attribute. Attempting to set a `key` not listed in the above attribute list will raise a `KeyError`
 
 **args:**
+
 - key: the name of the attribute to set
 - value: the value to which the named attribute should be set
 
@@ -80,6 +82,7 @@ None
 Clears an attribute names by `item` by way of setting it to `None`
 
 **args:**
+
 - item: the name of the attribute to be cleared
 
 **returns:**
