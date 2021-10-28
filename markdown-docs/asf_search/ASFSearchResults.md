@@ -6,6 +6,11 @@ This class describes a set of search results from the ASF archive. The class pro
 
 ***
 
+## Attributes
+- `searchOptions` _(ASFSearchOptions)_: The search options used to generate this set of results. May be `None` in some cases.
+
+***
+
 ## Methods
 
 ### <span style="color: #236192; font-size: 20px;">download()</span>
@@ -24,11 +29,13 @@ Iterates over each ```ASFProduct``` and downloads them to the specified path.
 
 ### <span style="color: #236192; font-size: 20px;">geojson()</span>
 
+`ASFSearchResults.__str__()` utilizes this method for serialization via `json.dumps()`
+
 **args:** None
 
 **returns:**
 
-- `dict` describing the product as a geojson snippet. `ASFProduct.__str__()` utilizes this method for serialization.
+- `dict` describing the search results as a geojson object.
 
 <!-- ### <span style="color: #236192; font-size: 20px;">kml()</span>
 

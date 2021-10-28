@@ -7,8 +7,8 @@ This class describes a single product from the ASF archive. The class provides m
 ***
 
 ## Attributes
-- `properties (dict)`: Provides product metadata such as Beam Mode, Start Time, etc.
-- `geometry (dict)`: Describes the product's physical extents as a geojson snippet
+- `properties` _(dict)_: Provides product metadata such as Beam Mode, Start Time, etc.
+- `geometry` _(dict)_: Describes the product's physical extents as a geojson snippet
 
 <!-- netrc
 how to build netrc file, link
@@ -20,12 +20,14 @@ OR auth with these options instead -->
 
 ### <span style="color: #236192; font-size: 20px;">geojson()</span>
 
+`ASFProduct.__str__()` utilizes this method for serialization via `json.dumps()`
+
 **args:**
 None
 
 **returns:**
 
-- `dict` describing the product as a geojson snippet. `ASFProduct.__str__()` utilizes this method for serialization.
+- `dict` describing the product as a geojson snippet.
 
 ***
 
@@ -46,14 +48,30 @@ None
 
 ### <span style="color: #236192; font-size: 20px;">stack()</span>
 
-Builds a baseline stack from this product.
+Builds a baseline stack using this product as a reference
+
+**args:**
+
+- cmr_provider _(optional)_: Custom provider name to constrain CMR results to, for more info on how this is used, see [CMR documentation](https://cmr.earthdata.nasa.gov/search/site/docs/search/api.html#c-provider)
+- session _(optional)_: A Session to be used when performing the search. For most uses, can be ignored. Used when searching for a dataset, provider, etc. that requires authentication. See [ASFSession](/asf_search/ASFSession) for more details.
+- host _(optional)_: SearchAPI host, defaults to Production SearchAPI. This option is intended for dev/test purposes and can generally be ignored.
+
+**returns:**
+
+- `ASFSearchResults` representation of the stack, with the addition of baseline values (temporal, perpendicular) attached to each `ASFProduct`
+
+***
+
+### <span style="color: #236192; font-size: 20px;">get_stack_opts()</span>
+
+Builds search options that describe an InSAR stack based on this product. Similar to `stack()` but doesn't perform the search, simply returns `ASFSearchOptions` which can be inspected or adjusted and then passed to various search functions.
 
 **args:**
 None
 
 **returns:**
 
-- `ASFSearchResults` representation of the stack, with the addition of baseline values (temporal, perpendicular) attached to each `ASFProduct`
+- `ASFSearchOptions` object
 
 ***
 
