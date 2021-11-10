@@ -30,6 +30,7 @@ nav:
       - ASFSearchResults: asf_search/ASFSearchResults.md
       - ASFSession: asf_search/ASFSession.md
     - Exceptions: asf_search/exceptions.md
+    - What's New: https://github.com/asfadmin/Discovery-asf_search/blob/master/CHANGELOG.md
   - ASF Search API:
     - Search API Basics: api/basics.md
     - Search API Keywords & Endpoints: api/keywords.md
