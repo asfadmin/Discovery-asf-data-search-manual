@@ -145,7 +145,7 @@ You may **drag and drop files** into the box provided on the **Scene** or **File
 - The Results header bar.
 	- The **Zoom** button will zoom-in to the location of all scenes on the map.
 	- The **Queue** button will add all scenes to the download queue.
-	- The **On Demand** button will allow you to choose which eligible scenes to add to the On Demand Queue for further processing.
+	- The **On Demand** button will allow you to choose which eligible scenes to add to the On Demand Queue for further processing. You may also choose **Create Subscription...** to create a new Subscription.
 	- The **Raw** button will show or hide raw files. *Note*: This button is applicable for Sentinel-1 scenes only.
 	- The **Export** button will allow you to export data or metadata for all scenes in the results.
 	- The **Expired** button will show or hide expired On Demand files. *Note*: This button is only available in the **On Demand Products** search type.
@@ -189,9 +189,10 @@ You may **drag and drop files** into the box provided on the **Scene** or **File
 		- Select **Cancel** to return to the queue without submitting any files for processing.
 		- Click **Submit** to submit your jobs. *Note:* The Submit button will list the number of jobs you are submitting.
 		- If there are any errors, such as missing DEM coverage, an error message will display.
+- **Subscriptions** will open the list of On Demand Subscriptions and allow you to create a new subscription. See the [Subscriptions](/vertex/manual/#subscriptions) section for more details.
 - **Submitted Products** will switch to On Demand Products search type and will display your submitted products.
 - **On Demand (HyP3) Docs** will send you to the [On Demand documentation](https://hyp3-docs.asf.alaska.edu/)
-- *Note*: You must be signed in to see your Submitted Products, and to submit jobs from the On Demand Queue.
+- *Note*: You must be signed in to see your Subscriptions, Submitted Products, and to submit jobs from the On Demand Queue.
 
 ## Downloads Queue
 
@@ -204,6 +205,27 @@ You may **drag and drop files** into the box provided on the **Scene** or **File
 	- **Copy File IDs** will copy the file names of all files in the queue for use elsewhere. *For example*, this list could then be pasted into the *List Search* window.
 	- **Data Download** is used to download multiple products, with either the *Download Python Script (.py)* option or *Metalink (metalink)* file option.
 	- **Metadata Download** is used to export the contents of the download queue to a *CSV*, *KML*, or *GeoJSON* file. The *KML* and *GeoJSON* files provided by this feature are compatible with the *Geographic Search Import* feature.
+
+## Subscriptions
+- You may begin a new subscription by choosing **On Demand**, then **Create Subscription...** in the Results window of a completed search. Or you may click on the **three boxes** icon in the header, labeled **On Demand**, choose **Subscriptions**, then the  **+** button.
+- There are 3 steps in the Subscription Wizard. Click the **Next** and **Back** buttons to navigate through them. When you are completed, click the **Submit** button to submit your Subscription.
+	- Step 1: *Search Options*
+		- **Subscription Dates** are auto-populated. The default for start date is today's date, and end date is 6 months from today. You may adjust these as desired. Subscriptions can currently extend for a maximum of 6 months.
+		- At least one of the **AOI Options** is required. You may enter an *Area of Interest WKT* or upload a shp, geojson, kml, or zip file here. You may also enter a Path and/or Frame. If you opened the Subscription wizard from an existing *Geographic Search*, and have an *Area of Interest* specified, it will be auto-populated. If you opened the Subscription wizard from an existing *SBAS* or *Baseline* search, the *Area of Interest* and *Path* will be auto-populated.
+	- Step 2: *Subscription Options*
+		- You may select the **Job Type**.
+		- You may choose any desired **Dataset Options**.
+		- You may choose any desired **Processing Options**.
+	- Step 3: *Review*
+		- You may provide a **Project Name** for your subscription. This field is optional. Your chosen *Search* and *Subscription* options are listed here. If any changes are needed, you may click the **Back** button.
+- You may view your existing subscriptions in the Subscription List. Click on the **three boxes** icon in the header, labeled **On Demand**, and choose **Subscriptions**.
+	- Click the **>** next to any subscription to expand the subscription details.
+		- Click the **magnifying glass** to launch a search based on the subscription filters.
+		- If the subscription includes a *Search Area*, you may click the **Copy** button next to it to copy the Area of Interest WKT to the clipboard.
+	- Click the **pencil** icon to edit the subscription end date.
+	- If the Subscription has expired, or is within 1 month of expiration, the **Extend** button will be available. Clicking it will extend your subscription by 1 month.
+	- Click **View Processed Products** to launch an *On Demand* search for the chosen subscription.
+	- Click the slider to **Enable** or **Disable** the subscription.
 
 ## Other Vertex Options
 

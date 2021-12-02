@@ -31,7 +31,7 @@ While in SBAS Search type, you will notice many familiar controls in the results
 - At the top left of the results panel, you will see the number of pairs listed.
 - **Zoom** will *Zoom to results* magnifying the map area of the Earth where the scenes are located.
 - **Queue** will *Add all to Downloads* allowing you to add all scenes to the download queue.
-- **On Demand** will allow you to *Add all to On Demand queue* to perform custom processing on the scenes.
+- **On Demand** will allow you to *Add all to On Demand queue* to perform custom processing on the scenes. You may also choose to *Create Subscription*.
 	- You may choose from **RTC GAMMA**, **InSAR GAMMA**, or **autoRIFT**, depending on your needs. RTC GAMMA processing is performed on the individual scenes in your result set. InSAR GAMMA and autoRIFT processing are performed on the pairs in your result set.
 	- **Note:** Currently, only scenes with beam mode IW are eligible for On Demand processing.
 - **Pairs** will *Download Pair CSV* which lists the scenes in each pair and the download URL for each. It also includes the baseline values.

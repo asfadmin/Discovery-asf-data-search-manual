@@ -16,7 +16,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 		- platform=SA,SB
 		- platform=S1
 	- Values:
-		- ALOS, A3, AIRSAR, AS, ERS, ERS-1, E1, ERS-2, E2, JERS-1, J1, RADARSAT-1, R1, SEASAT, SS, S1, Sentinel, Sentinel-1, Sentinel-1A, SA, Sentinel-1B, Sentinel-1 Interferogram (BETA), SB, SMAP, SP, UAVSAR, UA
+		- ALOS, A3, AIRSAR, AS, ERS, ERS-1, E1, ERS-2, E2, JERS-1, J1, RADARSAT-1, R1, SEASAT, SS, S1, Sentinel, Sentinel-1, Sentinel-1A, SA, Sentinel-1B, Sentinel-1 Interferogram (BETA), SB, SIR-C, SMAP, SP, UAVSAR, UA
 
 - <span style="color: #236192; font-size: 20px;">instrument</span>
 	- See also 'platform'
