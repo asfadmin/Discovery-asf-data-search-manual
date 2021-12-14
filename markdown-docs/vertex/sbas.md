@@ -54,9 +54,13 @@ While in SBAS Search type, you will notice many familiar controls in the results
 
 #### SBAS Criteria
 
-- Click **SBAS Criteria...** for additional date filtering options.
+- Click **SBAS Criteria...** for additional filtering options.
 	- You may enter a **Start** or **End** date, or select dates on the calendar.
 	- **Seasonal Search** allows constraining the results to certain annual periods within an overall range of dates.  Click the Seasonal Search toggle and additional options will appear, allowing you to adjust the sliders to specify a seasonal range (*Season Start Day/Season End Day*).
+	- **Latitudinal Overlap** allows you to set the overlap threshold for pairs. Filtering out non-overlapping pairs can reduce errors in On Demand InSAR processing.
+		- **No Overlap Threshold** is the default. All pair results are returned, including any non-overlapping pairs.
+		- **Any Overlap Threshold** will ensure that all pairs have some overlap. Any non-overlapping pairs will be filtered out of the results.
+		- **50% Overlap Threshold** ensures that all pairs have approximately 50% overlap. Any pairs with less overlap will be filtered out of the results.
 
 ## Next Steps
 The next step is creating interferograms. You may do this through On Demand processing in Vertex. First, you would add some or all of the pairs to the On Demand queue as InSAR jobs. In the queue, there are limited options available for customizing your InSAR processing. You may also specify a project name. Submit the queue when you have selected all desired options. When the interferograms are completed, you can view and download them by using the On Demand Products search type in Vertex.
