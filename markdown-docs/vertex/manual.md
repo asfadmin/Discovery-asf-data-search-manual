@@ -122,7 +122,7 @@ You may **drag and drop files** into the box provided on the **Scene** or **File
 	- **Zoom In** and **Zoom Out** buttons are available above the chart.
 	- The **Zoom to Fit** button ensures that all pairs are visible on the chart.
 	- The **Custom Pair** buttons allow you to add or delete a custom pair.
-	- The **SBAS Criteria...** button allows you to specify start and end dates to refine your results.
+	- The **SBAS Criteria...** button allows you to specify additional criteria to refine your results, such as start and end dates, seasonal date settings, and latitudinal overlap threshold settings.
 - For further information on **SBAS**, please see the [SBAS documentation](/vertex/sbas).
 
 ## *On Demand Products* Search Options
