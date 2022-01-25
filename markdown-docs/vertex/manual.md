@@ -125,6 +125,17 @@ You may **drag and drop files** into the box provided on the **Scene** or **File
 	- The **SBAS Criteria...** button allows you to specify additional criteria to refine your results, such as start and end dates, seasonal date settings, and latitudinal overlap threshold settings.
 - For further information on **SBAS**, please see the [SBAS documentation](/vertex/sbas).
 
+## *Event* Search Options
+
+- Selecting **Event** allows you to view and search the products created for hazard monitoring.
+- **Event Search** allows you to enter an event name. You may enter the full name or a partial string.
+- **Event Types** allows you to filter which types of events you wish to see. Currently, there are earthquake and volcano events.
+- **Start Date** and **End Date** allow you to specify a date range for events.
+- Additional options may be found under **Filters**.
+	- You may toggle the **Active Events Only** switch to display only active events. The default is to display all events, including inactive events.
+	- You may adjust the **Magnitude** slider to filter earthquakes by your desired magnitude range. *Note:* This filter applies only to earthquake events. If your search includes volcanoes, these will continue to be displayed in your search results.
+- For further information on **Event** search, please see the [Event Search documentation](/vertex/events).
+
 ## *On Demand Products* Search Options
 
 - Selecting **On Demand Products** allows you to view your submitted On Demand jobs. *Note*: You must be signed in to access this. If you are not signed in, this search option will be greyed out and you will not be able to select it.

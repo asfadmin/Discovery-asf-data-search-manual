@@ -17,6 +17,7 @@ nav:
     - Vertex Manual: vertex/manual.md
     - Baseline: vertex/baseline.md
     - SBAS: vertex/sbas.md
+    - Event: vertex/events.md
     - Tutorial Videos: https://www.youtube.com/playlist?list=PLXluIEvp5ZzIWd0yNy-ANfdwWjCD1hInA
     - Source Code: https://github.com/asfadmin/Discovery-SearchUI
   - Custom Processing: https://hyp3-docs.asf.alaska.edu
