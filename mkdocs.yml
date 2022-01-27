@@ -42,4 +42,5 @@ nav:
   # - About: about.md
   - Product Details:
     - ALOS PALSAR Products: datasets/palsar.md
+    - Events (SARVIEWS): datasets/events_about.md
   - ASF Web: 'https://asf.alaska.edu/'
