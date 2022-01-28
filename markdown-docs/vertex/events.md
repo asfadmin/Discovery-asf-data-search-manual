@@ -1,7 +1,7 @@
 # Event Search Type
 
 ## What is Event Search?
-Event search harnesses the capabilities of SAR proccessing to monitor natural disasters. Currently supported hazards are volcanic eruptions and earthquakes.  Generated products include fully terrain corrected image time series, as well as interferometric SAR data over areas affected by natural disasters. To facilitate full automation, the processing flow is triggered automatically by existing hazard alert systems such as the USGS Earthquake Notification Service. Event search is powered by SARVIEWS. Visit the [Events (SARVIEWS) documentation](/datasets/events_about) for more information.
+Event search harnesses the capabilities of SAR proccessing to monitor natural disasters. Currently supported hazards are volcanic eruptions and earthquakes.  Generated products include fully terrain corrected image time series, as well as interferometric SAR data over areas affected by natural disasters. To facilitate full automation, the processing flow is triggered automatically by existing hazard alert systems such as the USGS Earthquake Notification Service. Event monitoring through Vertex is based on technology developed within SARVIEWS through grant NNX12AQ38G. Visit the [Events (SARVIEWS) documentation](/datasets/events_about) for more information.
 
 ## How to use Vertex Event Search
 Visit **[ASF's Vertex](https://search.asf.alaska.edu)** to begin using the Event search.
