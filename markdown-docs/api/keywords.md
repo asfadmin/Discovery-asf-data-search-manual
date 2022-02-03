@@ -143,7 +143,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 
 - <span style="color: #236192; font-size: 20px;">granule_list</span>
 	- Comma-separated list of specific scenes (granules). Large lists will need to utilize a [POST request](https://en.wikipedia.org/wiki/POST_(HTTP)).
-	- *Note: specifying a granule list will supersede most other keywords.*
+	- granule_list may not be used in conjuction with other keywords, however, it may be used with the output keyword.
 	- Example:
 		- granule_list=ALPSRP111041130,
 		S1B_IW_GRDH_1SDV_20161124T032008_20161124T032033_003095_005430_9906
@@ -220,6 +220,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 
 - <span style="color: #236192; font-size: 20px;">product_list</span>
 	- Comma-separated list of specific files (products). Large lists will need to utilize a [POST request](https://en.wikipedia.org/wiki/POST_(HTTP)). You can find the product_list values for any file in the GeoJSON (fileID) or JSON (product_file_id) outputs. It is also available from CMR, in the granuleUR field. It is guaranteed to be a unique indentifier in CMR. You can also find the product_list value in Vertex! See the [Cookbook page](/api/cookbook) for this Tip & more.
+	- product_list may not be used in conjuction with other keywords, however, it may be used with the output keyword.
 	- Example:
 		- product_list=ALAV2A276512920,
 		S1A_IW_SLC__1SDV_20210614T154839_20210614T154905_038338_048643_D7E4-SLC
