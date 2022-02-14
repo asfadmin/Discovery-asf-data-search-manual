@@ -2,6 +2,9 @@
 
 This is a collection of some tips & tricks for the Search API!
 
+## Rate Limitation on Search Endpoint
+There has been a rate limitation instituted on the [search endpoint](/api/keywords/#search-endpoint). The rate limitation is per IP and is currently 500 queries per minute. Upon hitting the limit, further queries will yield a HTTP 429 with an error message. Check to see if your queries are returning a small number of results. If so, you can refine your parameters, or reduce keywords as necessary to increase the number of results per query. This will avoid the rate limitation error.
+
 ## Vertex Copy/Paste Search API URL
 Have you have completed a geo search in Vertex, that you'd like to replicate in a Search API query? Click the Down Arrow under the Max Results. Choose "API URL...".
 
