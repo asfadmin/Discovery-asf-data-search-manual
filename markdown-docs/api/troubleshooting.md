@@ -2,7 +2,7 @@
 
 **Trouble Area: Query returns HTTP 429 with error message**
 
-- Reason: Query returns HTTP 429 with error message "Rate limited, please reduce your request rate to 500/minute or less"
+- Reason: Query returns HTTP 429 with error message "Rate limited, please reduce your request rate to 250/minute or less"
 - Remedy: There is a rate limitation on the search endpoint. Refer to [Rate limitations](/api/cookbook/#rate-limitation-on-search-endpoint) for tips on how to construct your queries. 
 
 **Trouble Area: Windows cURL “unrecognized protocol”**
