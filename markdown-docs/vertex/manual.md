@@ -207,15 +207,30 @@ You may **drag and drop files** into the box provided on the **Scene** or **File
 
 ## Downloads Queue
 
+Enhanced download queue functionality is now available on Google Chrome browser. See [below](/vertex/manual/#google-chrome-browser) for more information.
+
 - Clicking on the **cart icon** in the header, labeled **Downloads**, will display the contents of your current download queue.
 	- Within the download queue, the list of files you have selected to download is displayed with some basic information on each file, such as file type and size.
-		- File IDs (names) can be copied with the **copy** icon
-		- Files can be individually downloaded with the **cloud** icon
-		- Items can be removed from the queue with the **X**
+		- File IDs (names) can be copied with the **copy** icon.
+		- Files can be individually downloaded with the **cloud** icon. You may also right click to save or copy the download URL.
+		- Items can be removed from the queue with the **X**.
 	- **Clear** will clear all files from the queue. The option *Restore* will be displayed to allow you to undo this action.
-	- **Copy File IDs** will copy the file names of all files in the queue for use elsewhere. *For example*, this list could then be pasted into the *List Search* window.
+	- **Copy File IDs** will copy the file names of all files in the queue for use elsewhere. For example, this list could then be pasted into the *List Search* window.
+	- **Copy URLs** will copy the download URLs of all files in the queue.
 	- **Data Download** is used to download multiple products, with either the *Download Python Script (.py)* option or *Metalink (metalink)* file option.
 	- **Metadata Download** is used to export the contents of the download queue to a *CSV*, *KML*, or *GeoJSON* file. The *KML* and *GeoJSON* files provided by this feature are compatible with the *Geographic Search Import* feature.
+
+### Google Chrome Browser
+
+Enhanced download queue functionality is available on Google Chrome browser. Please note, this improved functionality is not supported while using incognito mode.
+
+- Click on the **cart icon** in the header, labeled **Downloads** to open your download queue.
+	- Next to each file, you may click the **cloud** icon to begin the download.
+		- As the download begins, a progress indicator lists the percentage downloaded. Once the dowload has completed, the icon appears as a **check mark** to indicate the file has been downloaded.
+		- While the file is downloading, you may click the progress indicator to stop the download.
+	- Under **Data Download**, you may select **Download All**. This will download 3 files at a time until all products in your cart have been downloaded. The same progress indicators and checkmarks will be displayed to let you know the status of each download in your queue.
+	- If you **Clear** the products in your queue, the download progress and completion indicators will reset. You may add the products to your queue again if desired.
+	- *Note*: You must be signed in to download files. If you are not signed in, when you click to begin a download, you will be redirected to the sign in page first.
 
 ## Subscriptions
 - You may begin a new subscription by choosing **On Demand**, then **Create Subscription...** in the Results window of a completed search. Or you may click on the **three boxes** icon in the header, labeled **On Demand**, choose **Subscriptions**, then the  **+** button.
