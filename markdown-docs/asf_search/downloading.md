@@ -2,18 +2,18 @@
 
 ## Session Authentication
 
-asf_search supports downloading data, both from search results as provided by the search functions, and directly on product URLs. An authenticated session is generally required. If a .netrc file is available, those credentials will be used implicity and no direct session handling is required. More information on .netrc files can be found [here](https://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-file.html). Otherwise, authenticate using an ```ASFSession``` object and one of the following authentication methods:
-
-- ```auth_with_creds('user', 'pass)```
-- ```auth_with_token('EDL token')```
-- ```auth_with_cookiejar(http.cookiejar)```
-
-If not using .netrc credentials, that session should be passed to whichever download method is being called, can be re-used, and is thread safe.
+asf_search supports downloading data, both from search results as provided by the search functions, and directly on product URLs. An authenticated session is generally required. asf_search uses ```Requests```. Using .netrc credentials is the preferred method for authentication. More information on .netrc authentication can be found [here](https://docs.python-requests.org/en/master/user/authentication/#netrc-authentication).
 
 Example using .netrc:
 
 	results = ....
 	results.download(path='....')
+
+If not using .netrc credentials, you may authenticate using an ```ASFSession``` object and one of the following authentication methods. ```ASFSession``` is a subclass of ```Session```. The session should be passed to whichever download method is being called, can be re-used, and is thread safe. 
+
+- ```auth_with_creds('user', 'pass)```
+- ```auth_with_token('EDL token')```
+- ```auth_with_cookiejar(http.cookiejar)```
 
 Example with manual authentication:
 

@@ -2,7 +2,7 @@
 
 ## Description
 
-This class extends `requests.session` to provide convenient ASF-specific authorization options.
+This class extends `requests.session` to provide convenient ASF-specific authorization options. `ASFSession` is a subclass of `Session`. More information can be found [here](https://docs.python-requests.org/en/master/user/authentication/)
 
 ***
 
