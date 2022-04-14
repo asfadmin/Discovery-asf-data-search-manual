@@ -11,6 +11,10 @@ theme:
 
 copyright: Copyright @ Alaska Satellite Facility
 
+markdown_extensions:
+  - toc:
+      permalink: "#"
+
 nav:
   - Home: index.md
   - Search UI:
