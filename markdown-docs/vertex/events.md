@@ -43,13 +43,23 @@ While in Event Search type, you will notice many familiar controls in the result
 	- Click **List** to launch a list search including all of the event's product scenes.
 	- Click **SARVIEWS** to be directed to the SARVIEWS page for your chosen event.
 	- The eye icon labeled **Open in Image Viewer** opens a larger browse viewer window.
+		- *Note*: When viewing InSAR images in the image viewer, the wrapped browse image is displayed. The unwrapped browse image is available in the downloaded product.
 		- In the browse viewer, **zoom** using the **+** or **-** buttons. You may also zoom and pan using the mouse.
 		- Click or scroll through the thumbnails at the bottom to see other browse images for the selected event.
 		- The scene metadata is listed on the right side of the browse viewer window.
+		- Under **File**, you may click the button labeled **RTC GAMMA** or **INSAR GAMMA** for more options
+			- Click **Download File** to download the selected product.
+			- Click **Add file to queue** to add it to your Download queue.
+			- Click **Reference Scenes** to copy the reference scene names to the clipboard. These may be saved in a file or used in **List** Search.
+			- Click **Pin Browse to Map** to pin the browse image to the map. Once pinned, you may click this button again to unpin.
 	- Click the **Download this image** icon to download the browse image.
+	- Click the **Pin** icon to pin the selected browse image to the map. Once pinned, you may click this button again to unpin.
 - The Files column (right).
 	- The total number of files for the selected event is listed in this column.
-	- Click **Events Products Map** to open the browse viewer window.
+	- You may sort the files using the **Sort By** and **Order** buttons at the top of the column.
+		- Under **Sort By**, you may choose **Date**, **Path**, or **Frame**. 
+		- Click the **Order Arrow** to switch between ascending and descending order.
+	- Click **Product Criteria** to open the Search Filters.
 	- Click the **checkboxes** next to each file to select or deselect the file. The selected files will be pinned onto the map. Once your desired files are selected, you may also use the **Download** or **Copy** controls in the top left of the results panel to interact with selected products.
 	- Click **On Demand** to add the selected file to your On Demand queue for further processing.
 	- Click the **Shopping Cart** icon to add the selected file to your Download queue.
