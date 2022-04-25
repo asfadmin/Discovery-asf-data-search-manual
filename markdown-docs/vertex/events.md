@@ -17,6 +17,12 @@ Visit **[ASF's Vertex](https://search.asf.alaska.edu)** to begin using the Event
 	- You may adjust the **Magnitude** slider to filter earthquakes by your desired magnitude range. *Note:* This filter applies only to earthquake events. If your search includes volcanoes, these will continue to be displayed in your search results.
 - Once you have selected your desired Filters, click **Search** to update your search results.
 
+#### **Product Filters**
+- **Path and Frame Filters** are available. You may enter a single path or frame, or a range.
+	- Click **Clear** to clear the entered path and frame values.
+	- Note that **Path and Frame** will filter the displayed products within each event.
+- Under **Product Type**, you may select one or more product types. This will filter the displayed products within each event.
+
 ### **Interacting with Event Search Results**
 While in Event Search type, you will notice many familiar controls in the results panel. The events are shown in the left column. The Volcano and Earthquake icons note what type of event each result is. The center column lists the detail and metadata for the selected event. The Files for the selected event are shown in the right column.
 
