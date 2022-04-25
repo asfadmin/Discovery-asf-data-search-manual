@@ -308,7 +308,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 		- KML can be opened in Google Earth, ArcGIS Earth, or a similar program
 		- Count returns the number of results returned by your query. It does not include any additional information. Using count output can be helpful in determining if your query has returned the correct number of results. There is a time limit on running Search API queries. See the [Troubleshooting page](/api/troubleshooting) for more details.
 		- Metalink provides download information for the scenes returned by your query. It does not include metadata.
-		- Download returns a bulk download script that includes the files returned by the search. See the [Bulk Download documentation](https://asf.alaska.edu/how-to/data-tools/data-tools/#bulk_download) for a full guide on using the bulk download script.
+		- Download returns a bulk download script that includes the files returned by the search. See the [Bulk Download documentation](https://asf.alaska.edu/how-to/data-tools/asf-bulk-data-download-options/) for a full guide on using the bulk download script.
 		- JSON includes scene metadata and product URLs. If GeoJSON does not meet your needs, JSON is the preferred format for programmatic use.
 		- CSV also includes scene metadata and product URLs. CSV returns less fields than JSON.
 
