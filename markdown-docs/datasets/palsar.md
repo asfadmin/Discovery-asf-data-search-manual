@@ -20,7 +20,7 @@ The terrain corrected products are derived from ALOS PALSAR Level 1.1 single loo
 RTC products are distributed at two resolutions. The hi-res products have a pixel size of 12.5m and are generated from high-resolution (NED13) and mid-resolution (SRTM 30m, NED1, and NED2) DEMs. The low-res products are generated at a 30m level for all available DEMs. All products are terrain corrected at the native pixel size of the DEM that is used for the correction. No additional resampling is required. All RTC products are geocoded to the Universal Transverse Mercator (UTM) projection and provided as floating-point power values in GeoTIFF format. The reference for the RTC products is pixel as point.
 
 ##Further Reading
-- [DEM Information](https://asf.alaska.edu/data-sets/derived-data-sets/alos-palsar-rtc/alos-palsar-radiometric-terrain-correction/#dem_information)
+- [DEM Information](https://asf.alaska.edu/information/palsar-rtc-dem-information/)
 - [Level 1.0 Product Format Description](http://www.ga.gov.au/__data/assets/pdf_file/0019/11719/GA10287.pdf)
 - [Level 1.1/1.5 Product Format Description](https://www.eorc.jaxa.jp/ALOS/en/doc/fdata/PALSAR_x_Format_EL.pdf)
 - [USGS ALOS PALSAR Radar Processing System](https://www.usgs.gov/centers/eros/science/usgs-eros-archive-radar-alos-palsar-radar-processing-system?qt-science_center_objects=0#qt-science_center_objects)
