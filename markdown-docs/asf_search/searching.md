@@ -10,6 +10,6 @@ Each search function returns an ```ASFSearchResults``` object:
     - ```search()``` Find product info using any combination combination of search parameters
 - Additionally, numerous constants are provided to ease the search process. Currently, we provide constants for beam mode, flight direction, instrument, platform, polarization, and product type. You can see the full [list of constants here](https://github.com/asfadmin/Discovery-asf_search/tree/master/asf_search/constants).
 
-Examples of some search workflows can be found in this [sample script](https://github.com/asfadmin/Discovery-asf_search/blob/master/examples/hello_world.py).
+Examples of some search workflows can be found in this [sample script](https://github.com/asfadmin/Discovery-asf_search/blob/master/examples/hello_world.py). You may also reference the [Jupyter notebooks](https://github.com/asfadmin/Discovery-asf_search/tree/master/examples) for example workflows.
 
-For more advanced usage, see sections [ASFSearchResults class](/asf_search/ASFsearchResults) and [ASFProduct class](/asf_search/ASFproduct).
+For more advanced usage, see sections [ASFSearchResults class](/asf_search/ASFSearchResults/) and [ASFProduct class](/asf_search/ASFProduct).
