@@ -37,7 +37,7 @@ Programmatically searching for ASF data is made simple with asf_search. Several 
 	- ```search()``` Find product info using any combination of search parameters
 - Additionally, numerous constants are provided to ease the search process. Currently, we provide constants for beam mode, flight direction, instrument, platform, polarization, and product type. You can see the full [list of constants here](https://github.com/asfadmin/Discovery-asf_search/tree/master/asf_search/constants).
 
-Additionally, asf_search supports downloading data, both from search results as provided by the above search functions, and directly on product URLs. An authenticated session is generally required. More information on available authentication methods can be found [here](https://docs.python-requests.org/en/master/user/authentication/). You may also authenticate using an ```ASFSession``` object and one of the following authentication methods. ```ASFSession``` is a subclass of ```Session```.
+Additionally, asf_search supports downloading data, both from search results as provided by the above search functions, and directly on product URLs. An authenticated session is generally required. More information on available authentication methods can be found [here](https://requests.readthedocs.io/en/latest/user/authentication/). You may also authenticate using an ```ASFSession``` object and one of the following authentication methods. ```ASFSession``` is a subclass of ```Session```.
 
 - ```auth_with_creds('user', 'pass)```
 - ```auth_with_token('EDL token')```
