@@ -2,7 +2,7 @@
 
 ## Session Authentication
 
-asf_search supports downloading data, both from search results as provided by the search functions, and directly on product URLs. An authenticated session is generally required. asf_search uses ```Requests```. Using .netrc credentials is the preferred method for authentication. More information on .netrc authentication can be found [here](https://docs.python-requests.org/en/master/user/authentication/#netrc-authentication).
+asf_search supports downloading data, both from search results as provided by the search functions, and directly on product URLs. An authenticated session is generally required. asf_search uses ```Requests```. Using .netrc credentials is the preferred method for authentication. More information on .netrc authentication can be found [here](https://requests.readthedocs.io/en/latest/user/authentication/#netrc-authentication).
 
 Example using .netrc:
 
