@@ -2,6 +2,9 @@
 
 This is a collection of some tips & tricks for the Search API!
 
+## New Python module for performing searches
+asf_search is a Python module for performing searches of the ASF catalog. In addition, it offers baseline functionality and download support. It is available through PyPi and Conda. More information can be found [here](/asf_search/basics).
+
 ## Rate Limitation on Search Endpoint
 There has been a rate limitation instituted on the [search endpoint](/api/keywords/#search-endpoint). The rate limitation is per IP and is currently 250 queries per minute. Upon hitting the limit, further queries will yield a HTTP 429 with an error message. Check to see if your queries are returning a small number of results. If so, you can refine your parameters to combine result sets into larger groups and then post-process those results locally. For instance, instead of searching on a small area of interest with an individual query for each day, select a larger date range in order to create a single query, then split the results apart after they have been retrieved.
 

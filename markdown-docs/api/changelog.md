@@ -1,5 +1,8 @@
 # What's New
 
+## New Python module for performing searches
+asf_search is a Python module for performing searches of the ASF catalog. In addition, it offers baseline functionality and download support. It is available through PyPi and Conda. More information can be found [here](/asf_search/basics).
+
 ## Multiple Endpoints Available
 
 In addition to the Search endpoint, we have multiple endpoints available for all of your Search API needs. Below is a brief overview of what's available. More details on these endpoints and how to use them can be found on the [Keywords page](/api/keywords).
