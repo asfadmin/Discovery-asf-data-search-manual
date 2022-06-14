@@ -1,5 +1,7 @@
 # Search API Troubleshooting
 
+If you are troubleshooting Search API queries, consider using asf_search. asf_search is a Python module for performing searches of the ASF catalog. More information can be found [here](/asf_search/basics).
+
 **Trouble Area: Query returns HTTP 429 with error message**
 
 - Reason: Query returns HTTP 429 with error message "Rate limited, please reduce your request rate to 250/minute or less"

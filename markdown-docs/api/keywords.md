@@ -1,5 +1,7 @@
 # Search API Keywords
 
+Consider using our new Python module, asf_search. asf_search can be used to perform searches of the ASF catalog, and it offers baseline functionality and download support. Additionally, numerous constants are provided to ease the search process. Currently, we provide constants for platform, instrument, beam mode, flight direction, polarization, and processing level. More information can be found [here](/asf_search/basics).
+
 Keywords are used to find the desired data. Use as many or as few keywords as needed. Available keywords and descriptions are listed below for each Search API endpoint. Keywords are case sensitive.
 
 *Note:* Any errors will be returned in JSON format.
@@ -9,6 +11,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 
 ### Dataset Parameters
 - <span style="color: #236192; font-size: 20px;">platform</span>
+	- This keyword has constants provided through asf_search. More information can be found [here](/asf_search/searching/#keywords).
 	- See also 'instrument'
 	- Remote sensing platform that acquired the data. Sentinel-1 and ERS have multiple remote sensing platforms, and you may choose whether to specify a specific platform. You may specify a single value, or a list of values.
 	- Example:
@@ -19,6 +22,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 		- ALOS, A3, AIRSAR, AS, ERS, ERS-1, E1, ERS-2, E2, JERS-1, J1, RADARSAT-1, R1, SEASAT, SS, S1, Sentinel, Sentinel-1, Sentinel-1A, SA, Sentinel-1B, Sentinel-1 Interferogram (BETA), SB, SIR-C, SMAP, SP, UAVSAR, UA
 
 - <span style="color: #236192; font-size: 20px;">instrument</span>
+	- This keyword has constants provided through asf_search. More information can be found [here](/asf_search/searching/#keywords).
 	- See also 'platform'
 	- Remote sensing instrument that acquired the data. For some platforms, such as ALOS, there are multiple instruments to choose from.
 	- Example:
@@ -28,6 +32,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 		- C-SAR, PALSAR, AVNIR-2
 
 - <span style="color: #236192; font-size: 20px; font-size: 20px;">absoluteOrbit</span>
+	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
 	- For ALOS, ERS-1, ERS-2, JERS-1, RADARSAT-1, Sentinel-1A, and Sentinel-1B this value corresponds to the orbit count within the orbit cycle. For UAVSAR it is the [Flight ID](https://uavsar.jpl.nasa.gov/cgi-bin/data.pl?_ga=2.34282209.1335434931.1620087198-1930115146.1605056035). You may specify a single value, range of values, or a list of values.
 	- Example:
 		- RADARSAT: absoluteOrbit=25436
@@ -35,6 +40,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 		- UAVSAR: absoluteOrbit=12006
 
 - <span style="color: #236192; font-size: 20px;">asfframe</span>
+	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
 	- See also 'frame'
 	- This is primarily an ASF / [JAXA](https://global.jaxa.jp/) frame reference. However, some platforms use other conventions. You may specify a single value, range of values, or a list of values.
 	- Example:
@@ -58,6 +64,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 		- minBaselinePerp=100 or minBaselinePerp=50.5
 
 - <span style="color: #236192; font-size: 20px;">beamMode</span>
+	- This keyword has constants provided through asf_search. More information can be found [here](/asf_search/searching/#keywords).
 	- The beam mode used to acquire the data. See also beamSwath. You may specify a single value, or a list of values.
 	- Example:
 		- beamMode=FBS or beamMode=EW,IW or beamMode=ScanSAR+Wide
@@ -92,32 +99,38 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 		- UAVSAR: POL, RPI
 
 - <span style="color: #236192; font-size: 20px;">collectionName</span>
+	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
 	- For UAVSAR and AIRSAR data collections only. Search by the mission/campaign name. You may specify a single value. For a list of available collections, refer to the Mission List Endpoint below.
 	- Example:
 		- UAVSAR: collectionName=ABoVE
 		- AIRSAR: collectionName=collectionName=Akiyoshi,+Japan
 
 - <span style="color: #236192; font-size: 20px;">maxDoppler</span>
+	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
 	- Doppler provides an indication of how much the look direction deviates from the ideal perpendicular flight direction acquisition.
 	- Example:
 		- maxDoppler=1500 or maxDoppler=1500.5
 
 - <span style="color: #236192; font-size: 20px;">minDoppler</span>
+	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
 	- Doppler provides an indication of how much the look direction deviates from the ideal perpendicular flight direction acquisition.
 	- Example:
 		- minDoppler=100 or minDoppler=1500.5
 
 - <span style="color: #236192; font-size: 20px;">maxFaradayRotation</span>
+	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
 	- Rotation of the polarization plane of the radar signal impacts imagery. HH and HV signals become mixed. One-way rotations exceeding 5° are likely to significantly reduce the accuracy of geophysical parameter recovery, such as forest biomass.
 	- Example:
 		- maxFaradayRotation=3.5
 
 - <span style="color: #236192; font-size: 20px;">minFaradayRotation</span>
+	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
 	- Rotation of the polarization plane of the radar signal impacts imagery. HH and HV signals become mixed. One-way rotations exceeding 5° are likely to significantly reduce the accuracy of geophysical parameter recovery, such as forest biomass.
 	- Example:
 		- minFaradayRotation=2
 
 - <span style="color: #236192; font-size: 20px;">flightDirection</span>
+	- This keyword has constants provided through asf_search. More information can be found [here](/asf_search/searching/#keywords).
 	- Satellite orbit direction during data acquisition. You may specify a single value.
 	- Example:
 		- flightDirection=DESCENDING
@@ -125,12 +138,14 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 		- A, ASC, ASCENDING, D, DESC, DESCENDING
 
 - <span style="color: #236192; font-size: 20px;">flightLine</span>
+	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
 	- Specify a flightline for UAVSAR or AIRSAR. You may specify a single value.
 	- Example:
 		- UAVSAR: flightLine=05901
 		- AIRSAR: flightLine=gilmorecreek045-1.93044
 
 - <span style="color: #236192; font-size: 20px;">frame</span>
+	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
 	- See also 'asfframe'
 	- ESA-referenced frames are offered to give users a universal framing convention. Each ESA frame has a corresponding ASF frame assigned. You may specify a single value, range of values, or a list of values.
 	- Example:
@@ -149,11 +164,13 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 		S1B_IW_GRDH_1SDV_20161124T032008_20161124T032033_003095_005430_9906
 
 - <span style="color: #236192; font-size: 20px;">groupid</span>
+	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
 	- Comma-separated list of specific group IDs. For some datasets, the group ID is the same as the scene name. For others, such as Sentinel-1, the group ID is unique for a group of scenes. The group ID value is included in GeoJSON, JSON, and CSV outputs.
 	- Example:
 		- groupid=S1A_IWDV_0112_0118_037147_150
 
 - <span style="color: #236192; font-size: 20px;">lookDirection</span>
+	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
 	- Left or right direction of data acquisition. You may specify a single value.
 	- Example:
 		- lookDirection=L
@@ -173,6 +190,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 		- minInsarStackSize=20
 
 - <span style="color: #236192; font-size: 20px;">offNadirAngle</span>
+	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
 	- Off-nadir angles for ALOS PALSAR. You may specify a single value, range of values, or a list of values.
 	- Example:
 		- offNadirAngle=21.5
@@ -183,6 +201,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 		- Other: 9.7, 9.9, 13.8, 14, 16.2, 17.3, 17.9, 18, 19.2, 20.5, 21.5, 23.1, 24.2, 24.6, 25.2, 25.8, 25.9, 26.2, 27.1, 28.8, 30.8, 34.3, 36.9, 38.8, 41.5, 43.4, 45.2, 46.6, 47.8, 49, 50, 50.8
 
 - <span style="color: #236192; font-size: 20px;">polarization</span>
+	- This keyword has constants provided through asf_search. More information can be found [here](/asf_search/searching/#keywords).
 	- A property of SAR electromagnetic waves that can be used to extract meaningful information about surface properties of the earth. You may specify a single value, or a list of values.
 	- Example:
 		- polarization=VV
@@ -202,21 +221,23 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 		- UAVSAR: FULL, HH
 
 - <span style="color: #236192; font-size: 20px;">processingLevel</span>
-	- Level to which the data has been processed, also type of product, such as browse. You may specify a single value, or a list of values.
+	- This keyword has constants provided through asf_search. More information can be found [here](/asf_search/searching/#keywords).
+	- Level to which the data has been processed, also type of product. You may specify a single value, or a list of values.
 	- Example:
 		- processingLevel=L0,L1
 	- Values:
-		- AIRSAR: 3FP, ATI, LTIF, PTIF, CTIF, PSTOKES, BROWSE, DEM, CSTOKES, JPG, LSTOKES, THUMBNAIL
-		- ALOS: L1.0, L1.1, L1.5, RTC_LOW_RES, RTC_HI_RES, BROWSE, THUMBNAIL, METADATA, INTERFEROMETRY
-		- ERS-1: L0, L1, BROWSE, THUMBNAIL
-		- ERS-2: L0, L1, BROWSE, THUMBNAIL
-		- JERS-1: L0, L1, BROWSE, THUMBNAIL
-		- RADARSAT-1: L0, L1, BROWSE, THUMBNAIL
-		- SEASAT: L1, BROWSE, THUMBNAIL
-		- Sentinel-1A: METADATA_GRD, GRD_HS, GRD_HD, GRD_MS, GRD_MD, GRD_FD, SLC, RAW, OCN, METADATA_RAW, METADATA, METADATA_SLC, THUMBNAIL
-		- Sentinel-1B: METADATA_GRD, GRD_HS, GRD_HD, GRD_MS, GRD_MD, GRD_FD, SLC, RAW, OCN, METADATA_RAW, METADATA, METADATA_SLC, THUMBNAIL
-		- SMAP: L1A_Radar_RO_QA, L1B_S0_LoRes_HDF5, L1B_S0_LoRes_QA, L1B_S0_LoRes_ISO_XML, L1A_Radar_QA, L1A_Radar_RO_ISO_XML, L1C_S0_HiRes_ISO_XML, L1C_S0_HiRes_QA, L1C_S0_HiRes_HDF5, L1A_Radar_HDF5
-		- UAVSAR: KMZ, PROJECTED, PAULI, PROJECTED_ML5X5, STOKES, AMPLITUDE, BROWSE, COMPLEX, DEM_TIFF, PROJECTED_ML3X3, METADATA, AMPLITUDE_GRD, INTERFEROMETRY, INTERFEROMETRY_GRD, THUMBNAIL
+		- AIRSAR: 3FP, LTIF, PTIF, CTIF, PSTOKES, DEM, CSTOKES, JPG, LSTOKES
+		- ALOS: L1.0, L1.1, L1.5, L2.2, RTC_LOW_RES, RTC_HI_RES, KMZ
+		- ERS-1: L0, L1
+		- ERS-2: L0, L1
+		- JERS-1: L0, L1
+		- RADARSAT-1: L0, L1
+		- SEASAT: L1,
+		- Sentinel-1A: GRD_HS, GRD_HD, GRD_MS, GRD_MD, GRD_FD, SLC, RAW, OCN, METADATA_RAW, METADATA_SLC, METADATA_GRD_HD, METADATA_GRD_MD, METADATA_GRD_MS, METADATA_GRD_HS, METADATA_OCN
+		- Sentinel-1B: GRD_HS, GRD_HD, GRD_MS, GRD_MD, GRD_FD, SLC, RAW, OCN, METADATA_RAW, METADATA_SLC, METADATA_GRD_HD, METADATA_GRD_MD, METADATA_GRD_MS, METADATA_GRD_HS, METADATA_OCN
+		- Sentinel-1 InSAR: GUNW_STD, GUNW_AMP, GUNW_CON, GUN_COH, GUNW_UNW
+		- SMAP: L1A_Radar_RO_QA, L1A_Radar_RO_HDF5, L1B_S0_LoRes_HDF5, L1B_S0_LoRes_QA, L1B_S0_LoRes_ISO_XML, L1A_Radar_QA, L1A_Radar_RO_ISO_XML, L1C_S0_HiRes_ISO_XML, L1C_S0_HiRes_QA, L1C_S0_HiRes_HDF5, L1A_Radar_HDF5
+		- UAVSAR: KMZ, PROJECTED, PAULI, PROJECTED_ML5X5, STOKES, AMPLITUDE, COMPLEX, DEM_TIFF, PROJECTED_ML3X3, METADATA, AMPLITUDE_GRD, INTERFEROMETRY, INTERFEROMETRY_GRD, INC, SLOPE
 
 - <span style="color: #236192; font-size: 20px;">product_list</span>
 	- Comma-separated list of specific files (products). Large lists will need to utilize a [POST request](https://en.wikipedia.org/wiki/POST_(HTTP)). You can find the product_list values for any file in the GeoJSON (fileID) or JSON (product_file_id) outputs. It is also available from CMR, in the granuleUR field. It is guaranteed to be a unique indentifier in CMR. You can also find the product_list value in Vertex! See the [Cookbook page](/api/cookbook) for this Tip & more.
@@ -226,6 +247,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 		S1A_IW_SLC__1SDV_20210614T154839_20210614T154905_038338_048643_D7E4-SLC
 
 - <span style="color: #236192; font-size: 20px;">relativeOrbit</span>
+	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
 	- Path or track of satellite during data acquisition. For UAVSAR it is the [Line ID](https://uavsar.jpl.nasa.gov/cgi-bin/data.pl?_ga=2.201268782.1252483948.1620685771-1930115146.1605056035). You may specify a single value, range of values, or a list of values.
 	- Example:
 		- relativeOrbit=500,550-580
@@ -247,6 +269,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 		- bbox=-150.2,65.0,-150.1,65.5
 
 - <span style="color: #236192; font-size: 20px;">intersectsWith</span>
+	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
 	- Search by polygon, a line segment (“linestring”), or a point defined in 2-D Well-Known Text (WKT). Each polygon must be explicitly closed, i.e. the first vertex and the last vertex of each listed polygon must be identical. Coordinate pairs for each vertex are in decimal degrees: longitude is followed by latitude.
 	- Notes:
 		- Does not support multi-polygon, multi-line or multi-point.
@@ -267,11 +290,13 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 
 ### Temporal Parameters
 - <span style="color: #236192; font-size: 20px;">processingDate</span>
+	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
 	- Limit results to records that have been processed at ASF since a given date and/or time.
 	- Example:
 		- processingDate=2017-01-01T00:00:00UTC
 
 - <span style="color: #236192; font-size: 20px;">start</span>
+	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
 	- Date of data acquisition. Can be used in combination with 'end'. You may enter natural language dates, or a date and/or time stamp. All times are in UTC. For more information on accepted date formats, see the Date Parser endpoint below.
 	- Example:
 		- start=May+30,+2018
@@ -280,6 +305,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 		- start=1+week+ago&end=now
 
 - <span style="color: #236192; font-size: 20px;">end</span>
+	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
 	- Date of data acquisition. Can be used in combination with 'start'. You may enter natural language dates, or a date and/or time stamp. All times are in UTC. For more information on accepted date formats, see the Date Parser endpoint below.
 	- Example:
 		- end=May+30,+2018
@@ -288,6 +314,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 		- start=1+week+ago&end=now
 
 - <span style="color: #236192; font-size: 20px;">season</span>
+	<!-- - This keyword is also available through [asf_search](/asf_search/searching/#searching). -->
 	- Start and end day of year for desired seasonal range. This keyword may be used in conjunction with start/end to specify a seasonal range within an overall date range. Values are based on the Julian calendar. You must specify both a season start and end date.
 	- Example:
 		- season=1,31
@@ -313,6 +340,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 		- CSV also includes scene metadata and product URLs. CSV returns less fields than JSON.
 
 - <span style="color: #236192; font-size: 20px;">maxResults</span>
+	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
 	- Maximum number of data records to return from your query.
 	- Example:
 		- maxResults=10
