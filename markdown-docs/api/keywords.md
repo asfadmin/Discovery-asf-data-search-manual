@@ -314,7 +314,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 		- start=1+week+ago&end=now
 
 - <span style="color: #236192; font-size: 20px;">season</span>
-	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
+	<!-- - This keyword is also available through [asf_search](/asf_search/searching/#searching). -->
 	- Start and end day of year for desired seasonal range. This keyword may be used in conjunction with start/end to specify a seasonal range within an overall date range. Values are based on the Julian calendar. You must specify both a season start and end date.
 	- Example:
 		- season=1,31
