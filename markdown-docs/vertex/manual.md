@@ -146,6 +146,14 @@ You may **drag and drop files** into the box provided on the **Scene** or **File
 - *Note*: Jobs expire 14 days after you submit them. Expired products still appear in search results, however, you may no longer download or add them to your cart. You can easily identify your expired products by the **Expired** tag next to the product name.
 - For further information on **On Demand Products**, please see the [documentation](https://hyp3-docs.asf.alaska.edu/).
 
+## *Derived Datasets* Search Options
+
+- Selecting **Derived Datasets** allows you to view and download products from ASF's catalog of datasets.
+- Each dataset listed includes a short description.
+- Click **More Info** to view more information about the dataset.
+- Click **Download** to view and download available products for your chosen dataset. *Note*: The download link will open in a new browser window.
+- For further information on **Derived Datasets**, please see the [Derived Datasets documentation](/vertex/derived_datasets/).
+
 ## Search Results
 
 - In Vertex, a **scene** is considered to be a package containing all **files**, or products, that are related to a specific location and time.
