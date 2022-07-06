@@ -190,14 +190,14 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
         - end='2021-04-30T11:59:59Z'
         - start='1 week ago', end='now'
 
-<!-- - <span style="color: #236192; font-size: 20px;">season</span>
+- <span style="color: #236192; font-size: 20px;">season</span>
     - Start and end day of year for desired seasonal range. This keyword may be used in conjunction with start/end to specify a seasonal range within an overall date range. Values are based on the Julian calendar. You must specify both a season start and end date.
     - Example:
-        - season='1, 31'
-        - season='45, 67'
-        - season='360, 10'
+        - season=[1, 31]
+        - season=[45, 67]
+        - season=[360, 10]
     - Values:
-        - 1 through 365 -->
+        - 1 through 365
 
 ### Baseline Parameters
 - <span style="color: #236192; font-size: 20px;">stack_from_id</span>
