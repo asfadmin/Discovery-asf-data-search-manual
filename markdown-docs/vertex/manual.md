@@ -38,6 +38,38 @@
 		- Note: See the section **Other Vertex Options** for additional ways of saving searches.
 	- At any time you can clear your search area by clicking on the **Clear** button.
 
+#### Shape Validation
+If the AOI specified is its own Minimum Bounding Rectangle (MBR) in a mercator projection, the search results returned will instersect with the AOI in a mercator projection, regardless of width. This remains the case even if the international dateline is crossed within the AOI.
+
+In order for an AOI to be considered its own MBR, it must meet the following criteria:
+
+  - Each vertex shares a latitude or longitude with its neighbors
+  - East/West points share longitude
+  - North/South points share latitude
+
+AOIs that do not fit this criteria will have their points connected along [great circles](https://en.wikipedia.org/wiki/Great_circle).
+
+In addition, all AOIs are validated, and then simplified as needed. The process for this is:
+ 
+  1. Validate the input AOI. If it is not valid, an error is displayed.
+  2. Merge overlapping shapes.
+  3. Convex hull.
+  4. Any out-of-range index values are handled by clamping and wrapping them to the valid range of values.
+  5. Simplify points based on proximity threshold. The target is fewer than 400 points.
+
+Each of these steps is performed only when necessary to get the AOI to a single outline with fewer than 400 points. Any unnecessary steps are skipped.
+
+**Examples of validation and simplification:**
+
+- A self-intersecting polygon is provided: 
+	- An error is displayed.
+- A single outline is provided, consisting of 1000 points:
+	- A simplified version of the same outline is used, consisting of fewer than 400 points.
+- Multiple geometries are provided, all of them overlapping at least in part:
+	- A single outline is returned, representing the outline of all the shapes combined.
+- Multiple geometries are provided, at least some of them entirely non-overlapping:
+	- A single outline is returned, representing the convex hull of all the shapes together.
+
 ### Date Filters
 
 - **Date Filters** Search dates are optional, so they default to empty.  If you are searching for specific dates, you can define the date range further in the **Start Date** and **End Date** fields. The date picker will automatically constrain your selection to a valid range for the selected dataset.
