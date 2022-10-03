@@ -82,6 +82,7 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 		- UAVSAR: POL, RPI
 
 - <span style="color: #236192; font-size: 20px;">beamSwath</span>
+	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
 	- BeamSwath encompasses a look angle and beam mode. You may specify a single value, or a list of values.
 	- Example:
 		- beamSwath=0
