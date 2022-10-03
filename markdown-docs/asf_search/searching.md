@@ -59,6 +59,12 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
     - Example:
         - beamMode=asf.BEAMMODE.POL
 
+- <span style="color: #236192; font-size: 20px;">beamSwath</span>
+    - The beam swath encompasses a look angle and beam mode. You may specify a single value, or a list of values.
+    - Example:
+        - single value: beamSwath='IW'
+        - list of values: beamSwath=['IW','EW']
+
 - <span style="color: #236192; font-size: 20px;">campaign</span>
     - For UAVSAR, AIRSAR, and Sentinel-1 Interferogram datasets only. Search by the campaign name. You may specify a single value.
     - For a list of available campaigns, use the ```asf_search.campaigns()``` function. You must provide the desired platform.
