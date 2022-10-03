@@ -50,3 +50,17 @@ Downloads a product from the specified URL to the specified location and (option
 - path: Local path in which to save the product
 - filename: Optional filename to be used, extracted from the URL by default
 - session: The session to use, in most cases should be authenticated beforehand
+
+## Export Formats
+asf_search provides multiple export formats, in addition to the default asf_search format. Available formats are: geojson, csv, metalink, kml, jsonlite, jsonlite2.
+
+Examples:
+
+	results = ....
+	with open("search_results.csv", "w") as f:
+		f.writelines(results.csv())
+
+	results = ....
+	with open("search_results_jsonlite.json", "w") as f:
+		f.writelines(results.jsonlite())
+
