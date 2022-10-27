@@ -9,7 +9,9 @@ This class describes a single product from the ASF archive. The class provides m
 ## Attributes
 - `properties` _(dict)_: Provides product metadata such as Beam Mode, Start Time, etc.
 - `geometry` _(dict)_: Describes the product's physical extents as a geojson snippet
-
+- `baseline` _dict_: The product's has baseline related fields, if available in CMR.
+- `umm` _(dict)_: the raw umm json response from CMR used to populate `properties`, `geometry`, `baseline`, and `meta`
+- `meta` _(dict)_: the metadata json returned from CMR
 <!-- netrc
 how to build netrc file, link
 OR auth with these options instead -->
@@ -87,3 +89,15 @@ None
 - `shapely.geometry.point.Point` object describing the centroid of the product
 
 <!-- Will have more than geojson export; add this when other output options available -->
+
+### <span style="color: #236192; font-size: 20px;">remotezip()</span>
+
+Returns a configured RemoteZip object, which allows downloading selected parts of a product's zip archive.
+For more information on how to use remotezip with asf-search, see [the an example in the asf-search's jupyter notebook](https://github.com/asfadmin/Discovery-asf_search/blob/master/examples/5-Download.ipynb). For more information on the open-source remotezip package, https://github.com/gtsystem/python-remotezip.
+
+**args:**
+- `session` _ASFSession_: An authenticated _ASFSession_ object that will be used to download the product
+- 
+**returns:**
+
+- `remotezip.RemoteZip` object authenticated with the passed _ASFSession_ object
