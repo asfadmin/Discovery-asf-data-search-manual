@@ -60,20 +60,20 @@ Builds a baseline stack using this product as a reference
 
 **returns:**
 
-- `ASFSearchResults` representation of the stack, with the addition of baseline values (temporal, perpendicular) attached to each `ASFProduct`
+- ```ASFSearchResults``` representation of the stack, with the addition of baseline values (temporal, perpendicular) attached to each `ASFProduct`
 
 ***
 
 ### <span style="color: #236192; font-size: 20px;">get_stack_opts()</span>
 
-Builds search options that describe an InSAR stack based on this product. Similar to `stack()` but doesn't perform the search, simply returns `ASFSearchOptions` which can be inspected or adjusted and then passed to various search functions.
+Builds search options that describe an InSAR stack based on this product. Similar to `stack()` but doesn't perform the search, simply returns ```ASFSearchOptions``` which can be inspected or adjusted and then passed to various search functions.
 
 **args:**
 None
 
 **returns:**
 
-- `ASFSearchOptions` object
+- ```ASFSearchOptions``` object
 
 ***
 
@@ -86,7 +86,7 @@ None
 
 **returns:**
 
-- `shapely.geometry.point.Point` object describing the centroid of the product
+- ```shapely.geometry.point.Point``` object describing the centroid of the product
 
 <!-- Will have more than geojson export; add this when other output options available -->
 
@@ -97,7 +97,7 @@ For more information on how to use remotezip with asf-search, see [the an exampl
 
 **args:**
 - `session` _ASFSession_: An authenticated _ASFSession_ object that will be used to download the product
-- 
+
 **returns:**
 
-- `remotezip.RemoteZip` object authenticated with the passed _ASFSession_ object
+- ```remotezip.RemoteZip``` object authenticated with the passed _ASFSession_ object
