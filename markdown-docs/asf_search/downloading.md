@@ -51,6 +51,20 @@ Downloads a product from the specified URL to the specified location and (option
 - filename: Optional filename to be used, extracted from the URL by default
 - session: The session to use, in most cases should be authenticated beforehand
 
+### <span style="color: #236192; font-size: 20px;">remotezip()</span>
+
+Configures and returns an authenticated ```remotezip.RemoteZip``` object, allowing downloading of
+specific files from a given zip archive without downloading the entire archive.
+
+**args**
+
+- url: URL from which to download a zip archive
+- session: Authenticated ```ASFSession``` that RemoteZip will use to download from the zip product
+
+**returns:**
+
+- `remotezip.RemoteZip` object authenticated with the passed _ASFSession_ object
+
 ## Export Formats
 asf_search provides multiple export formats, in addition to the default asf_search format. Available formats are: geojson, csv, metalink, kml, jsonlite, jsonlite2.
 

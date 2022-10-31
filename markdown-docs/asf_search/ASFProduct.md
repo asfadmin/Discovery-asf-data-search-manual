@@ -8,8 +8,10 @@ This class describes a single product from the ASF archive. The class provides m
 
 ## Attributes
 - `properties` _(dict)_: Provides product metadata such as Beam Mode, Start Time, etc.
-- `geometry` _(dict)_: Describes the product's physical extents as a geojson snippet
-
+- `geometry` _(dict)_: Describes the product's physical extents as a geojson snippet.
+- `baseline` _dict_: The product's baseline related fields, if available in CMR.
+- `umm` _(dict)_: the raw umm json response from CMR used to populate `properties`, `geometry`, `baseline`, and `meta`.
+- `meta` _(dict)_: the metadata json returned from CMR.
 <!-- netrc
 how to build netrc file, link
 OR auth with these options instead -->
@@ -58,20 +60,20 @@ Builds a baseline stack using this product as a reference
 
 **returns:**
 
-- `ASFSearchResults` representation of the stack, with the addition of baseline values (temporal, perpendicular) attached to each `ASFProduct`
+- ```ASFSearchResults``` representation of the stack, with the addition of baseline values (temporal, perpendicular) attached to each `ASFProduct`
 
 ***
 
 ### <span style="color: #236192; font-size: 20px;">get_stack_opts()</span>
 
-Builds search options that describe an InSAR stack based on this product. Similar to `stack()` but doesn't perform the search, simply returns `ASFSearchOptions` which can be inspected or adjusted and then passed to various search functions.
+Builds search options that describe an InSAR stack based on this product. Similar to `stack()` but doesn't perform the search, simply returns ```ASFSearchOptions``` which can be inspected or adjusted and then passed to various search functions.
 
 **args:**
 None
 
 **returns:**
 
-- `ASFSearchOptions` object
+- ```ASFSearchOptions``` object
 
 ***
 
@@ -84,6 +86,19 @@ None
 
 **returns:**
 
-- `shapely.geometry.point.Point` object describing the centroid of the product
+- ```shapely.geometry.point.Point``` object describing the centroid of the product
 
 <!-- Will have more than geojson export; add this when other output options available -->
+
+### <span style="color: #236192; font-size: 20px;">remotezip()</span>
+
+Returns a configured RemoteZip object, which allows downloading selected parts of a product's zip archive.
+For more information on how to use remotezip with asf-search, see the `Downloading Single Products` section of [the example jupyter notebook](https://github.com/asfadmin/Discovery-asf_search/blob/master/examples/5-Download.ipynb). For more information on the open-source remotezip package, check out <a target="_blank" href="https://github.com/gtsystem/python-remotezip">the remotezip project repo</a>.
+
+**args:**
+
+- `session` _ASFSession_: An authenticated _ASFSession_ object that will be used to download the product
+
+**returns:**
+
+- ```remotezip.RemoteZip``` object authenticated with the passed _ASFSession_ object

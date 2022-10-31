@@ -8,7 +8,7 @@ This class describes a set of search results from the ASF archive. The class pro
 
 ## Attributes
 - `searchOptions` _(ASFSearchOptions)_: The search options used to generate this set of results. May be `None` in some cases.
-
+- `searchComplete` _(bool)_: Flag signifying `asf_search.search()` sucessfully completed gathering results from CMR. 
 ***
 
 ## Methods
@@ -37,9 +37,43 @@ Iterates over each ```ASFProduct``` and downloads them to the specified path.
 
 - `dict` describing the search results as a geojson object.
 
-<!-- ### <span style="color: #236192; font-size: 20px;">kml()</span>
+### <span style="color: #236192; font-size: 20px;">csv()</span>
+
+Creates a csv formatted string generator from the results
+
+**args:** None
+
+**returns:**
+
+- A csv formatted string generator
+
+### <span style="color: #236192; font-size: 20px;">kml()</span>
+
+Creates a kml formatted string generator from the results
+
+**args:** None
+
+**returns:**
+
+- A kml formatted string generator
 
 ### <span style="color: #236192; font-size: 20px;">metalink()</span>
 
-### <span style="color: #236192; font-size: 20px;">csv()</span>
- -->
+Creates a metalink formatted string generator from the results
+
+**args:** None
+
+**returns:**
+
+- A metalink formatted string generator
+
+### <span style="color: #236192; font-size: 20px;">raise_if_incomplete()</span>
+
+Use to check if results returned from `asf_search.search()` are incomplete (this can happen
+if an error occurs while querying CMR)
+
+**args:** None
+
+**raises:**
+
+- Raises an `asf_search.exceptions.ASFSearchError` if the results are incomplete
