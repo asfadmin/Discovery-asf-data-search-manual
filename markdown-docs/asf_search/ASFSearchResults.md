@@ -57,7 +57,7 @@ Creates a kml formatted string generator from the results
 
 - A kml formatted string generator
 
-- ### <span style="color: #236192; font-size: 20px;">metalink()</span>
+### <span style="color: #236192; font-size: 20px;">metalink()</span>
 
 Creates a metalink formatted string generator from the results
 
