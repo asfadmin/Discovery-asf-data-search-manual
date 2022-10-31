@@ -96,6 +96,7 @@ Returns a configured RemoteZip object, which allows downloading selected parts o
 For more information on how to use remotezip with asf-search, see the `Downloading Single Products` section of [the example jupyter notebook](https://github.com/asfadmin/Discovery-asf_search/blob/master/examples/5-Download.ipynb). For more information on the open-source remotezip package, check out <a target="_blank" href="https://github.com/gtsystem/python-remotezip">the remotezip project repo</a>.
 
 **args:**
+
 - `session` _ASFSession_: An authenticated _ASFSession_ object that will be used to download the product
 
 **returns:**
