@@ -46,6 +46,7 @@ nav:
     - What's New: api/changelog.md
   # - About: about.md
   - Product Details:
+    - Using ASF Data: datasets/using_ASF_data.md
     - ALOS PALSAR Products: datasets/palsar.md
     - Events (SARVIEWS): datasets/events_about.md
   - ASF Web: 'https://asf.alaska.edu/'
