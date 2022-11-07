@@ -280,8 +280,3 @@ The inundated wetlands Earth System Data Records consists of two primary compone
 - [Dataset Formats and Files](https://asf.alaska.edu/how-to/data-basics/asf-datasets-formats-and-files/)
 - [Product Types and Processing Levels](https://asf.alaska.edu/how-to/data-basics/types-of-synthetic-aperture-radar-sar-products/)
 - [Derived Datasets Overview](https://docs.asf.alaska.edu/vertex/derived_datasets/)
-
-
-
-
-
