@@ -54,9 +54,7 @@ Builds a baseline stack using this product as a reference
 
 **args:**
 
-- cmr_provider _(optional)_: Custom provider name to constrain CMR results to, for more info on how this is used, see [CMR documentation](https://cmr.earthdata.nasa.gov/search/site/docs/search/api.html#c-provider)
-- session _(optional)_: A Session to be used when performing the search. For most uses, can be ignored. Used when searching for a dataset, provider, etc. that requires authentication. See [ASFSession](/asf_search/ASFSession) for more details.
-- host _(optional)_: SearchAPI host, defaults to Production SearchAPI. This option is intended for dev/test purposes and can generally be ignored.
+- opts: ASFSearchOptions _(optional)_: An ASFSearchOptions object describing the search parameters to be used. Search parameters specified outside this object will override in event of a conflict.
 
 **returns:**
 

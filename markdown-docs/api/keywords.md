@@ -269,6 +269,11 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 	- Example:
 		- bbox=-150.2,65.0,-150.1,65.5
 
+- <span style="color: #236192; font-size: 20px;">circle</span>
+	- Bounding circle define an area using long/lat point and radius. The radius of the circle must be between 10 and 6,000,000, and the center cannot be set to the north or south pole
+	- Example:
+		- circle=-150.2,65.0,-150.1
+
 - <span style="color: #236192; font-size: 20px;">intersectsWith</span>
 	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
 	- Search by polygon, a line segment (“linestring”), or a point defined in 2-D Well-Known Text (WKT). Each polygon must be explicitly closed, i.e. the first vertex and the last vertex of each listed polygon must be identical. Coordinate pairs for each vertex are in decimal degrees: longitude is followed by latitude.
