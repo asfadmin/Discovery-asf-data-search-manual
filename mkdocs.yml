@@ -3,8 +3,10 @@ site_description: Documentation for searching and processing ASF SAR data.
 site_dir: 'docs'
 docs_dir: 'markdown-docs'
 google_analytics: ['UA-991100-5', 'search.asf.alaska.edu']
-extra_css: 
+extra_css:
   - 'css/styles.css'
+plugins:
+    - mkdocs-video
 
 theme:
     name: asf-theme

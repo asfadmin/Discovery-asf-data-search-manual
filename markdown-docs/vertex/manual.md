@@ -7,6 +7,8 @@
 
 ## *Geographic* Search Options
 
+![type:video](https://www.youtube.com/embed/JovQ-rG9ZJE)
+
 - In the top left corner of the map, there are buttons that allow you to change your **map projection**, **zoom**, and **map view**.
 	- By default, the map is in equatorial projection. You may click **Arctic map view** or **Antarctic map view** to change your map projection. Click **Equatorial map view** to switch back to the equatorial projection.
 	- You may click the **Zoom In** or **Zoom Out** icons to adjust your zoom.
@@ -50,7 +52,7 @@ In order for an AOI to be considered its own MBR, it must meet the following cri
 AOIs that do not fit this criteria will have their points connected along [great circles](https://en.wikipedia.org/wiki/Great_circle).
 
 In addition, all AOIs are validated, and then simplified as needed. The process for this is:
- 
+
   1. Validate the input AOI. If it is not valid, an error is displayed.
   2. Merge overlapping shapes.
   3. Convex hull.
@@ -61,7 +63,7 @@ Each of these steps is performed only when necessary to get the AOI to a single 
 
 **Examples of validation and simplification:**
 
-- A self-intersecting polygon is provided: 
+- A self-intersecting polygon is provided:
 	- An error is displayed.
 - A single outline is provided, consisting of 1000 points:
 	- A simplified version of the same outline is used, consisting of fewer than 400 points.
@@ -99,6 +101,8 @@ Each of these steps is performed only when necessary to get the AOI to a single 
 	- *Note*: The number of files that are predicted to match the current search parameters is displayed under the SEARCH button. If there are no predicted matches, the search button will be greyed out and display NO RESULTS.
 
 ## *List* Search Options
+
+![type:video](https://www.youtube.com/embed/oetqxZkqVZM)
 
 - Selecting **List Search** opens the *List Search* window and allows you to enter a list of scenes or file names.
 	- **Scene** allows searching for specific scene names (granule names), and the results will include any files that are part of those scenes.
@@ -138,6 +142,8 @@ You may **drag and drop files** into the box provided on the **Scene** or **File
 
 ## *Baseline* Search Options
 
+![type:video](https://www.youtube.com/embed/Xp5bgvi2pEM)
+
 - Selecting **Baseline Search** provides a space to enter the name of a Reference Scene, and will then search for all secondary scenes that match the coverage area of the Reference.
 	- *Note*: If there are no matching scenes, the RESULTS button will be greyed out and will display NO RESULTS.
 - Once a Reference Scene has been entered, click **SEARCH**. Search results will appear under the map. Clicking on the *Zoom to results* icon at the top of the left results column will display the location of the stack of scenes on the map.
@@ -146,6 +152,8 @@ You may **drag and drop files** into the box provided on the **Scene** or **File
 - For further information on **Baseline**, please see the [Baseline documentation](/vertex/baseline).
 
 ## *SBAS* Search Options
+
+![type:video](https://www.youtube.com/embed/bQPdtuobdcg)
 
 - Selecting **SBAS Search** provides a space to enter the name of a Reference Scene, and will search for all secondary scenes that match the coverage area of the Reference. It is an alternate method used for Interferometric SAR (InSAR) processing, similar to Baseline.
 	- *Note*: If there are no matching scenes, the RESULTS button will be greyed out and will display NO RESULTS.
