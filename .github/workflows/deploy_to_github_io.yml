@@ -20,7 +20,7 @@ jobs:
       - name: Setup Python
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -r requirements.txt
+          python -m pip install -r asf-data-search-manual/requirements.txt
 
       - name: deploy to github.io
         if: github.ref == 'refs/heads/prod'
