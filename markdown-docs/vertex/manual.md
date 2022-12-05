@@ -80,6 +80,8 @@ Each of these steps is performed only when necessary to get the AOI to a single 
 
 ### Additional Filters
 
+![type:video](https://www.youtube.com/embed/Vd9eDL9KVK4)
+
 - **Additional Filters** allow for additional parameters to be applied to narrow your search and reduce the number of results. Not all filters will be available for all datasets.
 	- **File Type** – Limit the search to specific types of files. Multiple selections allowed.
 	- **Beam Mode** – Limit the search to specific beam modes. Multiple selections allowed.
@@ -196,6 +198,8 @@ You may **drag and drop files** into the box provided on the **Scene** or **File
 
 ## Search Results
 
+![type:video](https://www.youtube.com/embed/wp8Xt_Y4T84)
+
 - In Vertex, a **scene** is considered to be a package containing all **files**, or products, that are related to a specific location and time.
 	- *For example*, the column on the left of the Results panel displays the scenes returned from a search. The column on the right displays the file contents of each scene.
 - The maximum number of files that a search will return is displayed under the SEARCH button.
@@ -231,6 +235,8 @@ You may **drag and drop files** into the box provided on the **Scene** or **File
 
 ## On Demand Queue
 
+![type:video](https://www.youtube.com/embed/AxhYMBzycuY)
+
 - Clicking on the **three boxes** icon in the header, labeled **On Demand**, will display a drop down list of options.
 - **On Demand Queue** will open the On Demand queue.
 	- The different jobs types in your queue are separated by tabs along the top of the queue. The job types currently available are **RTC GAMMA**, **InSAR GAMMA**, and **autoRIFT**. You may click on a tab to select it. The selected tab is highlighted.
@@ -254,6 +260,8 @@ You may **drag and drop files** into the box provided on the **Scene** or **File
 - *Note*: You must be signed in to see your Subscriptions, Submitted Products, and to submit jobs from the On Demand Queue.
 
 ## Downloads Queue
+
+![type:video](https://www.youtube.com/embed/cRjqbLNv4Aw)
 
 Enhanced download queue functionality is now available on Google Chrome browser. See [below](/vertex/manual/#google-chrome-browser) for more information.
 
