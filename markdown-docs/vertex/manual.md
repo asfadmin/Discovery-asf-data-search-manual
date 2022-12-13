@@ -10,10 +10,12 @@
 ![type:video](https://www.youtube.com/embed/JovQ-rG9ZJE)
 
 - In the top left corner of the map, there are buttons that allow you to change your **map projection**, **zoom**, and **map view**.
-	- By default, the map is in equatorial projection. You may click **Arctic map view** or **Antarctic map view** to change your map projection. Click **Equatorial map view** to switch back to the equatorial projection.
+	- By default, the map is in equatorial projection. You may click **Map View** and select **Arctic map view** or **Antarctic map view** to change your map projection. Click **Equatorial map view** to switch back to the equatorial projection.
 	- You may click the **Zoom In** or **Zoom Out** icons to adjust your zoom.
-	- By default, the map layer is in **Satellite View**. You may click **Street View** to switch your map layer.
-	- You may click **Gridlines** to add a graticule overlay to the map. Click it again to turn off the overlay. *Note*: This is currently only available in the equatorial map view.
+	- The default map layer is satellite. You may click the **Layers** button and select **Satellite View** or **Street View** to switch your map layer.
+		- You may click **Overview Map** to add an overview map in the top right corner of the map. Click it again to turn off the overview map.
+		- You may click **Gridlines** to add a graticule overlay to the map. Click it again to turn off the overlay. *Note*: This is currently only available in the equatorial map view.
+	- You may click **Opacity** and adjust the slider as desired to change the opacity of browse images displayed on the map.
 - Navigate to your area of interest by dragging the map while holding down the left mouse button.
 - By default, the map-drawing tool is a bounding box. Click on the map once to specify the starting corner, move the mouse, then click again to finish the box. Additional drawing tool options are available in the toolbar at the top of the screen, including *point*, *linestring*, and *polygon* options.
 	- **Point** allows you to define an area of interest by clicking on the map to place a point.
@@ -320,20 +322,13 @@ Enhanced download queue functionality is available on Google Chrome browser. Ple
 
 ## Other Vertex Options
 
-- In the top left corner of the map, there are buttons that allow you to change your **map projection**, **zoom**, and **map view**. These are visible in all search types.
-	- By default, the map is in equatorial projection. You may click **Arctic map view** or **Antarctic map view** to change your map projection. Click **Equatorial map view** to switch back to the equatorial projection.
+- In the top left corner of the map, there are buttons that allow you to change your **map projection**, **zoom**, and **map view**. *Note:* Available map controls vary by search type.
+	- By default, the map is in equatorial projection. You may click **Map View** and select **Arctic map view** or **Antarctic map view** to change your map projection. Click **Equatorial map view** to switch back to the equatorial projection.
 	- You may click the **Zoom In** or **Zoom Out** icons to adjust your zoom.
-	- By default, the map layer is in **Satellite View**. You may click **Street View** to switch your map layer.
-- Click on the **three-bars menu icon** next to the **Sign in** icon to display the menu options.
-	- **Copy Search Link** will copy all the search parameters that have been set in the current search as a URL. The URL can then be pasted into a browser search bar to recreate the search exactly, or pasted into a document and saved to recreate the search later.
-	- **Share With Email** will open a new email with the URL of the search to send to others.
-	- **Help & Tutorials** provides both illustrated and video demonstrations on the basic steps for setting up a search and viewing the results.
-	- **What’s New** provides updated information on new features and changes that have been added to Vertex for improved performance and functionality.
-- Click on the **Sign in** icon once you are signed in to display the user options.
-	- **Saved Searches** opens a list of searches that you have named and saved. Click on the magnifying glass icon to load the search settings.
-	- **Search History** opens a list of your 10 last searches that were not named and saved. Click on the magnifying glass icon to load the search settings.
-	- **Saved Filters** opens a list of filters that you have saved. Click *Apply Filters* to apply the selected filter set to your search.
-	- **Preferences** opens a window that allows you to set search preferences for dataset, max results, map layer, and default filter presets. These preferences will be saved and applied to future searches.
+	- The default map layer is satellite. You may click the **Layers** button and select **Satellite View** or **Street View** to switch your map layer.
+		- You may click **Overview Map** to add an overview map in the top right corner of the map. Click it again to turn off the overview map.
+		- You may click **Gridlines** to add a graticule overlay to the map. Click it again to turn off the overlay. *Note*: This is currently only available in the equatorial map view.
+	- You may click **Opacity** and adjust the slider as desired to change the opacity of browse images displayed on the map.
 - Click on the **down arrow** on the **Search**
 	- **Clear Search** will clear all search parameters that have been set except for Search Type and Dataset.
 	- **Saved Searches** opens a submenu.
@@ -343,8 +338,26 @@ Enhanced download queue functionality is available on Google Chrome browser. Ple
 	- **Saved Filters** opens a submenu.
 		- **Save Filters^** allows you to save your current filter set.
 		- **View Filters...^** allows you to view your saved filter sets. Click Apply Filters to apply them to your current search.
+	- **Share Search** opens a submenu.
+		- **Copy Search Link** will copy all the search parameters that have been set in the current search as a URL. The URL can then be pasted into a browser search bar to recreate the search exactly, or pasted into a document and saved to recreate the search later.
+		- **Share With Email** will open a new email with the URL of the search to send to others.
 	- **Help & Tutorials** provides both illustrated and video demonstrations on the basic steps for setting up a search and viewing the results.
 		- ^*Note*: You must be signed in to Vertex for these options to be available.
+	- **Export** opens a submenu.
+		- **Export Python** will provide a Python code snippet to recreate the current search using the Python search module asf_search. It also provides a link to the asf_search documentation. 
+		- **Export API** will provide the API URL to recreate the current search using the SearchAPI. It also provides a link to the SearchAPI documentation. 
+- Click **Help** for additional help options.
+	- **Watch Our Tutorials** provides both illustrated and video demonstrations on how to use Vertex.
+	- **Read Our User Guide** opens the Vertex documentation in a new tab.
+	- **Read Our On Demand Guide** opens the On Demand documentation in a new tab.
+	- **Find SAR Data Using ASF API** opens the SearchAPI documentation in a new tab.
+	- **Learn More About ASF & SAR** opens the ASF website in a new tab.
+	- **Statistics and GitHub Repository** provides links to our GitHub Vertex repository.
+- Click on the **Sign in** icon once you are signed in to display the user options.
+	- **Saved Searches** opens a list of searches that you have named and saved. Click on the magnifying glass icon to load the search settings.
+	- **Search History** opens a list of your 10 last searches that were not named and saved. Click on the magnifying glass icon to load the search settings.
+	- **Saved Filters** opens a list of filters that you have saved. Click *Apply Filters* to apply the selected filter set to your search.
+	- **Preferences** opens a window that allows you to set search preferences for dataset, max results, map layer, and default filter presets. These preferences will be saved and applied to future searches.
 - *Note*: **Saved Searches**, **Saved Filters**, and **Search History** are available through both the Sign in menu and the Search button down arrow menu.
 - Click into the **Search all ASF** field on the grey header bar to perform a search. Inputs into this field will search across all ASF websites.
 	- You may also click the **microphone** icon if you prefer to use voice search.
