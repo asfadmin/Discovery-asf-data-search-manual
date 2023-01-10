@@ -6,7 +6,15 @@ google_analytics: ['UA-991100-5', 'search.asf.alaska.edu']
 extra_css:
   - 'css/styles.css'
 plugins:
-    - mkdocs-video
+  - mkdocs-video:
+      css_style:
+        position: "relative"
+        width: "50%"
+        max-width: "400px"
+        min-width: "300px"
+        height: "25vw"
+        max-height: "250px"
+        min-height: "175px"
 
 theme:
     name: asf-theme
