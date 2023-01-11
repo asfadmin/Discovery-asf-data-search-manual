@@ -3,7 +3,8 @@
 - If you do not already have one, create a free **[Earthdata Login account](https://urs.earthdata.nasa.gov/users/new)**.
 - Go to **[Vertex](https://search.asf.alaska.edu)**
 	- Log in by clicking the **Sign in** icon in the top right of the window. Use your Earthdata Login username and password.
-- Search Type allows you to choose between *Geographic*, *List*, *Baseline*, *SBAS*, and *On Demand Products* search types.
+	![type:video](https://www.youtube.com/embed/j_Db_ipKLos)
+- Search Type allows you to choose between all available search types.
 
 ## *Geographic* Search Options
 
@@ -223,6 +224,7 @@ You may **drag and drop files** into the box provided on the **Scene** or **File
 		- The **Baseline Tool** button opens the ASF Baseline Tool, which is used for creating InSAR stacks.
 		- The **SBAS Tool** button opens the ASF SBAS Tool, which is another method of creating InSAR stacks.
 		- The **More Like This** button creates a search based on the selected scene’s path and frame.
+		![type:video](https://www.youtube.com/embed/h7vmrcpMd60)
 		- The **Citation** button opens a new window with citation guidance for published works using data, imagery, or tools accessed through ASF.
 		- **Download this Image** downloads the browse image.
 		- The eye icon labeled **Open in Image Viewer** opens a larger browse viewer window.
@@ -323,6 +325,7 @@ Enhanced download queue functionality is available on Google Chrome browser. Ple
 ## Other Vertex Options
 
 - In the top left corner of the map, there are buttons that allow you to change your **map projection**, **zoom**, and **map view**. *Note:* Available map controls vary by search type.
+![type:video](https://www.youtube.com/embed/FOciJam_Nmw)
 	- By default, the map is in equatorial projection. You may click **Map View** and select **Arctic map view** or **Antarctic map view** to change your map projection. Click **Equatorial map view** to switch back to the equatorial projection.
 	- You may click the **Zoom In** or **Zoom Out** icons to adjust your zoom.
 	- The default map layer is satellite. You may click the **Layers** button and select **Satellite View** or **Street View** to switch your map layer.
@@ -332,6 +335,7 @@ Enhanced download queue functionality is available on Google Chrome browser. Ple
 - Click on the **down arrow** on the **Search**
 	- **Clear Search** will clear all search parameters that have been set except for Search Type and Dataset.
 	- **Saved Searches** opens a submenu.
+	![type:video](https://www.youtube.com/embed/io4OQumWrJA)
 		- **Save Search^** allows you to name and save your current search.
 		- **View Searches...^** opens a list of searches that you have named and saved. Click on the magnifying glass icon to load the search settings.
 		- **Search History...^** opens a list of your 10 last searches that were not named and saved. Click on the magnifying glass icon to load the search settings.
