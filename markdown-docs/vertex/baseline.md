@@ -5,6 +5,7 @@ Baseline uses information from two synthetic aperture radar (SAR) images of the 
 
 ## How to use Vertex Baseline Tool
 Visit **[ASF's Vertex](https://search.asf.alaska.edu)** to begin using the Baseline tool.
+![type:video](https://www.youtube.com/embed/Xp5bgvi2pEM)
 
 ### **Beginning your Baseline Search**
 

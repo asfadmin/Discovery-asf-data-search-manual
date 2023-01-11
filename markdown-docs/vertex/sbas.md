@@ -16,6 +16,7 @@ Further reading on baseline, including descriptions of multiple approaches, can 
 
 ## How to use Vertex SBAS Tool
 Visit **[ASF's Vertex](https://search.asf.alaska.edu)** to begin using the SBAS tool.
+![type:video](https://www.youtube.com/embed/bQPdtuobdcg)
 
 ### **Beginning your SBAS Search**
 
