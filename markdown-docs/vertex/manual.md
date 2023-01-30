@@ -325,7 +325,7 @@ Enhanced download queue functionality is available on Google Chrome browser. Ple
 ## Other Vertex Options
 
 - In the top left corner of the map, there are buttons that allow you to change your **map projection**, **zoom**, and **map view**. *Note:* Available map controls vary by search type.
-![type:video](https://www.youtube.com/embed/TWC4DOSFLhw)
+![type:video](https://www.youtube.com/embed/qrUnsbZTVnA)
 	- By default, the map is in equatorial projection. You may click **Map View** and select **Arctic map view** or **Antarctic map view** to change your map projection. Click **Equatorial map view** to switch back to the equatorial projection.
 	- You may click the **Zoom In** or **Zoom Out** icons to adjust your zoom.
 	- The default map layer is satellite. You may click the **Layers** button and select **Satellite View** or **Street View** to switch your map layer.
