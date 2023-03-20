@@ -21,6 +21,7 @@ For an overview of all of ASF services visit [asf.alaska.edu](https://asf.alaska
           <li><a href="vertex/baseline/">Baseline Search Tool</a></li>
           <li><a href="vertex/sbas/">SBAS Search Tool</a></li>
           <li><a href="https://www.youtube.com/playlist?list=PLXluIEvp5ZzIWd0yNy-ANfdwWjCD1hInA">Tutorial</a></li>
+          <li><a href="vertex/changelog/">What's New</a></li>
         </ul>
       </div>
     </div>
