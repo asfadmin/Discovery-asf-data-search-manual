@@ -24,20 +24,21 @@
 	- **Polygon** allows you to define an area of interest over an arbitrary polygon. You will receive an error message at the bottom of the window if there was a problem with the polygon (self-intersecting, reversed polygon winding order, etc.).
 	- **Box** allows you to define an area of interest over a lat/long-aligned bounding box by clicking once to set one corner, and again to set the opposite corner.
 	- Once a shape has been drawn, select the **Edit current area of interest** icon on the toolbar to move, add, and delete points. Select the **Draw new area of interest** icon to create a new AOI.
-	- Clicking **Import Area of Interest** brings up the Area of Interest dialog window. You may either enter a WKT string or upload a geospatial file.
+	- Clicking **Upload Goespatial File** brings up the Area of Interest dialog window. You may enter a WKT string, upload a geospatial file, or enter a location.
 - **Dataset** enables you to choose the dataset of interest.
 	- If you need more information about a particular dataset, click on the appropriate question mark icon in the Dataset selector.
 - **Filters...** enables you to further refine your search
 
 ### Area of Interest Options
 
-- **Area of Interest** gives you the option of importing an area of interest as a geospatial file or by entering a set of geographic coordinates.
-	- Click on the down arrow next to **Area of Interest** in the top menu
-	- Click **Select Files** and navigate to a folder on your computer, or drag and drop files into the box. *GeoJSON*, *shapefiles*, and *KML* files are supported provided they are in a latitude/longitude-based coordinate system, such as WGS84.
+- **Area of Interest** gives you the option of entering a set of geographic coordinates, importing an area of interest as a geospatial file, or searching for a location. Click on the down arrow next to **Area of Interest** in the top menu.
+	- An area of interest may be defined by a set of coordinates entered in the **Area of Interest WKT** window.
+		- Coordinates should be entered as decimal degrees in *well-known text* (WKT) format. Coordinates entered as a comma-separated long/lat string (e.g. -97.38,36.46,-53.44,36.46...) will be automatically converted by Vertex to WKT format.
+	- To upload a geospatial file, click **Select Files** and navigate to a folder on your computer, or drag and drop files into the box. *GeoJSON*, *shapefiles*, and *KML* files are supported provided they are in a latitude/longitude-based coordinate system, such as WGS84.
 		- When importing a *GeoJSON* file, all geometries in the file will be included. If multiple geometries are found, a convex hull will be used to represent them in the search.
 		- *Shapefiles* can be either a single *.shp* file, multiple shapefile components (*.shp, .shx, .dbf*), or a *zip* file containing one or more shapefile components. At a minimum, the *.shp* component must be included in all cases.
-	- An area of interest may also be defined by a set of coordinates entered in the Options window.
-		- Coordinates should be entered as decimal degrees in *well-known text* (WKT) format. Coordinates entered as a comma-separated long/lat string (e.g. -97.38,36.46,-53.44,36.46...) will be automatically converted by Vertex to WKT format.
+	- To enter a location, click the **Search for a Location** field, and start typing the name of the location. Select your desired location from the drop down list. 
+		- Once you have selected a location, it will be geocoded into WKT format coordinates.
 	- You can save the coordinates of a search so they can be used to exactly recreate an area of interest in later searches.
 		- Once the **Area of Interest** has been set, a *Copy to clipboard* icon will appear. Click on the icon and paste the coordinates into a new search or to a text file for later use.
 		- Note: See the section **Other Vertex Options** for additional ways of saving searches.
