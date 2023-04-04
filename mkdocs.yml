@@ -27,7 +27,7 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Search UI:
+  - Vertex:
     - Vertex Manual: vertex/manual.md
     - Baseline: vertex/baseline.md
     - SBAS: vertex/sbas.md
