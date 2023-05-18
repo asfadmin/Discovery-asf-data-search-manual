@@ -53,6 +53,12 @@ While in SBAS Search type, you will notice many familiar controls in the results
 - If you wish to stop adding a pair after you have begun, you may click the **Square symbol** to *Stop adding custom pair*.
 - If you wish to delete an added pair, you may click on the dotted pair line and click the **Minus symbol** to *Remove custom pair*. Note that only manually added pairs may be deleted.
 
+#### Gaps Detected Warning Message
+
+If there are gaps detected in your SBAS pairs, a warning message will be displayed. It is recommended to avoid disconnected InSAR pair networks. Disconnected pair networks make it difficult to create unbiased estimates of InSAR velocities within a time-series analysis. 
+
+If you wish to eliminate the gaps, you may modify your search filters, such as increasing the temporal baseline until all scenes are connected. You may also add manual pairs for the missing connections. Once all scenes have at least one connection, the warning message will disappear. 
+
 #### SBAS Criteria
 
 - Click **SBAS Criteria...** for additional filtering options.
