@@ -6,6 +6,10 @@
 	![type:video](https://www.youtube.com/embed/j_Db_ipKLos)
 - Search Type allows you to choose between all available search types.
 
+## Language Options
+
+In the top right menu, next to the **Sign In** icon, there are language control options. Vertex currently offers English and Spanish. If your browser is set to one of the available languages, Vertex will default to that language. You may click the button and select your desired language from the drop down list. You may also set a default language in your **Preferences**. 
+
 ## *Geographic* Search Options
 
 ![type:video](https://www.youtube.com/embed/JovQ-rG9ZJE)
@@ -362,7 +366,7 @@ Enhanced download queue functionality is available on Google Chrome browser. Ple
 	- **Saved Searches** opens a list of searches that you have named and saved. Click on the magnifying glass icon to load the search settings.
 	- **Search History** opens a list of your 10 last searches that were not named and saved. Click on the magnifying glass icon to load the search settings.
 	- **Saved Filters** opens a list of filters that you have saved. Click *Apply Filters* to apply the selected filter set to your search.
-	- **Preferences** opens a window that allows you to set search preferences for dataset, max results, map layer, and default filter presets. These preferences will be saved and applied to future searches.
+	- **Preferences** opens a window that allows you to set search preferences for language, theme, dataset, max results, map layer, and default filter presets. These preferences will be saved and applied to future searches.
 - *Note*: **Saved Searches**, **Saved Filters**, and **Search History** are available through both the Sign in menu and the Search button down arrow menu.
 - Click into the **Search all ASF** field on the grey header bar to perform a search. Inputs into this field will search across all ASF websites.
 	- You may also click the **microphone** icon if you prefer to use voice search.
