@@ -1,5 +1,10 @@
 # What's New
 
+
+## Vertex is Now Bilingual!
+
+Vertex now supports English and Spanish. If your browser language is set to Spanish, Vertex will default to Spanish. You can also select your preferred language from the top menu. More information can be found [here](/vertex/manual/#language-options).
+
 ## Area of Interest: Search for a Location
 You can now search for a location name as your area of interest. The *Search for a Location* field can be found by opening the Area of Interest window. More information can be found [here](/vertex/manual/#area-of-interest-options).
 
