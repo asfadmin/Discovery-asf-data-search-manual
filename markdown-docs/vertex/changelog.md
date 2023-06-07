@@ -1,7 +1,7 @@
 # What's New
 
 
-## Vertex is Now Bilingual!
+## Vertex is Now Multilingual!
 
 Vertex now supports English and Spanish. If your browser language is set to Spanish, Vertex will default to Spanish. You can also select your preferred language from the top menu. More information can be found [here](/vertex/manual/#language-options).
 
