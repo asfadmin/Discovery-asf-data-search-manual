@@ -6,6 +6,7 @@ This provides an overview of some potential uses for the products available thro
 Dataset   | Dates  | Usage Examples | Spatial Coverage
 --------- | ------ | -------------- | ----------------
 [Sentinel-1](/datasets/using_ASF_data/#sentinel-1) | 2014 - Present | Volcanoes, earthquakes, glaciers, land subsidence, sea ice, flooding, oceans, and more | Global
+[Sentinel-1 Bursts](/datasets/using_ASF_data/#sentinel-1-bursts) | 2014 - Present | Volcanoes, earthquakes, glaciers, land subsidence, sea ice, flooding, oceans, and more | Global
 [ALOS PALSAR](/datasets/using_ASF_data/#alos-palsar) | 2006 - 2011 | Glaciers, landslides, volcanoes, earthquakes, oil seeps, wetlands, sea ice, and more | The Americas, Antarctica, select wordwide sites
 [ALOS AVNIR-2](/datasets/using_ASF_data/#alos-avnir-2) *(Optical dataset)* | 2006 - 2011 | Spatial coverage maps for land and coastal zones; monitoring regional environments | Global
 [SIR-C](/datasets/using_ASF_data/#sir-c) | 1994 | Carbon cycle, ecosystems, biogeochemistry, climate variability and change, land use, geology, hydrology, oceanography, snow and ice, vegetation, calibration, and technological experiments | Targeted worldwide sites
@@ -58,6 +59,23 @@ Single Look Complex (SLC) products are necessary for interferometry. These are L
 
 #### OCN
 OCN products are higher level products, generated from the Level 1 products. These products are focused on ocean applications, including waves & wind direction. 
+
+### Sentinel-1 Bursts
+A Sentinel-1 SLC contains multiple measurement TIFFs that contain the radar response data. Each measurement TIFF can be further broken down into a single radar pulse response message which is referred to as a burst.
+
+There are multiple parameters that allow searching for bursts across sub-swaths and burst cycles. Depictions of a single burst, and the three available burst-related IDs are below.
+
+Single burst:  
+![Screenshot](/images/single_burst_diagram.png){: style="height:150px;width:150px"}
+
+Absolute Burst ID:  
+![Screenshot](/images/absolute_burst_id_diagram.png){: style="height:150px;width:150px"}
+
+Relative Burst ID:  
+![Screenshot](/images/relative_burst_id_diagram.png){: style="height:150px;width:150px"}
+
+Full Burst ID:  
+![Screenshot](/images/full_burst_id_diagram.png){: style="height:150px;width:150px"}
 
 ### ALOS PALSAR
 ALOS PALSAR offers historical data, and has some analysis-ready RTC (Radiometric Terrain Corrected) products, processed by ASF. 
