@@ -42,6 +42,8 @@ Downloads this product to the specified path and optional filename.
 - path: The directory into which this product should be downloaded.
 - filename _(optional)_: Filename to use instead of the original filename of this product.
 - session _(optional)_: The session to use, in most cases should be authenticated beforehand. If no session is provided, a blank (unauthenticated) session will be used.
+- fileType _(optional)_: Used to download Burst XML metadata. Specify ````fileType=asf.FileDownloadType.ADDITIONAL_FILES```` to download the XML metadata. To download both .tiff and .xml files for bursts, use ````asf.FileDownloadType.ALL_FILES````
+	- Example: ````burst_results.download(session=session, path="./", fileType=asf.FileDownloadType.ADDITIONAL_FILES)````
 
 **returns:**
 None

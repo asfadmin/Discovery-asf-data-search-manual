@@ -12,6 +12,7 @@ Converting to a `dict` will only include search options which have actually been
 
 ## Attributes
 - maxResults
+- absoluteBurstID
 - absoluteOrbit
 - asfFrame
 - beamMode
@@ -23,6 +24,7 @@ Converting to a `dict` will only include search options which have actually been
 - minFaradayRotation
 - flightDirection
 - flightLine
+- fullBurstID
 - frame
 - granule_list
 - product_list
@@ -32,6 +34,7 @@ Converting to a `dict` will only include search options which have actually been
 - platform
 - polarization
 - processingLevel
+- relativeBurstID
 - relativeOrbit
 - processingDate
 - start

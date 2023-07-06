@@ -32,6 +32,12 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
     - Example:
         - instrument=asf.INSTRUMENT.AVNIR_2
 
+- <span style="color: #236192; font-size: 20px;">absoluteBurstID</span>
+    - Used for Sentinel-1 [burst products](/datasets/using_ASF_data/#sentinel-1-bursts). Each value identifies the stack of a burst cycle, representing all products generated over a specific sub-swath. You may specify a single value, or a list of values. 
+    - Example:
+        - single value: absoluteBurstID='102563902'
+        - list of values: absoluteBurstID=['102563902', '103558145']
+
 - <span style="color: #236192; font-size: 20px; font-size: 20px;">absoluteOrbit</span>
     - For ALOS, ERS-1, ERS-2, JERS-1, RADARSAT-1, Sentinel-1A, and Sentinel-1B this value corresponds to the orbit count within the orbit cycle. For UAVSAR it is the [Flight ID](https://uavsar.jpl.nasa.gov/cgi-bin/data.pl?_ga=2.34282209.1335434931.1620087198-1930115146.1605056035). You may specify a single value, range of values, or a list of values.
     - Example:
@@ -115,6 +121,12 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
     - Values:
         - Any number from 0 to 7200.
 
+- <span style="color: #236192; font-size: 20px;">fullBurstID</span>
+    - Used for Sentinel-1 [burst products](/datasets/using_ASF_data/#sentinel-1-bursts). Each value represents all burst products over a single sub-swath, corresponding to a near-perfect frame-aligned stack. This value is useful for baseline stacking. You may specify a single value, or a list of values.
+    - Example:
+        - single value: fullBurstID='017_034465_IW2'
+        - list of values: fullBurstID=['017_034465_IW2', '079_167884_IW1']
+
 - <span style="color: #236192; font-size: 20px;">groupID</span>
     - List of specific group IDs. For some datasets, the group ID is the same as the scene name. For others, such as Sentinel-1, the group ID is unique for a group of scenes.
     - Example:
@@ -150,6 +162,12 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
     - You may also get the available list of constants by using ```help(asf_search.constants.PRODUCT_TYPE)```
     - Example:
         - processingLevel=asf.PRODUCT_TYPE.SLC
+
+- <span style="color: #236192; font-size: 20px;">relativeBurstID</span>
+    - Used for Sentinel-1 [burst products](/datasets/using_ASF_data/#sentinel-1-bursts). Each value identifies a burst cycle, and within each sub-swath these values are unique. You may specify a single value, or a list of values.
+    - Example:
+        - single value: relativeBurstID='367299'
+        - list of values: relativeBurstID=['167877', '167882']
 
 - <span style="color: #236192; font-size: 20px;">relativeOrbit</span>
     - Path or track of satellite during data acquisition. For UAVSAR it is the [Line ID](https://uavsar.jpl.nasa.gov/cgi-bin/data.pl?_ga=2.201268782.1252483948.1620685771-1930115146.1605056035). You may specify a single value, range of values, or a list of values.

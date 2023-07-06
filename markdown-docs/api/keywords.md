@@ -157,6 +157,12 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 	- Values:
 		- Any number from 0 to 7200.
 
+- <span style="color: #236192; font-size: 20px;">fullBurstID</span>
+    - Used for Sentinel-1 [burst products](/datasets/using_ASF_data/#sentinel-1-bursts). Each value represents all burst products over a single sub-swath, corresponding to a near-perfect frame-aligned stack. This value is useful for baseline stacking. You may specify a single value, or a list of values.
+    - Example:
+        - single value: fullBurstID=017_034465_IW2
+        - list of values: fullBurstID=017_034465_IW2,079_167884_IW1
+
 - <span style="color: #236192; font-size: 20px;">granule_list</span>
 	- Comma-separated list of specific scenes (granules). Large lists will need to utilize a [POST request](https://en.wikipedia.org/wiki/POST_(HTTP)).
 	- granule_list may not be used in conjuction with other keywords, however, it may be used with the output keyword.

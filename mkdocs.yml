@@ -24,6 +24,7 @@ copyright: Copyright @ Alaska Satellite Facility
 markdown_extensions:
   - toc:
       permalink: "#"
+  - attr_list
 
 nav:
   - Home: index.md
