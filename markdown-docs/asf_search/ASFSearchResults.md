@@ -22,6 +22,8 @@ Iterates over each ```ASFProduct``` and downloads them to the specified path.
 - path: The directory into which the products should be downloaded.
 - session: The session to use, in most cases should be authenticated beforehand.
 - processes: Number of download processes to use. Defaults to 1 (i.e. sequential download)
+- fileType _(optional)_: Used to download Burst XML metadata. Specify ````fileType=asf.FileDownloadType.ADDITIONAL_FILES```` to download the XML metadata. To download both .tiff and .xml files for bursts, use ````asf.FileDownloadType.ALL_FILES````
+	- Example: ````burst_results.download(session=session, path="./", fileType=asf.FileDownloadType.ADDITIONAL_FILES)````
 
 **returns:** None
 
