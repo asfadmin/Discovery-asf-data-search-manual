@@ -22,11 +22,12 @@ In the top right menu, next to the **Sign In** icon, there are language control 
 		- You may click **Gridlines** to add a graticule overlay to the map. Click it again to turn off the overlay. *Note*: This is currently only available in the equatorial map view.
 	- You may click **Opacity** and adjust the slider as desired to change the opacity of browse images displayed on the map.
 - Navigate to your area of interest by dragging the map while holding down the left mouse button.
-- By default, the map-drawing tool is a bounding box. Click on the map once to specify the starting corner, move the mouse, then click again to finish the box. Additional drawing tool options are available in the toolbar at the top of the screen, including *point*, *linestring*, and *polygon* options.
+- By default, the map-drawing tool is a bounding box. Click on the map once to specify the starting corner, move the mouse, then click again to finish the box. Additional drawing tool options are available in the toolbar at the top of the screen, including *point*, *linestring*, *polygon*, and *circle* options.
 	- **Point** allows you to define an area of interest by clicking on the map to place a point.
 	- **Line** allows you to define an area of interest over a series of line segments by clicking on the map multiple times. Double-click to stop adding segments.
 	- **Polygon** allows you to define an area of interest over an arbitrary polygon. You will receive an error message at the bottom of the window if there was a problem with the polygon (self-intersecting, reversed polygon winding order, etc.).
 	- **Box** allows you to define an area of interest over a lat/long-aligned bounding box by clicking once to set one corner, and again to set the opposite corner.
+    - **Circle** allows you to define an area of interest over a circular area by clicking once to set the center, moving the mouse, and clicking again to set the radius.
 	- Once a shape has been drawn, select the **Edit current area of interest** icon on the toolbar to move, add, and delete points. Select the **Draw new area of interest** icon to create a new AOI.
 	- Clicking **Upload Goespatial File** brings up the Area of Interest dialog window. You may enter a WKT string, upload a geospatial file, or enter a location.
 - **Dataset** enables you to choose the dataset of interest.
