@@ -44,6 +44,7 @@ Downloads this product to the specified path and optional filename.
 - session _(optional)_: The session to use, in most cases should be authenticated beforehand. If no session is provided, a blank (unauthenticated) session will be used.
 - fileType _(optional)_: Used to download Burst XML metadata. Specify ````fileType=asf.FileDownloadType.ADDITIONAL_FILES```` to download the XML metadata. To download both .tiff and .xml files for bursts, use ````asf.FileDownloadType.ALL_FILES````
 	- Example: ````burst_results.download(session=session, path="./", fileType=asf.FileDownloadType.ADDITIONAL_FILES)````
+	- Note: The Burst XML Metadata is a virtually generated file, and therefore does not have its own unique filename. The XML Metadata can only be found via the burst scene name.
 
 **returns:**
 None
