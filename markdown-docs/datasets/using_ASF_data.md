@@ -77,6 +77,8 @@ Relative Burst ID:
 Full Burst ID:  
 ![Screenshot](/images/full_burst_id_diagram.png){: style="height:150px;width:150px"}
 
+Each burst file also has a corresponding XML Metadata file available. The Burst XML Metadata is a virtually generated file, and therefore does not have its own unique filename. The XML Metadata can only be found via the burst scene name, and is not searchable in a list search.
+
 ### ALOS PALSAR
 ALOS PALSAR offers historical data, and has some analysis-ready RTC (Radiometric Terrain Corrected) products, processed by ASF. 
 
