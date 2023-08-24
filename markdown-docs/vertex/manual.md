@@ -294,15 +294,10 @@ Enhanced download queue functionality is available on Google Chrome browser. Ple
 		- As the download begins, a progress indicator lists the percentage downloaded. Once the dowload has completed, the icon appears as a **check mark** to indicate the file has been downloaded.
 		- While the file is downloading, you may click the progress indicator to stop the download.
 	- Under **Data Download**, you may select **Download All**. This will download 3 files at a time until all products in your cart have been downloaded. The same progress indicators and checkmarks will be displayed to let you know the status of each download in your queue.
-		- Before you can **Download All**, you must first give Chrome permission to download multiple files:
-			1. Open Chrome Settings
-			2. Click *Security and Privacy*
-			3. Click *Site Settings*
-			4. Scroll through the list of Permissions until you see *Automatic Downloads*. You may need to click *Additional Permissions* to see it. Click on *Automatic Downloads*.
-			5. Under *Default Behavior*, ensure that *Sites can ask to automatically download multiple files* is selected.
-			6. Scroll to *Allowed to automatically download multiple files* and click *Add*.
-			7. Enter the Vertex URL: https://search.asf.alaska.edu and click *Add*.
-			8. You should now be able to **Download All**
+		- When you click **Download All**, a dialog box will appear:
+			1. Navigate to the folder where you wish to save the files and click *Select*.
+			2. Click *View Files* to allow the download to continue. 
+			3. Click *Save Changes* to save your download folder preferences. This will persist as long as the Vertex browser window remains open.
 	- If you **Clear** the products in your queue, the download progress and completion indicators will reset. You may add the products to your queue again if desired.
 	- *Note*: You must be signed in to download files. If you are not signed in, when you click to begin a download, you will be redirected to the sign in page first.
 
