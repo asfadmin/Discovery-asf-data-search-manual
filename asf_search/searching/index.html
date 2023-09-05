@@ -1,0 +1,1674 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for searching and processing ASF SAR data.">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>Searching - ASF SAR Data Search Manual</title>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    <link rel="stylesheet" href="../../assets/stylesheets/asf.css">
+
+    
+
+<script src="https://fbm.earthdata.nasa.gov/for/ASF/feedback.js" type="text/javascript"></script>
+<script type="text/javascript">
+ // This prevents the FBM flyout banner from appearing on the side of the page.
+feedback.init({showIcon: false});
+</script>
+
+<script src="https://cdn.earthdata.nasa.gov/tophat2/tophat2.js"
+        id="earthdata-tophat-script"
+        data-show-fbm="true"
+        data-show-status="false"
+        data-fbm-subject-line="How can we help you?"
+        data-current-daac="ASF DAAC">
+</script>
+
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../css/styles.css">
+    
+    
+  
+    <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Google Analytics integration -->
+
+  
+
+<script type="application/javascript">
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+
+  /* Set up integration and send page view */
+  ga("create", "UA-991100-5", "search.asf.alaska.edu")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", function() {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+
+  /* Send page view on document switch (instant loading, custom event) */
+  document.addEventListener("DOMContentSwitch", function() {
+    ga("send", "pageview", document.location.pathname)
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+  
+
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#searching" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Mitigate bug: https://github.com/mkdocs/mkdocs/issues/2191 -->
+
+
+
+<!-- Application header -->
+<header class="md-header" data-md-component="header">
+
+  <!-- Top-level navigation -->
+  <nav class="md-header-nav md-grid" aria-label="Header">
+
+    
+      <!-- Link to ASF -->
+      <a
+        href="https://asf.alaska.edu/"
+        title="ASF"
+        class="md-header-nav__button md-logo"
+        aria-label="ASF"
+      >
+      <img src="../../assets/images/ASFLogo-Blue2.png" alt="logo" />
+    
+    <!-- Link to home -->
+    <a
+      href="../.."
+      title="ASF SAR Data Search Manual"
+      class="md-header-nav__button md-logo"
+      aria-label="ASF SAR Data Search Manual"
+    >
+      <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Logo -->
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+
+    <!-- Button to open drawer -->
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+
+    <!-- Header title -->
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            ASF SAR Data Search Manual
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Searching
+            
+          </span>
+        </div>
+      
+    </div>
+
+    
+
+    <!-- Repository containing source -->
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ASF SAR Data Search Manual" class="md-nav__button md-logo" aria-label="ASF SAR Data Search Manual">
+      <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Logo -->
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    ASF SAR Data Search Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      
+      <label class="md-nav__link" for="nav-2">
+        Vertex
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Vertex" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Vertex
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vertex/manual/" class="md-nav__link">
+        Vertex Manual
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vertex/baseline/" class="md-nav__link">
+        Baseline
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vertex/sbas/" class="md-nav__link">
+        SBAS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vertex/events/" class="md-nav__link">
+        Event
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vertex/derived_datasets/" class="md-nav__link">
+        Derived Datasets
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vertex/changelog/" class="md-nav__link">
+        What's New
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.youtube.com/playlist?list=PLXluIEvp5ZzIWd0yNy-ANfdwWjCD1hInA" class="md-nav__link">
+        Tutorial Videos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/asfadmin/Discovery-SearchUI" class="md-nav__link">
+        Source Code
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://hyp3-docs.asf.alaska.edu" class="md-nav__link">
+        Custom Processing
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      
+      <label class="md-nav__link" for="nav-4">
+        Python Search Module
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Python Search Module" data-md-level="1">
+        <label class="md-nav__title" for="nav-4">
+          <span class="md-nav__icon md-icon"></span>
+          Python Search Module
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basics/" class="md-nav__link">
+        Basics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Searching
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Searching
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#keywords" class="md-nav__link">
+    Keywords
+  </a>
+  
+    <nav class="md-nav" aria-label="Keywords">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dataset-parameters" class="md-nav__link">
+    Dataset Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geospatial-parameters" class="md-nav__link">
+    Geospatial Parameters
+  </a>
+  
+    <nav class="md-nav" aria-label="Geospatial Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shape-validation" class="md-nav__link">
+    Shape Validation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal-parameters" class="md-nav__link">
+    Temporal Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baseline-parameters" class="md-nav__link">
+    Baseline Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results-parameters" class="md-nav__link">
+    Results Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../downloading/" class="md-nav__link">
+        Downloading
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4" >
+      
+      <label class="md-nav__link" for="nav-4-4">
+        Classes
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Classes" data-md-level="2">
+        <label class="md-nav__title" for="nav-4-4">
+          <span class="md-nav__icon md-icon"></span>
+          Classes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASFProduct/" class="md-nav__link">
+        ASFProduct
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASFSearchOptions/" class="md-nav__link">
+        ASFSearchOptions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASFSearchResults/" class="md-nav__link">
+        ASFSearchResults
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASFSession/" class="md-nav__link">
+        ASFSession
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/asfadmin/Discovery-asf_search/blob/master/CHANGELOG.md" class="md-nav__link">
+        What's New
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+      
+      <label class="md-nav__link" for="nav-5">
+        ASF Search API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="ASF Search API" data-md-level="1">
+        <label class="md-nav__title" for="nav-5">
+          <span class="md-nav__icon md-icon"></span>
+          ASF Search API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/basics/" class="md-nav__link">
+        Search API Basics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/keywords/" class="md-nav__link">
+        Search API Keywords & Endpoints
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/tools/" class="md-nav__link">
+        Tools
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/cookbook/" class="md-nav__link">
+        Cookbook
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/changelog/" class="md-nav__link">
+        What's New
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+      
+      <label class="md-nav__link" for="nav-6">
+        Product Details
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Product Details" data-md-level="1">
+        <label class="md-nav__title" for="nav-6">
+          <span class="md-nav__icon md-icon"></span>
+          Product Details
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasets/using_ASF_data/" class="md-nav__link">
+        Using ASF Data
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasets/palsar/" class="md-nav__link">
+        ALOS PALSAR Products
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasets/events_about/" class="md-nav__link">
+        Events (SARVIEWS)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://asf.alaska.edu/" class="md-nav__link">
+        ASF Web
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#keywords" class="md-nav__link">
+    Keywords
+  </a>
+  
+    <nav class="md-nav" aria-label="Keywords">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dataset-parameters" class="md-nav__link">
+    Dataset Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geospatial-parameters" class="md-nav__link">
+    Geospatial Parameters
+  </a>
+  
+    <nav class="md-nav" aria-label="Geospatial Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shape-validation" class="md-nav__link">
+    Shape Validation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal-parameters" class="md-nav__link">
+    Temporal Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baseline-parameters" class="md-nav__link">
+    Baseline Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results-parameters" class="md-nav__link">
+    Results Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="searching">Searching<a class="headerlink" href="#searching" title="Permanent link">#</a></h1>
+<p>Each search function returns an <code>ASFSearchResults</code> object:</p>
+<ul>
+<li><code>geo_search()</code> Find product info over an area of interest using a WKT string</li>
+<li><code>granule_search()</code> Find product info using a list of scene names</li>
+<li><code>product_search()</code> Find product info using a list of product IDs</li>
+<li><code>stack_from_id()</code> Find a baseline stack of products using a reference scene ID</li>
+<li>If the above search approaches do not meet your search needs, <code>search()</code> supports all available keywords:<ul>
+<li><code>search()</code> Find product info using any combination combination of search parameters. See the keywords list below.</li>
+</ul>
+</li>
+</ul>
+<p>Examples of some search workflows can be found in this <a href="https://github.com/asfadmin/Discovery-asf_search/blob/master/examples/hello_world.py">sample script</a>. You may also reference the <a href="https://github.com/asfadmin/Discovery-asf_search/tree/master/examples">Jupyter notebooks</a> for example workflows.</p>
+<p>For more advanced usage, see sections <a href="/asf_search/ASFSearchResults/">ASFSearchResults class</a> and <a href="/asf_search/ASFProduct">ASFProduct class</a>.</p>
+<h2 id="keywords">Keywords<a class="headerlink" href="#keywords" title="Permanent link">#</a></h2>
+<p>Keywords are used to find the desired data. Use as many or as few keywords as needed. Available keywords and descriptions are listed below. Additionally, numerous constants are provided to ease the search process. Currently, we provide constants for beam mode, flight direction, instrument, platform, polarization, and product type. You can see the full <a href="https://github.com/asfadmin/Discovery-asf_search/tree/master/asf_search/constants">list of constants here</a>.</p>
+<h3 id="dataset-parameters">Dataset Parameters<a class="headerlink" href="#dataset-parameters" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<p><span style="color: #236192; font-size: 20px;">platform</span></p>
+<ul>
+<li>See the <a href="https://github.com/asfadmin/Discovery-asf_search/blob/master/asf_search/constants/PLATFORM.py">list of constants</a></li>
+<li>Remote sensing platform that acquired the data. Sentinel-1 and ERS have multiple remote sensing platforms, and you may choose whether to specify a specific platform. You may specify a single value, or a list of values.</li>
+<li>You may also get the available list of constants by using <code>help(asf_search.constants.PLATFORM)</code></li>
+<li>Example:<ul>
+<li>platform=asf.PLATFORM.SENTINEL1A</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">instrument</span></p>
+<ul>
+<li>See the <a href="https://github.com/asfadmin/Discovery-asf_search/blob/master/asf_search/constants/INSTRUMENT.py">list of constants</a></li>
+<li>Remote sensing instrument that acquired the data. For some platforms, such as ALOS, there are multiple instruments to choose from.</li>
+<li>You may also get the available list of constants by using <code>help(asf_search.constants.INSTRUMENT)</code></li>
+<li>Example:<ul>
+<li>instrument=asf.INSTRUMENT.AVNIR_2</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">absoluteBurstID</span></p>
+<ul>
+<li>Used for Sentinel-1 <a href="/datasets/using_ASF_data/#sentinel-1-bursts">burst products</a>. Each value identifies the stack of a burst cycle, representing all products generated over a specific sub-swath. You may specify a single value, or a list of values. </li>
+<li>Example:<ul>
+<li>single value: absoluteBurstID='102563902'</li>
+<li>list of values: absoluteBurstID=['102563902', '103558145']</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px; font-size: 20px;">absoluteOrbit</span></p>
+<ul>
+<li>For ALOS, ERS-1, ERS-2, JERS-1, RADARSAT-1, Sentinel-1A, and Sentinel-1B this value corresponds to the orbit count within the orbit cycle. For UAVSAR it is the <a href="https://uavsar.jpl.nasa.gov/cgi-bin/data.pl?_ga=2.34282209.1335434931.1620087198-1930115146.1605056035">Flight ID</a>. You may specify a single value, range of values, or a list of values.</li>
+<li>Example:<ul>
+<li>single value: absoluteOrbit=25436</li>
+<li>range of values: absoluteOrbit=(12005, 12008)</li>
+<li>list of values: absoluteOrbit=[25436, 25450]  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">asfFrame</span></p>
+<ul>
+<li>See also 'frame'</li>
+<li>This is primarily an ASF / <a href="https://global.jaxa.jp/">JAXA</a> frame reference. However, some platforms use other conventions. You may specify a single value, range of values, or a list of values.</li>
+<li>Example:<ul>
+<li>single value: asfFrame=300</li>
+<li>range of values: asfFrame=(2845, 2855)</li>
+<li>list of values: asfFrame=[2800, 2845]</li>
+</ul>
+</li>
+<li>Values:<ul>
+<li>ERS, JERS, RADARSAT: ASF frames 0 to 900</li>
+<li>ALOS PALSAR: JAXA frames 0 to 7200</li>
+<li>SEASAT: ESA-like frames 208 to 3458</li>
+<li>Sentinel-1: In-house values 0 to 1184</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">beamMode</span></p>
+<ul>
+<li>See the <a href="https://github.com/asfadmin/Discovery-asf_search/blob/master/asf_search/constants/BEAMMODE.py">list of constants</a></li>
+<li>The beam mode used to acquire the data.</li>
+<li>You may also get the available list of constants by using <code>help(asf_search.constants.BEAMMODE)</code></li>
+<li>Example:<ul>
+<li>beamMode=asf.BEAMMODE.POL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">beamSwath</span></p>
+<ul>
+<li>The beam swath encompasses a look angle and beam mode. You may specify a single value, or a list of values.</li>
+<li>Example:<ul>
+<li>single value: beamSwath='IW'</li>
+<li>list of values: beamSwath=['IW','EW']</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">campaign</span></p>
+<ul>
+<li>For UAVSAR, AIRSAR, and Sentinel-1 Interferogram datasets only. Search by the campaign name. You may specify a single value.</li>
+<li>For a list of available campaigns, use the <code>asf_search.campaigns()</code> function. You must provide the desired platform.<ul>
+<li><code>asf_search.campaigns(asf_search.PLATFORM.UAVSAR)</code></li>
+</ul>
+</li>
+<li>Example:<ul>
+<li>campaign='Purace Volcano, Colombia'</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">maxDoppler</span></p>
+<ul>
+<li>Doppler provides an indication of how much the look direction deviates from the ideal perpendicular flight direction acquisition.</li>
+<li>Example:<ul>
+<li>maxDoppler=1500 or maxDoppler=1500.5</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">minDoppler</span></p>
+<ul>
+<li>Doppler provides an indication of how much the look direction deviates from the ideal perpendicular flight direction acquisition.</li>
+<li>Example:<ul>
+<li>minDoppler=100 or minDoppler=1500.5</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">maxFaradayRotation</span></p>
+<ul>
+<li>Rotation of the polarization plane of the radar signal impacts imagery. HH and HV signals become mixed. One-way rotations exceeding 5° are likely to significantly reduce the accuracy of geophysical parameter recovery, such as forest biomass.</li>
+<li>Example:<ul>
+<li>maxFaradayRotation=3.5</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">minFaradayRotation</span></p>
+<ul>
+<li>Rotation of the polarization plane of the radar signal impacts imagery. HH and HV signals become mixed. One-way rotations exceeding 5° are likely to significantly reduce the accuracy of geophysical parameter recovery, such as forest biomass.</li>
+<li>Example:<ul>
+<li>minFaradayRotation=2</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">flightDirection</span></p>
+<ul>
+<li>See the <a href="https://github.com/asfadmin/Discovery-asf_search/blob/master/asf_search/constants/FLIGHT_DIRECTION.py">list of constants</a></li>
+<li>Satellite orbit direction during data acquisition. You may specify a single value.</li>
+<li>You may also get the available list of constants by using <code>help(asf_search.constants.FLIGHT_DIRECTION)</code></li>
+<li>Example:<ul>
+<li>flightDirection=asf.FLIGHT_DIRECTION.ASCENDING</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">flightLine</span></p>
+<ul>
+<li>Specify a flightline for UAVSAR or AIRSAR. You may specify a single value.</li>
+<li>Example:<ul>
+<li>UAVSAR: flightLine='05901'</li>
+<li>AIRSAR: flightLine='gilmorecreek045-1.93044'</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">frame</span></p>
+<ul>
+<li>See also 'asfFrame'</li>
+<li>ESA-referenced frames are offered to give users a universal framing convention. Each ESA frame has a corresponding ASF frame assigned. You may specify a single value, range of values, or a list of values.</li>
+<li>Example:<ul>
+<li>single value: frame=300</li>
+<li>range of values: frame=(305, 315)</li>
+<li>list of values: frame=[300, 303, 305]</li>
+</ul>
+</li>
+<li>Values:<ul>
+<li>Any number from 0 to 7200.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">fullBurstID</span></p>
+<ul>
+<li>Used for Sentinel-1 <a href="/datasets/using_ASF_data/#sentinel-1-bursts">burst products</a>. Each value represents all burst products over a single sub-swath, corresponding to a near-perfect frame-aligned stack. This value is useful for baseline stacking. You may specify a single value, or a list of values.</li>
+<li>Example:<ul>
+<li>single value: fullBurstID='017_034465_IW2'</li>
+<li>list of values: fullBurstID=['017_034465_IW2', '079_167884_IW1']</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">groupID</span></p>
+<ul>
+<li>List of specific group IDs. For some datasets, the group ID is the same as the scene name. For others, such as Sentinel-1, the group ID is unique for a group of scenes.</li>
+<li>Example:<ul>
+<li>groupID='S1A_IWDV_0112_0118_037147_150'</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">lookDirection</span></p>
+<ul>
+<li>Left or right direction of data acquisition. You may specify a single value.</li>
+<li>Example:<ul>
+<li>lookDirection='L'</li>
+</ul>
+</li>
+<li>Values:<ul>
+<li>R, RIGHT, L, LEFT</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">offNadirAngle</span></p>
+<ul>
+<li>Off-nadir angles for ALOS PALSAR. You may specify a single value, range of values, or a list of values.</li>
+<li>Example:<ul>
+<li>single value: offNadirAngle=21.5</li>
+<li>range of values: offNadirAngle=(9.7, 14)</li>
+<li>list of values: offNadirAngle=[21.5, 23.1]</li>
+</ul>
+</li>
+<li>Values:<ul>
+<li>Most common: 21.5, 23.1, 27.1, 34.3</li>
+<li>Other: 9.7, 9.9, 13.8, 14, 16.2, 17.3, 17.9, 18, 19.2, 20.5, 21.5, 23.1, 24.2, 24.6, 25.2, 25.8, 25.9, 26.2, 27.1, 28.8, 30.8, 34.3, 36.9, 38.8, 41.5, 43.4, 45.2, 46.6, 47.8, 49, 50, 50.8</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">polarization</span></p>
+<ul>
+<li>See the <a href="https://github.com/asfadmin/Discovery-asf_search/blob/master/asf_search/constants/POLARIZATION.py">list of constants</a></li>
+<li>A property of SAR electromagnetic waves that can be used to extract meaningful information about surface properties of the earth. You may specify a single value, or a list of values.</li>
+<li>You may also get the available list of constants by using <code>help(asf_search.constants.POLARIZATION)</code></li>
+<li>Example:<ul>
+<li>polarization=asf.POLARIZATION.VV</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">processingLevel</span></p>
+<ul>
+<li>See the <a href="https://github.com/asfadmin/Discovery-asf_search/blob/master/asf_search/constants/PRODUCT_TYPE.py">list of constants</a></li>
+<li>Level to which the data has been processed, also type of product.</li>
+<li>You may also get the available list of constants by using <code>help(asf_search.constants.PRODUCT_TYPE)</code></li>
+<li>Example:<ul>
+<li>processingLevel=asf.PRODUCT_TYPE.SLC</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">relativeBurstID</span></p>
+<ul>
+<li>Used for Sentinel-1 <a href="/datasets/using_ASF_data/#sentinel-1-bursts">burst products</a>. Each value identifies a burst cycle, and within each sub-swath these values are unique. You may specify a single value, or a list of values.</li>
+<li>Example:<ul>
+<li>single value: relativeBurstID='367299'</li>
+<li>list of values: relativeBurstID=['167877', '167882']</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">relativeOrbit</span></p>
+<ul>
+<li>Path or track of satellite during data acquisition. For UAVSAR it is the <a href="https://uavsar.jpl.nasa.gov/cgi-bin/data.pl?_ga=2.201268782.1252483948.1620685771-1930115146.1605056035">Line ID</a>. You may specify a single value, range of values, or a list of values.</li>
+<li>Example:<ul>
+<li>single value: relativeOrbit=5905</li>
+<li>range of values: relativeOrbit=(2400, 2410)</li>
+<li>list of values: relativeOrbit=[500, 580]</li>
+</ul>
+</li>
+<li>Values:<ul>
+<li>ALOS: 1-671</li>
+<li>ERS-1: 0-2410</li>
+<li>ERS-2: 0-500</li>
+<li>JERS-1: 0-658</li>
+<li>RADARSAT-1: 0-342</li>
+<li>SEASAT: 1-243</li>
+<li>UAVSAR: various</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="geospatial-parameters">Geospatial Parameters<a class="headerlink" href="#geospatial-parameters" title="Permanent link">#</a></h3>
+<ul>
+<li><span style="color: #236192; font-size: 20px;">intersectsWith</span><ul>
+<li>Search by polygon, a line segment (“linestring”), or a point defined in 2-D Well-Known Text (WKT). Each polygon must be explicitly closed, i.e. the first vertex and the last vertex of each listed polygon must be identical. Coordinate pairs for each vertex are in decimal degrees: longitude is followed by latitude.</li>
+<li>Example:<ul>
+<li>intersectsWith='POLYGON((-152.81 58.49,-154.90 57.49,-155.08 56.30,-153.82 56.34,-151.99 57.30,-151.43 58.19,-152.81 58.49))'</li>
+<li>intersectsWith='LINESTRING(-119.543 37.925, -118.443 37.7421)'</li>
+<li>intersectsWith='POINT(-119.543 37.925)'</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="shape-validation">Shape Validation<a class="headerlink" href="#shape-validation" title="Permanent link">#</a></h4>
+<p>If the AOI specified is its own Minimum Bounding Rectangle (MBR) in a mercator projection, the search results returned will instersect with the AOI in a mercator projection, regardless of width. This remains the case even if the international dateline is crossed within the AOI.</p>
+<p>In order for an AOI to be considered its own MBR, it must meet the following criteria:</p>
+<ul>
+<li>Each vertex shares a latitude or longitude with its neighbors</li>
+<li>East/West points share longitude</li>
+<li>North/South points share latitude</li>
+</ul>
+<p>AOIs that do not fit this criteria will have their points connected along <a href="https://en.wikipedia.org/wiki/Great_circle">great circles</a>.</p>
+<p>In addition, all AOIs are validated, and then simplified as needed. The process for this is:</p>
+<ol>
+<li>Validate the input AOI. If it is not valid, an error is displayed.</li>
+<li>Merge overlapping shapes.</li>
+<li>Convex hull.</li>
+<li>Any out-of-range index values are handled by clamping and wrapping them to the valid range of values.</li>
+<li>Simplify points based on proximity threshold. The target is fewer than 400 points.</li>
+</ol>
+<p>Each of these steps is performed only when necessary to get the AOI to a single outline with fewer than 400 points. Any unnecessary steps are skipped.</p>
+<p><strong>Examples of validation and simplification:</strong></p>
+<ul>
+<li>A self-intersecting polygon is provided: <ul>
+<li>An error is displayed.</li>
+</ul>
+</li>
+<li>A single outline is provided, consisting of 1000 points:<ul>
+<li>A simplified version of the same outline is used, consisting of fewer than 400 points.</li>
+</ul>
+</li>
+<li>Multiple geometries are provided, all of them overlapping at least in part:<ul>
+<li>A single outline is returned, representing the outline of all the shapes combined.</li>
+</ul>
+</li>
+<li>Multiple geometries are provided, at least some of them entirely non-overlapping:<ul>
+<li>A single outline is returned, representing the convex hull of all the shapes together.</li>
+</ul>
+</li>
+</ul>
+<h3 id="temporal-parameters">Temporal Parameters<a class="headerlink" href="#temporal-parameters" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<p><span style="color: #236192; font-size: 20px;">processingDate</span></p>
+<ul>
+<li>Limit results to records that have been processed at ASF since a given date and/or time.</li>
+<li>Example:<ul>
+<li>processingDate='2017-01-01T00:00:00UTC'</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">start</span></p>
+<ul>
+<li>Date of data acquisition. Can be used in combination with 'end'. You may enter natural language dates, or a date and/or time stamp. All times are in UTC.</li>
+<li>Example:<ul>
+<li>start='May 30, 2019'</li>
+<li>start='yesterday'</li>
+<li>start='2010-10-30T11:59:59Z'</li>
+<li>start='1 week ago', end='now'</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">end</span></p>
+<ul>
+<li>Date of data acquisition. Can be used in combination with 'start'. You may enter natural language dates, or a date and/or time stamp. All times are in UTC.<ul>
+<li>end='May 30, 2018'</li>
+<li>end='today'</li>
+<li>end='2021-04-30T11:59:59Z'</li>
+<li>start='1 week ago', end='now'</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #236192; font-size: 20px;">season</span></p>
+<ul>
+<li>Start and end day of year for desired seasonal range. This keyword may be used in conjunction with start/end to specify a seasonal range within an overall date range. Values are based on the Julian calendar. You must specify both a season start and end date.</li>
+<li>Example:<ul>
+<li>season=[1, 31]</li>
+<li>season=[45, 67]</li>
+<li>season=[360, 10]</li>
+</ul>
+</li>
+<li>Values:<ul>
+<li>1 through 365</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="baseline-parameters">Baseline Parameters<a class="headerlink" href="#baseline-parameters" title="Permanent link">#</a></h3>
+<ul>
+<li><span style="color: #236192; font-size: 20px;">stack_from_id</span><ul>
+<li>Input the scene name for which you wish to see baseline results.</li>
+<li>stack_from_id may not be used in conjuction with other keywords.</li>
+<li>Example: <ul>
+<li>stack_from_id('S1A_IW_SLC__1SDV_20220215T225119_20220215T225146_041930_04FE2E_9252-SLC')</li>
+</ul>
+</li>
+<li>See the <a href="https://github.com/asfadmin/Discovery-asf_search/blob/master/examples/4-Baseline_Search.ipynb">Jupyter notebook</a> for usage examples, as well as best practices.</li>
+</ul>
+</li>
+</ul>
+<h3 id="results-parameters">Results Parameters<a class="headerlink" href="#results-parameters" title="Permanent link">#</a></h3>
+<ul>
+<li><span style="color: #236192; font-size: 20px;">maxResults</span><ul>
+<li>Maximum number of data records to return.</li>
+<li>Example:<ul>
+<li>maxResults=10</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    <div class="md-footer-nav">
+      <nav
+        class="md-footer-nav__inner md-grid"
+        aria-label="Footer"
+      >
+
+        <!-- Link to previous page -->
+        
+          <a href="../basics/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Basics
+              </div>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          <a href="../downloading/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Downloading
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+
+      <!-- ASF Footer information-->
+      <div class="md-grid">
+        <div class="md-footer-container md-grid">
+          <div class="md-footer-container-item">
+            <img src="../../assets/images/asf-logo-blue-nav.png"
+                 alt="ASF Logo"
+                 class="md-footer-logo">
+          </div>
+          <div class="md-footer-container-item md-about-us">
+            <h1>About Us</h1>
+            <p>
+              The Alaska Satellite Facility downlinks, processes, archives, and
+              distributes remote-sensing data to scientific users around the world.
+              ASF’s mission is to make remote-sensing data accessible.
+            </p>
+            <p>
+              <a href="https://asf.alaska.edu/about-asf/" target="_blank">
+                Read More
+              </a>
+            </p>
+          </div>
+          <div class="md-footer-container-item md-contact-info">
+            <h1>Contact Info</h1>
+            <p>
+              Alaska Satellite Facility<br>
+              2156 Koyukuk Drive<br>
+              Fairbanks, AK 99775<br>
+              (907) 474-5041<br>
+              uso@asf.alaska.edu<br>
+            </p>
+            <p>
+              <a href="javascript:feedback.showForm();">Send Us A Message</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+        <div class="md-footer-copyright__highlight">
+          
+            &copy; <span id="copyright-year"></span>
+            <script type="text/javascript">
+                current_year = new Date().getFullYear();
+                document.getElementById("copyright-year").innerHTML=current_year;
+            </script>
+            Copyright @ Alaska Satellite Facility
+          
+          <!-- ASF non-discrimination disclaimer-->
+          &nbsp;&nbsp;
+          <a href="https://www.alaska.edu/nondiscrimination"
+             target="_blank"
+             class="md-footer-copyright-link">
+            UA is an AA/EO employer and educational institution and prohibits
+            illegal discrimination against any individual
+          </a>
+        </div>
+      </div>
+
+      <!-- Social links -->
+      <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Social links in footer -->
+<div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.facebook.com/AKSatellite" target="_blank" rel="noopener" title="www.facebook.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/Ak_Satellite" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.youtube.com/channel/UChCfI0oVWw4qDwEidnDskJQ" target="_blank" rel="noopener" title="www.youtube.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+      </a>
+    
+    
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+    
+      <script src="../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+    <script src="../../assets/javascripts/expert-rec-search.js"></script>
+
+  </body>
+</html>

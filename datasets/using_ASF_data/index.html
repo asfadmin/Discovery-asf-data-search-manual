@@ -1,0 +1,2255 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for searching and processing ASF SAR data.">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>Using ASF Data - ASF SAR Data Search Manual</title>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    <link rel="stylesheet" href="../../assets/stylesheets/asf.css">
+
+    
+
+<script src="https://fbm.earthdata.nasa.gov/for/ASF/feedback.js" type="text/javascript"></script>
+<script type="text/javascript">
+ // This prevents the FBM flyout banner from appearing on the side of the page.
+feedback.init({showIcon: false});
+</script>
+
+<script src="https://cdn.earthdata.nasa.gov/tophat2/tophat2.js"
+        id="earthdata-tophat-script"
+        data-show-fbm="true"
+        data-show-status="false"
+        data-fbm-subject-line="How can we help you?"
+        data-current-daac="ASF DAAC">
+</script>
+
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../css/styles.css">
+    
+    
+  
+    <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Google Analytics integration -->
+
+  
+
+<script type="application/javascript">
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+
+  /* Set up integration and send page view */
+  ga("create", "UA-991100-5", "search.asf.alaska.edu")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", function() {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+
+  /* Send page view on document switch (instant loading, custom event) */
+  document.addEventListener("DOMContentSwitch", function() {
+    ga("send", "pageview", document.location.pathname)
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+  
+
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-to-use-asfs-data" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Mitigate bug: https://github.com/mkdocs/mkdocs/issues/2191 -->
+
+
+
+<!-- Application header -->
+<header class="md-header" data-md-component="header">
+
+  <!-- Top-level navigation -->
+  <nav class="md-header-nav md-grid" aria-label="Header">
+
+    
+      <!-- Link to ASF -->
+      <a
+        href="https://asf.alaska.edu/"
+        title="ASF"
+        class="md-header-nav__button md-logo"
+        aria-label="ASF"
+      >
+      <img src="../../assets/images/ASFLogo-Blue2.png" alt="logo" />
+    
+    <!-- Link to home -->
+    <a
+      href="../.."
+      title="ASF SAR Data Search Manual"
+      class="md-header-nav__button md-logo"
+      aria-label="ASF SAR Data Search Manual"
+    >
+      <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Logo -->
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+
+    <!-- Button to open drawer -->
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+
+    <!-- Header title -->
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            ASF SAR Data Search Manual
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Using ASF Data
+            
+          </span>
+        </div>
+      
+    </div>
+
+    
+
+    <!-- Repository containing source -->
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ASF SAR Data Search Manual" class="md-nav__button md-logo" aria-label="ASF SAR Data Search Manual">
+      <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Logo -->
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    ASF SAR Data Search Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      
+      <label class="md-nav__link" for="nav-2">
+        Vertex
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Vertex" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Vertex
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vertex/manual/" class="md-nav__link">
+        Vertex Manual
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vertex/baseline/" class="md-nav__link">
+        Baseline
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vertex/sbas/" class="md-nav__link">
+        SBAS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vertex/events/" class="md-nav__link">
+        Event
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vertex/derived_datasets/" class="md-nav__link">
+        Derived Datasets
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vertex/changelog/" class="md-nav__link">
+        What's New
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.youtube.com/playlist?list=PLXluIEvp5ZzIWd0yNy-ANfdwWjCD1hInA" class="md-nav__link">
+        Tutorial Videos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/asfadmin/Discovery-SearchUI" class="md-nav__link">
+        Source Code
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://hyp3-docs.asf.alaska.edu" class="md-nav__link">
+        Custom Processing
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+      
+      <label class="md-nav__link" for="nav-4">
+        Python Search Module
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Python Search Module" data-md-level="1">
+        <label class="md-nav__title" for="nav-4">
+          <span class="md-nav__icon md-icon"></span>
+          Python Search Module
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../asf_search/basics/" class="md-nav__link">
+        Basics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../asf_search/searching/" class="md-nav__link">
+        Searching
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../asf_search/downloading/" class="md-nav__link">
+        Downloading
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4" >
+      
+      <label class="md-nav__link" for="nav-4-4">
+        Classes
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Classes" data-md-level="2">
+        <label class="md-nav__title" for="nav-4-4">
+          <span class="md-nav__icon md-icon"></span>
+          Classes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../asf_search/ASFProduct/" class="md-nav__link">
+        ASFProduct
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../asf_search/ASFSearchOptions/" class="md-nav__link">
+        ASFSearchOptions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../asf_search/ASFSearchResults/" class="md-nav__link">
+        ASFSearchResults
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../asf_search/ASFSession/" class="md-nav__link">
+        ASFSession
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../asf_search/exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/asfadmin/Discovery-asf_search/blob/master/CHANGELOG.md" class="md-nav__link">
+        What's New
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+      
+      <label class="md-nav__link" for="nav-5">
+        ASF Search API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="ASF Search API" data-md-level="1">
+        <label class="md-nav__title" for="nav-5">
+          <span class="md-nav__icon md-icon"></span>
+          ASF Search API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/basics/" class="md-nav__link">
+        Search API Basics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/keywords/" class="md-nav__link">
+        Search API Keywords & Endpoints
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/tools/" class="md-nav__link">
+        Tools
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/cookbook/" class="md-nav__link">
+        Cookbook
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/changelog/" class="md-nav__link">
+        What's New
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+      
+      <label class="md-nav__link" for="nav-6">
+        Product Details
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Product Details" data-md-level="1">
+        <label class="md-nav__title" for="nav-6">
+          <span class="md-nav__icon md-icon"></span>
+          Product Details
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Using ASF Data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Using ASF Data
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataset-details" class="md-nav__link">
+    Dataset Details
+  </a>
+  
+    <nav class="md-nav" aria-label="Dataset Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sentinel-1" class="md-nav__link">
+    Sentinel-1
+  </a>
+  
+    <nav class="md-nav" aria-label="Sentinel-1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#raw" class="md-nav__link">
+    RAW
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grd" class="md-nav__link">
+    GRD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slc" class="md-nav__link">
+    SLC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ocn" class="md-nav__link">
+    OCN
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentinel-1-bursts" class="md-nav__link">
+    Sentinel-1 Bursts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alos-palsar" class="md-nav__link">
+    ALOS PALSAR
+  </a>
+  
+    <nav class="md-nav" aria-label="ALOS PALSAR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rtc" class="md-nav__link">
+    RTC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-22" class="md-nav__link">
+    Level 2.2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-15" class="md-nav__link">
+    Level 1.5
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alos-avnir-2" class="md-nav__link">
+    ALOS AVNIR-2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sir-c" class="md-nav__link">
+    SIR-C
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aria-s1-gunw" class="md-nav__link">
+    ARIA S1 GUNW
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smap-soil-moisture-active-passive" class="md-nav__link">
+    SMAP (Soil Moisture Active Passive)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uavsar" class="md-nav__link">
+    UAVSAR
+  </a>
+  
+    <nav class="md-nav" aria-label="UAVSAR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kmz" class="md-nav__link">
+    KMZ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radarsat-1" class="md-nav__link">
+    RADARSAT-1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ers" class="md-nav__link">
+    ERS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jers" class="md-nav__link">
+    JERS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#airsar" class="md-nav__link">
+    AIRSAR
+  </a>
+  
+    <nav class="md-nav" aria-label="AIRSAR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beam-mode-polsar-or-3fp" class="md-nav__link">
+    Beam Mode: POLSAR or 3FP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beam-mode-topsar-or-xti" class="md-nav__link">
+    Beam Mode: TOPSAR or XTI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beam-mode-ati" class="md-nav__link">
+    Beam Mode: ATI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seasat" class="md-nav__link">
+    Seasat
+  </a>
+  
+    <nav class="md-nav" aria-label="Seasat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hdf5" class="md-nav__link">
+    HDF5
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geotiff" class="md-nav__link">
+    GeoTIFF
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-seasonal-sentinel-1-interferometric-coherence-backscatter-dataset" class="md-nav__link">
+    Global Seasonal Sentinel-1 Interferometric Coherence &amp; Backscatter Dataset
+  </a>
+  
+    <nav class="md-nav" aria-label="Global Seasonal Sentinel-1 Interferometric Coherence &amp; Backscatter Dataset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-products" class="md-nav__link">
+    Data Products
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gismo" class="md-nav__link">
+    GISMO
+  </a>
+  
+    <nav class="md-nav" aria-label="GISMO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-products_1" class="md-nav__link">
+    Data Products
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#glacier-speed" class="md-nav__link">
+    Glacier Speed
+  </a>
+  
+    <nav class="md-nav" aria-label="Glacier Speed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-products_2" class="md-nav__link">
+    Data Products
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#international-polar-year" class="md-nav__link">
+    International Polar Year
+  </a>
+  
+    <nav class="md-nav" aria-label="International Polar Year">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-products_3" class="md-nav__link">
+    Data Products
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ramp" class="md-nav__link">
+    RAMP
+  </a>
+  
+    <nav class="md-nav" aria-label="RAMP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-products_4" class="md-nav__link">
+    Data Products
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sea-ice-measures" class="md-nav__link">
+    Sea Ice MEaSUREs
+  </a>
+  
+    <nav class="md-nav" aria-label="Sea Ice MEaSUREs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-products_5" class="md-nav__link">
+    Data Products
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wetlands-measures" class="md-nav__link">
+    Wetlands MEaSUREs
+  </a>
+  
+    <nav class="md-nav" aria-label="Wetlands MEaSUREs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-products_6" class="md-nav__link">
+    Data Products
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    Further Reading
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../palsar/" class="md-nav__link">
+        ALOS PALSAR Products
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../events_about/" class="md-nav__link">
+        Events (SARVIEWS)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://asf.alaska.edu/" class="md-nav__link">
+        ASF Web
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataset-details" class="md-nav__link">
+    Dataset Details
+  </a>
+  
+    <nav class="md-nav" aria-label="Dataset Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sentinel-1" class="md-nav__link">
+    Sentinel-1
+  </a>
+  
+    <nav class="md-nav" aria-label="Sentinel-1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#raw" class="md-nav__link">
+    RAW
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grd" class="md-nav__link">
+    GRD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slc" class="md-nav__link">
+    SLC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ocn" class="md-nav__link">
+    OCN
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentinel-1-bursts" class="md-nav__link">
+    Sentinel-1 Bursts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alos-palsar" class="md-nav__link">
+    ALOS PALSAR
+  </a>
+  
+    <nav class="md-nav" aria-label="ALOS PALSAR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rtc" class="md-nav__link">
+    RTC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-22" class="md-nav__link">
+    Level 2.2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-15" class="md-nav__link">
+    Level 1.5
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alos-avnir-2" class="md-nav__link">
+    ALOS AVNIR-2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sir-c" class="md-nav__link">
+    SIR-C
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aria-s1-gunw" class="md-nav__link">
+    ARIA S1 GUNW
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smap-soil-moisture-active-passive" class="md-nav__link">
+    SMAP (Soil Moisture Active Passive)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uavsar" class="md-nav__link">
+    UAVSAR
+  </a>
+  
+    <nav class="md-nav" aria-label="UAVSAR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kmz" class="md-nav__link">
+    KMZ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radarsat-1" class="md-nav__link">
+    RADARSAT-1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ers" class="md-nav__link">
+    ERS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jers" class="md-nav__link">
+    JERS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#airsar" class="md-nav__link">
+    AIRSAR
+  </a>
+  
+    <nav class="md-nav" aria-label="AIRSAR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beam-mode-polsar-or-3fp" class="md-nav__link">
+    Beam Mode: POLSAR or 3FP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beam-mode-topsar-or-xti" class="md-nav__link">
+    Beam Mode: TOPSAR or XTI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beam-mode-ati" class="md-nav__link">
+    Beam Mode: ATI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seasat" class="md-nav__link">
+    Seasat
+  </a>
+  
+    <nav class="md-nav" aria-label="Seasat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hdf5" class="md-nav__link">
+    HDF5
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geotiff" class="md-nav__link">
+    GeoTIFF
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-seasonal-sentinel-1-interferometric-coherence-backscatter-dataset" class="md-nav__link">
+    Global Seasonal Sentinel-1 Interferometric Coherence &amp; Backscatter Dataset
+  </a>
+  
+    <nav class="md-nav" aria-label="Global Seasonal Sentinel-1 Interferometric Coherence &amp; Backscatter Dataset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-products" class="md-nav__link">
+    Data Products
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gismo" class="md-nav__link">
+    GISMO
+  </a>
+  
+    <nav class="md-nav" aria-label="GISMO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-products_1" class="md-nav__link">
+    Data Products
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#glacier-speed" class="md-nav__link">
+    Glacier Speed
+  </a>
+  
+    <nav class="md-nav" aria-label="Glacier Speed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-products_2" class="md-nav__link">
+    Data Products
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#international-polar-year" class="md-nav__link">
+    International Polar Year
+  </a>
+  
+    <nav class="md-nav" aria-label="International Polar Year">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-products_3" class="md-nav__link">
+    Data Products
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ramp" class="md-nav__link">
+    RAMP
+  </a>
+  
+    <nav class="md-nav" aria-label="RAMP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-products_4" class="md-nav__link">
+    Data Products
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sea-ice-measures" class="md-nav__link">
+    Sea Ice MEaSUREs
+  </a>
+  
+    <nav class="md-nav" aria-label="Sea Ice MEaSUREs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-products_5" class="md-nav__link">
+    Data Products
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wetlands-measures" class="md-nav__link">
+    Wetlands MEaSUREs
+  </a>
+  
+    <nav class="md-nav" aria-label="Wetlands MEaSUREs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-products_6" class="md-nav__link">
+    Data Products
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    Further Reading
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="how-to-use-asfs-data">How to Use ASF's Data<a class="headerlink" href="#how-to-use-asfs-data" title="Permanent link">#</a></h1>
+<p>This provides an overview of some potential uses for the products available through ASF. The <a href="/datasets/using_ASF_data/#overview">Overview</a> section provides usage examples for each dataset, including dervived datasets, as well as the spatial coverage and mission dates for each. <a href="/datasets/using_ASF_data/#dataset-details">Dataset Details</a> provides further detail on some of the products available through each dataset. There is also a <a href="/datasets/using_ASF_data/#further-reading">Further Reading</a> section.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>Dates</th>
+<th>Usage Examples</th>
+<th>Spatial Coverage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/datasets/using_ASF_data/#sentinel-1">Sentinel-1</a></td>
+<td>2014 - Present</td>
+<td>Volcanoes, earthquakes, glaciers, land subsidence, sea ice, flooding, oceans, and more</td>
+<td>Global</td>
+</tr>
+<tr>
+<td><a href="/datasets/using_ASF_data/#sentinel-1-bursts">Sentinel-1 Bursts</a></td>
+<td>2014 - Present</td>
+<td>Volcanoes, earthquakes, glaciers, land subsidence, sea ice, flooding, oceans, and more</td>
+<td>Global</td>
+</tr>
+<tr>
+<td><a href="/datasets/using_ASF_data/#alos-palsar">ALOS PALSAR</a></td>
+<td>2006 - 2011</td>
+<td>Glaciers, landslides, volcanoes, earthquakes, oil seeps, wetlands, sea ice, and more</td>
+<td>The Americas, Antarctica, select wordwide sites</td>
+</tr>
+<tr>
+<td><a href="/datasets/using_ASF_data/#alos-avnir-2">ALOS AVNIR-2</a> <em>(Optical dataset)</em></td>
+<td>2006 - 2011</td>
+<td>Spatial coverage maps for land and coastal zones; monitoring regional environments</td>
+<td>Global</td>
+</tr>
+<tr>
+<td><a href="/datasets/using_ASF_data/#sir-c">SIR-C</a></td>
+<td>1994</td>
+<td>Carbon cycle, ecosystems, biogeochemistry, climate variability and change, land use, geology, hydrology, oceanography, snow and ice, vegetation, calibration, and technological experiments</td>
+<td>Targeted worldwide sites</td>
+</tr>
+<tr>
+<td><a href="/datasets/using_ASF_data/#aria-s1-gunw">ARIA S1 GUNW</a></td>
+<td>2014 - Present</td>
+<td>Deformation caused by earthquakes, volcanic eruptions, glacier movements, landslides, subsidence, and more</td>
+<td>Select worldwide sites</td>
+</tr>
+<tr>
+<td><a href="/datasets/using_ASF_data/#smap-soil-moisture-active-passive">SMAP</a></td>
+<td>2015 - Present</td>
+<td>Soil moisture and freeze/thaw state (detailed data from 3 months in 2015); Benchmark data for flood, landslide, and drought monitoring; agricultural planning; and climate forecasting</td>
+<td>Global</td>
+</tr>
+<tr>
+<td><a href="/datasets/using_ASF_data/#uavsar">UAVSAR</a></td>
+<td>2008 - Present</td>
+<td>Oil spills, earthquakes, volcanoes, oceans, land cover, earthquakes, wildfire scars, glaciers, subsidence, and more</td>
+<td>Targeted worldwide sites</td>
+</tr>
+<tr>
+<td><a href="/datasets/using_ASF_data/#radarsat-1">RADARSAT-1</a></td>
+<td>1996 - 2008</td>
+<td>Arctic sea ice, volcanoes, ocean winds, ecology, soil moisture, wetlands, flooding, and more</td>
+<td>Global</td>
+</tr>
+<tr>
+<td><a href="/datasets/using_ASF_data/#ers">ERS-1 &amp; ERS-2</a></td>
+<td>1991 - 2011</td>
+<td>Polar regions and processes (sea ice, Arctic, Antarctic)</td>
+<td>Primarily polar, within station masks of the ASF and McMurdo ground stations</td>
+</tr>
+<tr>
+<td><a href="/datasets/using_ASF_data/#jers">JERS-1</a></td>
+<td>1992 - 1998</td>
+<td>Important forests of the world: Southeast Asia, Africa, Central America, South America (Amazon Basin), and boreal North America</td>
+<td>Global</td>
+</tr>
+<tr>
+<td><a href="/datasets/using_ASF_data/#airsar">AIRSAR</a></td>
+<td>1990 - 2004</td>
+<td>Oceans, coasts, forest ecology, geology, hydrology, earthquakes, archeaology, and more</td>
+<td>Selected sites worldwide</td>
+</tr>
+<tr>
+<td><a href="/datasets/using_ASF_data/#seasat">Seasat</a></td>
+<td>1978</td>
+<td>Portions of northern oceans and land</td>
+<td>Regions of Northern Hemisphere, including oceans and North America</td>
+</tr>
+<tr>
+<td><a href="/datasets/using_ASF_data/#global-seasonal-sentinel-1-interferometric-coherence-backscatter-dataset">Global Seasonal Sentinel-1 Interferometric Coherence and Backscatter Dataset</a></td>
+<td>2019 - 2020</td>
+<td>Deformation caused by earthquakes, volcanic eruptions, glacier movements, landslides, and subsidence, and more</td>
+<td>All land masses and ice sheets from 82°N to 78°S</td>
+</tr>
+<tr>
+<td><a href="/datasets/using_ASF_data/#gismo">GISMO</a></td>
+<td>2006 - 2008</td>
+<td>Glaciers, ice sheets</td>
+<td>Greenland Ice Sheet</td>
+</tr>
+<tr>
+<td><a href="/datasets/using_ASF_data/#glacier-speed">Glacier Speed</a></td>
+<td>2007 - 2011</td>
+<td>Glaciers, glacial flow speeds, ocean-ice sheet interactions</td>
+<td>Glaciers in Alaska</td>
+</tr>
+<tr>
+<td><a href="/datasets/using_ASF_data/#international-polar-year">International Polar Year</a></td>
+<td>2007 - 2008</td>
+<td>Arctic and Antarctic relationships with geophysical elements, oceans and sea ice, Earth’s atmosphere, space, human relations, climate change</td>
+<td>Arctic &amp; Antarctic</td>
+</tr>
+<tr>
+<td><a href="/datasets/using_ASF_data/#ramp">RADARSAT-1 Antarctic Mapping Mission (RAMP)</a></td>
+<td>1997 and 2000</td>
+<td>Historic, high-resolution map of Antarctica: ice-sheet morphology, rock outcrops, research infrastructure, coastline, and more</td>
+<td>Antarctica</td>
+</tr>
+<tr>
+<td><a href="/datasets/using_ASF_data/#sea-ice-measures">Sea Ice MEaSUREs</a></td>
+<td>1995 - 2012</td>
+<td>Arctic Ocean sea ice motion with three-day radar snapshots as the ice goes through dramatic changes over 11 years</td>
+<td>Arctic Ocean</td>
+</tr>
+<tr>
+<td><a href="/datasets/using_ASF_data/#wetlands-measures">Wetlands MEaSUREs</a></td>
+<td>1993 - 2009</td>
+<td>Wetlands ecology, including their role in climate, biogeochemistry, hydrology, and biodiversity</td>
+<td>Amazon, Alaska, the Americas, global (coarse resolution)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dataset-details">Dataset Details<a class="headerlink" href="#dataset-details" title="Permanent link">#</a></h2>
+<h3 id="sentinel-1">Sentinel-1<a class="headerlink" href="#sentinel-1" title="Permanent link">#</a></h3>
+<p>Sentinel-1 offers global coverage with C-Band SAR. Sentinel-1A was launched in 2014, and Sentinel-1B was launched in 2016. Each satellite has a 12 day repeat cycle, and some areas have coverage every 6 days. New acquisition data is available to download within 3 days, though it is most often available within 24 hours. The data is free and easy to download in several formats.</p>
+<p><em>Note</em>: As of December 23, 2021, the Sentinel-1B mission has ended due to an anomaly. This affects the coverage cycle in some areas. More information can be found <a href="https://sentinels.copernicus.eu/web/sentinel/-/end-of-mission-of-the-copernicus-sentinel-1b-satellite/1.5">here</a>.</p>
+<h4 id="raw">RAW<a class="headerlink" href="#raw" title="Permanent link">#</a></h4>
+<p>RAW products require calibration &amp; processing steps before the data is analysis-ready. These products are best suited for use by SAR specialists.</p>
+<h4 id="grd">GRD<a class="headerlink" href="#grd" title="Permanent link">#</a></h4>
+<p>Ground Range Detected (GRD) products are best for amplitude applications, such as generating RTC images. These are Level 1 products. These products are georeferenced, and multi-looked into a single image. Only amplitude information is included in the GRD.</p>
+<ul>
+<li>No effort required to view data in a GIS software</li>
+<li>Easy to project to desired coordinate system</li>
+<li>Pixels are in ground-detected geometry</li>
+<li>One consolidated image for each polarization</li>
+<li>Square pixels</li>
+<li>Smaller file size</li>
+</ul>
+<h4 id="slc">SLC<a class="headerlink" href="#slc" title="Permanent link">#</a></h4>
+<p>Single Look Complex (SLC) products are necessary for interferometry. These are Level 1 products. These products are comprised of 3 GeoTIFFs, one for each of the sub-swaths, and each radar burst is included in the data. The SLC includes phase data.</p>
+<ul>
+<li>Remains in slant-range geometry</li>
+<li>Phase data is retained<ul>
+<li>Suitable for detecting changes in surface elevation</li>
+<li>Required for generating interferograms</li>
+</ul>
+</li>
+<li>Several images for each SLC</li>
+<li>Retains each subswath (including overlap) and series of bursts, with a black line grid</li>
+</ul>
+<h4 id="ocn">OCN<a class="headerlink" href="#ocn" title="Permanent link">#</a></h4>
+<p>OCN products are higher level products, generated from the Level 1 products. These products are focused on ocean applications, including waves &amp; wind direction. </p>
+<h3 id="sentinel-1-bursts">Sentinel-1 Bursts<a class="headerlink" href="#sentinel-1-bursts" title="Permanent link">#</a></h3>
+<p>A Sentinel-1 SLC contains multiple measurement TIFFs that contain the radar response data. Each measurement TIFF can be further broken down into a single radar pulse response message which is referred to as a burst.</p>
+<p>There are multiple parameters that allow searching for bursts across sub-swaths and burst cycles. Depictions of a single burst, and the three available burst-related IDs are below.</p>
+<p>Single burst:<br />
+<img alt="Screenshot" src="/images/single_burst_diagram.png" style="height:150px;width:150px" /></p>
+<p>Absolute Burst ID:<br />
+<img alt="Screenshot" src="/images/absolute_burst_id_diagram.png" style="height:150px;width:150px" /></p>
+<p>Relative Burst ID:<br />
+<img alt="Screenshot" src="/images/relative_burst_id_diagram.png" style="height:150px;width:150px" /></p>
+<p>Full Burst ID:<br />
+<img alt="Screenshot" src="/images/full_burst_id_diagram.png" style="height:150px;width:150px" /></p>
+<p>Each burst file also has a corresponding XML Metadata file available. The Burst XML Metadata is a virtually generated file, and therefore does not have its own unique filename. The XML Metadata can only be found via the burst scene name, and is not searchable in a list search.</p>
+<h3 id="alos-palsar">ALOS PALSAR<a class="headerlink" href="#alos-palsar" title="Permanent link">#</a></h3>
+<p>ALOS PALSAR offers historical data, and has some analysis-ready RTC (Radiometric Terrain Corrected) products, processed by ASF. </p>
+<h4 id="rtc">RTC<a class="headerlink" href="#rtc" title="Permanent link">#</a></h4>
+<p>Note that a resampled DEM (SRTM or NED) was used for RTC processing. DEM information can be found <a href="https://asf.alaska.edu/information/palsar-rtc-dem-information/">here</a>. These RTCs can be used to replace optical imagery in areas with frequent cloud cover. They may also be used to improve land cover classification. More advanced processing techniques include data fusion, either on a pixel level or on a feature level, using an object-oriented approach.</p>
+<ul>
+<li>Projected to UTM coordinates</li>
+<li>Hi-Res Terrain Corrected products are 12.5 meter resolution</li>
+<li>Low-Res Terrain Corrected products are 30 meter resolution</li>
+</ul>
+<p>The ALOS PALSAR Product Guide can be found <a href="https://asf.alaska.edu/wp-content/uploads/2019/03/rtc_product_guide_v1.2.pdf">here</a>.</p>
+<h4 id="level-22">Level 2.2<a class="headerlink" href="#level-22" title="Permanent link">#</a></h4>
+<p>These products are projected in a custom Japan Aerospace Exploration Agency (JAXA) datum. These products require reprojection to the appropriate UTM zone before they can be analyzed in a GIS software.</p>
+<h4 id="level-15">Level 1.5<a class="headerlink" href="#level-15" title="Permanent link">#</a></h4>
+<p>These products are in CEOS data format, and do not contain a spatial reference. These must be geocoded before any processing or analysis. Once geocoded, these may be exported as GeoTIFF files. This <a href="https://asf.alaska.edu/how-to/data-recipes/how-to-view-and-geocode-ceos-data-in-asf-mapready/">data recipe</a> uses ASF’s MapReady software to view and geocode CEOS format files.</p>
+<h3 id="alos-avnir-2">ALOS AVNIR-2<a class="headerlink" href="#alos-avnir-2" title="Permanent link">#</a></h3>
+<p>ALOS AVNIR-2 is an optical dataset that offers historical data. These products are ortho rectified images (ORI). Orthorectification is the process of removing image distortions caused by the sensor and terrain to create a planimetric image at every location with consistent scale across all parts of the image. This allows the overlay of various geospatial information with the ORI on any map. The products contain 4 bands, and each image has 30% cloud cover or less.</p>
+<h3 id="sir-c">SIR-C<a class="headerlink" href="#sir-c" title="Permanent link">#</a></h3>
+<p>SIR-C was flown on two missions, six months apart. The first mission dates were April 9-20, 1994 and the second mission dates were September 30-October 11, 1994. The second flight followed nearly the same orbit as the first flight. Therefore, there are repeat-pass products available, enabling interferometric SAR processing over these areas.</p>
+<h3 id="aria-s1-gunw">ARIA S1 GUNW<a class="headerlink" href="#aria-s1-gunw" title="Permanent link">#</a></h3>
+<p>These products are already processed interferograms. You may download either the full netCDF product, or select GeoTIFF layers. These are analysis-ready InSAR products. These products do have a limited spatial coverage.</p>
+<h3 id="smap-soil-moisture-active-passive">SMAP (Soil Moisture Active Passive)<a class="headerlink" href="#smap-soil-moisture-active-passive" title="Permanent link">#</a></h3>
+<p>SMAP was launched with both an active and a passive sensor to collect high-resolution soil moisture data globally. Unfortunately, the active SAR sensor malfunctioned a few months into the mission. The passive sensor is still ongoing. With only the passive sensor functional, the soil moisture data is in a coarse resolution. The coarse resolution products can still be used for regional analysis or larger-scale projects.</p>
+<ul>
+<li>2015 - Present<ul>
+<li>Active sensor data available for the first 3 months</li>
+</ul>
+</li>
+<li>L-band</li>
+<li>Measures soil moisture and freeze-thaw state in top 5 cm of soil globally every three days (multi-kilometer resolution)<ul>
+<li>High resolution capabilities lost with loss of active sensor</li>
+<li>Recent efforts to integrate Sentinel-1 data have generated higher-resolution products</li>
+</ul>
+</li>
+<li>Variety of soil moisture products available <a href="https://smap.jpl.nasa.gov">here</a></li>
+</ul>
+<h3 id="uavsar">UAVSAR<a class="headerlink" href="#uavsar" title="Permanent link">#</a></h3>
+<p>UAVSAR offers airborne acquisitions of targeted locations. Because the acquisitions are targeted, there are generally not repeat passes over one area. However, if UAVSAR covers your area of interest, this dataset includes a variety of available products.</p>
+<ul>
+<li>2008 - present</li>
+<li>Quad-pol L-band</li>
+<li>Airborne, targeted locations, irregular timing</li>
+<li>Flights can be requested for your area of interest</li>
+<li>Pre-processed backscatter and interferometric products<ul>
+<li>PolSAR and Repeat-Pass Interferometry</li>
+</ul>
+</li>
+</ul>
+<h4 id="kmz">KMZ<a class="headerlink" href="#kmz" title="Permanent link">#</a></h4>
+<p>These products are georeferenced products. These can be used in Google Earth, or other applications that support kmz format files. These products have a 6 meter pixel spacing.</p>
+<ul>
+<li><strong>Beam Mode POL</strong>: These contain a polarimetry single-pass product, using a quad-pol backscatter decomposition.<ul>
+<li>Red: HH; Green: HV; Blue: VV</li>
+</ul>
+</li>
+<li><strong>Beam Mode RPI</strong>: These products are generated from two passes. In addition to the polarimetry product, these also include amplitude, correlation, interferometry, and digital elevation map products.<ul>
+<li>The amplitude product contains backscatter for each polarization</li>
+<li>The correlation product is phase coherence between passes</li>
+<li>The interferometry product shows landscape changes</li>
+<li>The digital elevation map product is for reference</li>
+</ul>
+</li>
+</ul>
+<h3 id="radarsat-1">RADARSAT-1<a class="headerlink" href="#radarsat-1" title="Permanent link">#</a></h3>
+<p>These products are in CEOS data format, and do not contain a spatial reference. These must be geocoded before any processing or analysis, and once geocoded, may be exported as GeoTIFF files. RADARSAT-1 is restricted data, and requires a <a href="https://asf.alaska.edu/restricted-data-access-request/">research agreement</a> to download. This <a href="https://asf.alaska.edu/how-to/data-recipes/how-to-view-and-geocode-ceos-data-in-asf-mapready/">data recipe</a> uses ASF’s MapReady software to view and geocode CEOS format files.</p>
+<ul>
+<li>Level 0 products are unprocessed / raw data</li>
+<li>Level 1 products are amplitude processed images</li>
+</ul>
+<h3 id="ers">ERS<a class="headerlink" href="#ers" title="Permanent link">#</a></h3>
+<p>These products are in CEOS data format, and do not contain a spatial reference. These must be geocoded before any processing or analysis, and once geocoded, may be exported as GeoTIFF files. This <a href="https://asf.alaska.edu/how-to/data-recipes/how-to-view-and-geocode-ceos-data-in-asf-mapready/">data recipe</a> uses ASF’s MapReady software to view and geocode CEOS format files.</p>
+<ul>
+<li>ASF holds a subset of the ERS data, focused on Alaska, Western Canada, Chukotka and Antarctica</li>
+<li>Level 0 products are unprocessed / raw data</li>
+<li>Level 1 products are amplitude processed images</li>
+</ul>
+<h3 id="jers">JERS<a class="headerlink" href="#jers" title="Permanent link">#</a></h3>
+<p>These products are in CEOS data format, and do not contain a spatial reference. These must be geocoded before any processing or analysis, and once geocoded, may be exported as GeoTIFF files. JERS-1 is restricted data, and requires a <a href="https://asf.alaska.edu/restricted-data-access-request/">research agreement</a> to download. This <a href="https://asf.alaska.edu/how-to/data-recipes/how-to-view-and-geocode-ceos-data-in-asf-mapready/">data recipe</a> uses ASF’s MapReady software to view and geocode CEOS format files.</p>
+<ul>
+<li>Level 0 products are unprocessed / raw data</li>
+<li>Level 1 products are amplitude processed images</li>
+</ul>
+<h3 id="airsar">AIRSAR<a class="headerlink" href="#airsar" title="Permanent link">#</a></h3>
+<p>AIRSAR offers airborne acquisitions of targeted locations. These acquisitions cover primarily the United States, and some tropical locations. The campaign name listed for each product is its acquisition location. Because the acquisitions are targeted, there are generally not repeat passes over one area. However, if AIRSAR covers your area of interest, there are a variety of sensors and frequencies available. There are JPGs available, though they are not georeferenced.</p>
+<h4 id="beam-mode-polsar-or-3fp">Beam Mode: POLSAR or 3FP<a class="headerlink" href="#beam-mode-polsar-or-3fp" title="Permanent link">#</a></h4>
+<p>In POLSAR mode, fully polarimetric data are acquired at all three frequencies in P-, L-, C-band for 40 Mhz or 20 Mhz. The L-band also provides 80 MHz bandwidth data. POLSAR data are sensitive to the geometry (including vegetation) and dielectrical properties (water content) of the terrain.</p>
+<h4 id="beam-mode-topsar-or-xti">Beam Mode: TOPSAR or XTI<a class="headerlink" href="#beam-mode-topsar-or-xti" title="Permanent link">#</a></h4>
+<p>In TOPSAR mode, AIRSAR collects interferometric data using C- and L-band to produce digital elevation models (DEMs). The radars which are not being used for interferometry collect quad-pol data co-registered with the C-band DEM.  Interferometric data can be collected in "ping-pong" mode, where each antenna is used alternately for transmit and the effective baseline is doubled, and in "common-transmitter" mode where only one antenna is used for transmit.</p>
+<h4 id="beam-mode-ati">Beam Mode: ATI<a class="headerlink" href="#beam-mode-ati" title="Permanent link">#</a></h4>
+<p>In the along-track interferometry (ATI) mode, AIRSAR collects data C- and L-band. Data collected can be used to measure ocean current velocities. </p>
+<h3 id="seasat">Seasat<a class="headerlink" href="#seasat" title="Permanent link">#</a></h3>
+<p>Seasat was the first spaceborne SAR mission, launched in 1978. This data has been processed by ASF into digital imagery. These products may have substantial geolocation errors.</p>
+<h4 id="hdf5">HDF5<a class="headerlink" href="#hdf5" title="Permanent link">#</a></h4>
+<p>The backscatter values are contained in the HH layer. In order to provide basic geolocation information, two additional layers, latitude and longitude, are added. They contain geographic coordinates for every pixel in the image. The time variable completes the compliance to the Climate and Forecast (CF) metadata conventions.</p>
+<h4 id="geotiff">GeoTIFF<a class="headerlink" href="#geotiff" title="Permanent link">#</a></h4>
+<p>These products are geocoded to the UTM map projection, using the zone that best represents the data's geolocation. The original 12.5 meter pixel size and the floating-point values of the ground range HDF5 products are kept in the GeoTIFF format. This product type contains only a single layer, and is therefore considerably smaller than the HDF5 product.</p>
+<h3 id="global-seasonal-sentinel-1-interferometric-coherence-backscatter-dataset">Global Seasonal Sentinel-1 Interferometric Coherence &amp; Backscatter Dataset<a class="headerlink" href="#global-seasonal-sentinel-1-interferometric-coherence-backscatter-dataset" title="Permanent link">#</a></h3>
+<p>This dataset is the first-of-its-kind spatial representation of multi-seasonal, global SAR repeat-pass interferometric coherence and backscatter signatures. Global coverage comprises all land masses and ice sheets from 82 degrees northern to 78 degrees southern latitude. The dataset is derived from high-resolution multi-temporal repeat-pass interferometric processing of about 205,000 Sentinel-1 Single-Look-Complex (SLC) data acquired in Interferometric Wide-Swath (IW) mode from Dec 1, 2019 to Nov 30, 2020.</p>
+<p>The dataset covers several seasonal metrics, listed below. The seasons consist of December, January, February (DJF); March, April, May (MAM); June, July, August (JJA); and September, October, November (SON).</p>
+<ul>
+<li>Median 6-, 12-, 18-, 24-, 36-, and 48-day repeat coherence estimates for C-band VV and HH polarized data</li>
+<li>Mean backscatter (γº) for VV, VH, HH, and HV polarizations</li>
+<li>Seasonal coherence decay model parameters rho, tau, and rmse</li>
+<li>Local incidence and layover/shadow regions for all relative Sentinel-1A and Sentinel-1B orbits. Note that in the dataset filenames seasons were referred to as northern hemisphere winter (DJF), spring (MAM), summer (JJA), and fall (SON).</li>
+</ul>
+<h4 id="data-products">Data Products<a class="headerlink" href="#data-products" title="Permanent link">#</a></h4>
+<ul>
+<li>Coherence Tiles separated by latitude</li>
+<li>Virtual Raster tables</li>
+<li>Global mosaics separated into seasons</li>
+</ul>
+<h3 id="gismo">GISMO<a class="headerlink" href="#gismo" title="Permanent link">#</a></h3>
+<p>The Global Ice-Sheet Mapping Observatory (GISMO) project had a specific focus in measuring the surface topography of ice sheets, ice-sheet thickness, and in uncovering physical properties of the glacier bed using SAR.</p>
+<p>The GIMSO project had documented flight lines over the Greenland Ice Sheet in 2006, 2007, and 2008. It utilized VHF and P-band interferometric radars and tested different methods of clutter rejection in order to find the method most suitable for the project’s focus.</p>
+<p>GISMO achieved mapping the physical properties of a glacier bed through up to 5 km of ice. It also created an effective clutter rejection technique for measuring the ice sheet’s surface and base. GISMO has applications in predicting the effects of climate change on ice sheets and in exploring planets with icy areas.</p>
+<h4 id="data-products_1">Data Products<a class="headerlink" href="#data-products_1" title="Permanent link">#</a></h4>
+<ul>
+<li>150 MHz Data Products: May 23, 2006</li>
+<li>450 MHz Data Products: Sept 10, 2007</li>
+<li>150 MHz Data Products: Sept 12, 2007</li>
+<li>Low Aircraft Elevation Data Products: 2008</li>
+<li>High Aircraft Elevation Data Products: 2008</li>
+</ul>
+<p>For these products, each flight line was segmented into approximately 25 km long sections with 20% overlap on each end.</p>
+<h3 id="glacier-speed">Glacier Speed<a class="headerlink" href="#glacier-speed" title="Permanent link">#</a></h3>
+<p>Glacier Speed is the first near-comprehensive dataset of wintertime glacier-flow speeds throughout Alaska, and reveals complex patterns of glacier flow throughout the state. The findings significantly advance understanding of the mechanisms responsible for the rapid glacier mass loss occurring in Alaska. </p>
+<p>The patterns include glacier surging and spatial variations in flow related to climate. Notably, the data show that out of tens of thousands of glaciers in Alaska, only 12 are responsible for the majority of downstream ice flux. These glaciers are flowing exceptionally fast because they receive very high rates of snowfall and are not necessarily flowing fast because of tidewater retreat. (The flow speed is not the same as the melt rate; melting is strong enough at low elevations that it is outpacing the high snowfall rates.)</p>
+<p>The data have also revealed that iceberg calving in Alaska is an important component of the statewide glacier mass budget: The volume of calved ice is 17.1 km3 – or roughly equivalent to a third of the annual net glacier mass change in Alaska.</p>
+<h4 id="data-products_2">Data Products<a class="headerlink" href="#data-products_2" title="Permanent link">#</a></h4>
+<ul>
+<li>KMZ format statewide glacier-flow-speed map</li>
+<li>ZIP file that includes readme file and a speed.tif, ids.tif, and .par file for each of the nine regions</li>
+</ul>
+<p>The nine regions are: Central Alaska Range, Chugach Mountains, Coastal Range, Delta Range, Fairweather Range - Glacier Bay, Hayes Range, Kenai Mountains, Tordrillo Mountains, and Wrangell Mountains - St. Elias Mountains</p>
+<p>The flow-speed data are gridded on 90-meter-resolution UTM grids as GeoTIFFs. The grids are divided into different regions and include a speed file that contains the mosaicked flow speed in meters/day (32-bit float) and a ids file that contains integer IDs that correspond to the image pair used for determining flow speed at each pixel (16-bit integer).</p>
+<p>The dates of the image pairs used can be found by looking up image IDs in the corresponding .par file. In some cases, the .par file will contain IDs that are not in the ids grid. In these cases, these image pairs were simply not needed in the final mosaic. The .par file also includes georeference information in a text format.</p>
+<h3 id="international-polar-year">International Polar Year<a class="headerlink" href="#international-polar-year" title="Permanent link">#</a></h3>
+<p>ASF hosts an archive of the International Polar Year (IPY) project titled the Global Inter-agency IPY Polar Snapshot Year (GIIPSY). GIIPSY’s objective was to obtain high-definition satellite snapshots of the polar regions during 2007-2008. The primary purpose is to use these snapshots as benchmarks for gauging past and future environmental changes in the polar ice, ocean, and land.</p>
+<h4 id="data-products_3">Data Products<a class="headerlink" href="#data-products_3" title="Permanent link">#</a></h4>
+<ul>
+<li>Greenland L0 Kongsberg</li>
+<li>Greenland Level 0 (September 2000-January 2001)</li>
+<li>Greenland Level 1 (September 2000-January 2001)</li>
+<li>Antarctica Level 1 (September 2000-January 2001)</li>
+<li>Toolik Station Level 1 (October 2004-December 2006)</li>
+<li>Kamchatka Level 1 (December 1999-January 2000)</li>
+<li>Sea Ice Snapshots (Min &amp; Max Snapshots, September-March of 2003-2004, 2004-2005, 2005-2006, 2006-2007)  </li>
+</ul>
+<h3 id="ramp">RAMP<a class="headerlink" href="#ramp" title="Permanent link">#</a></h3>
+<p>The RADARSAT-1 Antarctic Mapping Project (RAMP) was composed of two main missions, the first Antarctic Mapping Mission (AMM-1) and the Modified Antarctic Mapping Mission (MAMM). Both missions utilized RADARSAT-1.</p>
+<p>AMM-1 started on September 9, 1997 and was completed on October 20, 1997. Its goals were to acquire a complete map of Antarctica and better understand the relationships between the southernmost continent’s environmental elements. Using the right- and left-looking abilities of RADARSAT-1, a mosaic map of Antarctica at 25 meter resolution was created. The map displayed Antarctica’s geological features through variations in radar brightness and texture, including ice streams. Ice velocity vectors were compiled using AMM-1 data to measure ice sheet movement over ice streams.</p>
+<p>MAMM began three years after AMM-1 ended, starting on September 3, 2000 and ending on November 17, 2000. It planned to remap Antarctica and measure ice velocity data using interferometric analysis and data from AMM-1. In the three years’ difference between the two main Antarctic Mapping Missions, ice sheet advance and retreat could be observed and better evaluated as episodic change or regional climate change.</p>
+<h4 id="data-products_4">Data Products<a class="headerlink" href="#data-products_4" title="Permanent link">#</a></h4>
+<ul>
+<li>25 meter Final Tiles</li>
+<li>25 meter Tile Overviews</li>
+<li>16 bit 25 meter Tile Overviews of the backscatter coefficient in dB</li>
+<li>200 meter Final Coherence (ascending and descending)</li>
+<li>200 meter Coherence Overviews (ascending and descending)</li>
+<li>A variety of mosaic products</li>
+<li>AMM-1 &amp; MAMM Coastline</li>
+<li>AMM-1 &amp; MAMM Control points</li>
+<li>DEMs</li>
+<li>East Antarctic</li>
+<li>Velocity Product</li>
+<li>Balance Velocity Map</li>
+</ul>
+<h3 id="sea-ice-measures">Sea Ice MEaSUREs<a class="headerlink" href="#sea-ice-measures" title="Permanent link">#</a></h3>
+<p>The data and imagery available from ASF cover a period from 1995 to 2011. They include more than 11 years of near-uninterrupted, three-day radar snapshots of Arctic and Southern Ocean’s sea ice as it goes through dramatic change.</p>
+<p>Uses include:</p>
+<ul>
+<li>New approaches for modeling the mechanical behavior of sea ice and the validation of these models</li>
+<li>Characterization of sub-daily ice motion </li>
+<li>Description of the seasonal and regional variability of sea-ice deformation</li>
+<li>Validation of ICESat freeboard algorithms</li>
+<li>Estimates of sea-ice exchange between the Arctic and Southern Oceans and peripheral seas</li>
+</ul>
+<h4 id="data-products_5">Data Products<a class="headerlink" href="#data-products_5" title="Permanent link">#</a></h4>
+<ul>
+<li>A dataset of small-scale kinematics and deformation processed by tracking sea ice on a high-resolution grid. </li>
+<li>The original synthetic aperture radar (SAR) images.</li>
+</ul>
+<h3 id="wetlands-measures">Wetlands MEaSUREs<a class="headerlink" href="#wetlands-measures" title="Permanent link">#</a></h3>
+<p>These products from the NASA Inundated Wetlands MEaSUREs project facilitate investigations on the role of wetlands in climate, biogeochemistry, hydrology, and biodiversity.</p>
+<p>The inundated wetlands Earth System Data Records consists of two primary components:</p>
+<ol>
+<li>Fine-resolution maps of wetland extent, vegetation type, and seasonal inundation dynamics, derived from SAR for regional and continental-scale areas covering crucial wetlands systems. These are created using data from a variety of spaceborne SARs. The wetlands datasets were generated using algorithms appropriate to the nature of the wetlands systems under study, including time series and statistically-based tree classifiers.</li>
+<li>Global, coarse-resolution time series mappings of inundated area fraction at 25 km resolution derived from multiple satellite remote sensing observations including passive and active microwave sensors and optical data sets optimized for inundation detection. The algorithm employed in the generation of this dataset employs a clustering model and a mixture model in the classification of fractional inundated areas. These datasets are provided on a bi-monthly basis for 1992-1999 and daily for 2000 onward. Annual summary products, including maximum inundated extent and annual inundation duration, are provided. A daily near real time (NRT) dataset with 2-3 day latency is also provided.</li>
+</ol>
+<h4 id="data-products_6">Data Products<a class="headerlink" href="#data-products_6" title="Permanent link">#</a></h4>
+<ul>
+<li>Surface WAter Microwave Product Series (SWAMPS)</li>
+<li>North America JERS-1 Mosaics</li>
+<li>Alaska Wetlands Map derived from ALOS PALSAR fine beam data</li>
+<li>Alaska Wetlands Map derived from JERS-1 SAR</li>
+<li>Amazon Low and High Flood Backscatter Mosaics from JERS-1 SAR</li>
+<li>Time-series Amazon Wetlands Extent Maps derived from PALSAR ScanSAR data</li>
+</ul>
+<h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="https://asf.alaska.edu/information/sar-information/what-is-sar/#sar_faq">What is SAR?</a></li>
+<li><a href="https://www.youtube.com/watch?v=Zfn7P395O40">Video Introduction to SAR</a></li>
+<li><a href="https://www.youtube.com/watch?v=0ZzLg38cC8I">Video Overview of ASF's SAR Datasets</a></li>
+<li><a href="https://asf.alaska.edu/how-to/data-basics/data-recipe-tutorials-2/">Data Recipe Library</a></li>
+<li><a href="https://asf.alaska.edu/how-to/data-basics/sar-data-and-gis/">Data Recipes for ASF SAR Datasets in GIS Applications</a></li>
+<li><a href="https://asf.alaska.edu/how-to/data-basics/asf-datasets-formats-and-files/">Dataset Formats and Files</a></li>
+<li><a href="https://asf.alaska.edu/how-to/data-basics/types-of-synthetic-aperture-radar-sar-products/">Product Types and Processing Levels</a></li>
+<li><a href="https://docs.asf.alaska.edu/vertex/derived_datasets/">Derived Datasets Overview</a></li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    <div class="md-footer-nav">
+      <nav
+        class="md-footer-nav__inner md-grid"
+        aria-label="Footer"
+      >
+
+        <!-- Link to previous page -->
+        
+          <a href="../../api/changelog/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                What's New
+              </div>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          <a href="../palsar/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                ALOS PALSAR Products
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+
+      <!-- ASF Footer information-->
+      <div class="md-grid">
+        <div class="md-footer-container md-grid">
+          <div class="md-footer-container-item">
+            <img src="../../assets/images/asf-logo-blue-nav.png"
+                 alt="ASF Logo"
+                 class="md-footer-logo">
+          </div>
+          <div class="md-footer-container-item md-about-us">
+            <h1>About Us</h1>
+            <p>
+              The Alaska Satellite Facility downlinks, processes, archives, and
+              distributes remote-sensing data to scientific users around the world.
+              ASF’s mission is to make remote-sensing data accessible.
+            </p>
+            <p>
+              <a href="https://asf.alaska.edu/about-asf/" target="_blank">
+                Read More
+              </a>
+            </p>
+          </div>
+          <div class="md-footer-container-item md-contact-info">
+            <h1>Contact Info</h1>
+            <p>
+              Alaska Satellite Facility<br>
+              2156 Koyukuk Drive<br>
+              Fairbanks, AK 99775<br>
+              (907) 474-5041<br>
+              uso@asf.alaska.edu<br>
+            </p>
+            <p>
+              <a href="javascript:feedback.showForm();">Send Us A Message</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+        <div class="md-footer-copyright__highlight">
+          
+            &copy; <span id="copyright-year"></span>
+            <script type="text/javascript">
+                current_year = new Date().getFullYear();
+                document.getElementById("copyright-year").innerHTML=current_year;
+            </script>
+            Copyright @ Alaska Satellite Facility
+          
+          <!-- ASF non-discrimination disclaimer-->
+          &nbsp;&nbsp;
+          <a href="https://www.alaska.edu/nondiscrimination"
+             target="_blank"
+             class="md-footer-copyright-link">
+            UA is an AA/EO employer and educational institution and prohibits
+            illegal discrimination against any individual
+          </a>
+        </div>
+      </div>
+
+      <!-- Social links -->
+      <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Social links in footer -->
+<div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.facebook.com/AKSatellite" target="_blank" rel="noopener" title="www.facebook.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/Ak_Satellite" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.youtube.com/channel/UChCfI0oVWw4qDwEidnDskJQ" target="_blank" rel="noopener" title="www.youtube.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+      </a>
+    
+    
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+    
+      <script src="../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+    <script src="../../assets/javascripts/expert-rec-search.js"></script>
+
+  </body>
+</html>
