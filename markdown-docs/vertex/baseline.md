@@ -21,7 +21,7 @@ While in Baseline Search type, you will notice many familiar controls in the res
 - At the top left of the results panel, you will see the number of scenes listed.
 - **Zoom** will *Zoom to results* magnifying the map area of the Earth where the scenes are located.
 - **Queue** will *Add all results to Downloads* allowing you to add all scenes to the download queue.
-- **On Demand** will allow you to *Add all results to On Demand queue* to do custom processing on the scenes. To learn more click [here](https://hyp3-docs.asf.alaska.edu/using/vertex/). You may also choose to *Create Subscription*. More details about subscriptions can be found [here](https://hyp3-docs.asf.alaska.edu/using/subscriptions/).
+- **On Demand** will allow you to *Add all results to On Demand queue* to perform custom processing on the scenes. To learn more click [here](https://hyp3-docs.asf.alaska.edu/using/vertex/).
 - **Export** will allow you to *Download data/metadata* for all scenes in the stack.
 - In the left column, **Queue** will *Add scene files to downloads* for the selected scene only.
 - Under the metadata in the center column, **Set as Reference** will allow you to set any scene in the stack as the reference scene. When you select this, both the chart and the baseline values will be updated automatically.
