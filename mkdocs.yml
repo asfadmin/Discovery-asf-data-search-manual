@@ -6,6 +6,19 @@ google_analytics: ['UA-991100-5', 'search.asf.alaska.edu']
 extra_css:
   - 'css/styles.css'
 plugins:
+  - i18n:
+      docs_structure: suffix
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+          site_name: "ASF SAR Data Search Manual"
+        - locale: es
+          name: Español
+          build: true
+          site_name: "ASF SAR Manual de Búsqueda de Datos"
+
   - mkdocs-video:
       css_style:
         position: "relative"
