@@ -2,11 +2,31 @@ site_name: ASF SAR Data Search Manual
 site_description: Documentation for searching and processing ASF SAR data.
 site_dir: 'docs'
 docs_dir: 'markdown-docs'
-google_analytics: ['UA-991100-5', 'search.asf.alaska.edu']
+
+# ASF's Google Analytics
+google_analytics:
+  - UA-991100-5
+  - search.asf.alaska.edu
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/asfadmin/Discovery-asf-data-search-manual
+
 extra_css:
   - 'css/styles.css'
+  - 'assets/stylesheets/asf.css'
+
+theme:
+    name: asf-theme
+    custom_dir: asf_theme
+    icon:
+      logo:
+
 plugins:
+  - search
   - i18n:
+      reconfigure_material: no
       docs_structure: suffix
       languages:
         - locale: en
@@ -28,9 +48,6 @@ plugins:
         height: "25vw"
         max-height: "250px"
         min-height: "175px"
-
-theme:
-    name: asf-theme
 
 copyright: Copyright @ Alaska Satellite Facility
 
