@@ -165,10 +165,13 @@ Keywords are used to find the desired data. Use as many or as few keywords as ne
 
 - <span style="color: #236192; font-size: 20px;">granule_list</span>
 	- Comma-separated list of specific scenes (granules). Large lists will need to utilize a [POST request](https://en.wikipedia.org/wiki/POST_(HTTP)).
-	- granule_list may not be used in conjuction with other keywords, however, it may be used with the output keyword.
+	- granule_list supports wildcard, matching '*' to match any amount of characters and '?' to match a single character. (NOTE: `maxResults` required when using SearchAPI, for unbounded results use the asf-search module directly)
 	- Example:
-		- granule_list=ALPSRP111041130,
+		normal:
+        - granule_list=ALPSRP111041130,
 		S1B_IW_GRDH_1SDV_20161124T032008_20161124T032033_003095_005430_9906
+        wildcard (`maxresults` required when using wildcard):
+        - granule_list='NISAR_L2_PR_GSLC_008_166_D\*X05009\*, OPERA_L2_RTC-S1_T109-232826-IW3_\*S1C\*&maxresults=250
 
 - <span style="color: #236192; font-size: 20px;">groupid</span>
 	- This keyword is also available through [asf_search](/asf_search/searching/#searching).
